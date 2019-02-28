@@ -6,45 +6,74 @@ Database models for edx_rbac.
 from __future__ import absolute_import, unicode_literals
 
 # from django.db import models
+from django.contrib.auth.models import User
+from django.db import models
+from django.db.models.base import ModelBase
 from django.utils.encoding import python_2_unicode_compatible
 from model_utils.models import TimeStampedModel
+from django.db.models.fields import FieldDoesNotExist
+
+
+class UserRoleAssignmentCreator(ModelBase):
+    """
+    The model extending UserRoleAssignment should get a foreign key to a model that is a subclass of UserRole.
+    """
+
+    def __new__(cls, name, bases, attrs):
+        model = super(UserRoleAssignmentCreator, cls).__new__(cls, name, bases, attrs)
+        try:
+            model._meta.get_field('role')
+        except FieldDoesNotExist:
+            if model.role_class and issubclass(model.role_class, UserRole):
+                model.add_to_class(
+                    'role',
+                    models.ForeignKey(model.role_class, db_index=True, on_delete=models.CASCADE),
+                )
+            else:
+                raise Exception('role_class must be defined for any subclass of UserRoleAssignment!')
+        return model
 
 
 @python_2_unicode_compatible
 class UserRole(TimeStampedModel):
     """
-    TODO: replace with a brief description of the model.
-
-    TODO: Add either a negative or a positive PII annotation to the end of this docstring.  For more
-    information, see OEP-30:
-    https://open-edx-proposals.readthedocs.io/en/latest/oep-0030-arch-pii-markup-and-auditing.html
+    Model defining a role a user can have
     """
+    name = models.CharField(max_length=255, db_index=True)
 
-    # TODO: add field definitions
+    class Meta:
+        abstract = True
 
     def __str__(self):
         """
-        Get a string representation of this model instance.
+        Return human-readable string representation.
         """
-        # TODO: return a string appropriate for the data fields
-        return '<UserRole, ID: {}>'.format(self.id)
+        return self.name
 
 
 @python_2_unicode_compatible
-class Role(TimeStampedModel):
+class UserRoleAssignment(TimeStampedModel):
     """
-    TODO: replace with a brief description of the model.
-
-    TODO: Add either a negative or a positive PII annotation to the end of this docstring.  For more
-    information, see OEP-30:
-    https://open-edx-proposals.readthedocs.io/en/latest/oep-0030-arch-pii-markup-and-auditing.html
+    Model for mapping users and their roles
     """
+    __metaclass__ = UserRoleAssignmentCreator
+    user = models.ForeignKey(User, db_index=True, on_delete=models.CASCADE)
+    role_class = None
 
-    # TODO: add field definitions
+    class Meta:
+        abstract = True
 
     def __str__(self):
         """
-        Get a string representation of this model instance.
+        Return human-readable string representation.
         """
-        # TODO: return a string appropriate for the data fields
-        return '<Role, ID: {}>'.format(self.id)
+        return '{user}:{role}'.format(
+            user=self.user.id,
+            role=self.role.name,
+        )
+
+    def __repr__(self):
+        """
+        Return uniquely identifying string representation.
+        """
+        return self.__str__()
