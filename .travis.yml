@@ -7,7 +7,7 @@ env:
 - TOXENV=reporting
 matrix:
   include:
-  - python: 3.5
+  - python: 3.6
     env: TOXENV=quality
   - python: 2.7
     env: TOXENV=quality
