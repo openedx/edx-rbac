@@ -1,0 +1,30 @@
+language: python
+python:
+  - 2.7
+  - 3.5
+env:
+  - TOXENV=data
+  - TOXENV=reporting
+matrix:
+  include:
+  - python: 3.5
+    env: TOXENV=quality
+  - python: 2.7
+    env: TOXENV=quality
+cache:
+  - pip
+install:
+  - pip install -r requirements/travis.txt
+script:
+  - tox
+after_success:
+  - codecov
+deploy:
+  provider: pypi
+  user: edx
+  distributions: sdist bdist_wheel
+  on:
+    tags: true
+    condition: "$TOXENV = quality"
+  password:
+    secure: FAkEpASSWoRDhERETobEREplACED
