@@ -11,7 +11,12 @@ Change Log
 
 .. There should always be an "Unreleased" section for changes pending release.
 
-[0.1.2] - 2019-03-07
+[0.1.4] - 2019-03-07
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Adding a number of utils for roles in JWTs and the database
+
+[0.1.3] - 2019-03-07
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Adding get_context to the UserRoleAssignment class.

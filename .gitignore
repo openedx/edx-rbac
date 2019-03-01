@@ -29,6 +29,10 @@ private.py
 docs/_build
 *.backup
 *.log
+*.pyc
+
+# Making sure not to add init file for test module
+tests/__init__.py
 
 # Visual Studio Code
 .vscode
