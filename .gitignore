@@ -1,0 +1,34 @@
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+.pycharm_helpers
+
+# QA
+coverage.xml
+diff_*.html
+*.report
+report
+venv
+.cache/
+
+# Override config files
+override.cfg
+
+# JetBrains
+.idea
+
+# OS X
+.DS_Store
+
+# pyenv
+.python-version
+
+*.trace
+private.py
+docs/_build
+*.backup
+*.log
+
+# Visual Studio Code
+.vscode
