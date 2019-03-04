@@ -26,7 +26,6 @@ class UserRoleAssignmentCreator(ModelBase):
                 try:
                     model._meta.get_field('role')
                 except FieldDoesNotExist:
-                    print(model.role_class)
                     if model.role_class and issubclass(model.role_class, UserRole):
                         model.add_to_class(
                             'role',
@@ -43,7 +42,7 @@ class UserRole(TimeStampedModel):
     """
     Model defining a role a user can have
     """
-    name = models.CharField(max_length=255, db_index=True)
+    name = models.CharField(unique=True, max_length=255, db_index=True)
 
     class Meta:
         abstract = True
