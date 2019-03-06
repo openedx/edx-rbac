@@ -1,0 +1,8 @@
+# This is a Code Annotations automatically-generated Django model safelist file.
+# These models must be annotated as follows in order to be counted in the coverage report.
+# See https://code-annotations.readthedocs.io/en/latest/safelist.html for more information.
+#
+# fake_app_1.FakeModelName:
+#    ".. no_pii:": "This model has no PII"
+# fake_app_2.FakeModel2:
+#    ".. choice_annotation:": foo, bar, baz

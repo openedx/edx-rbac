@@ -9,9 +9,10 @@ from __future__ import absolute_import, unicode_literals
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.base import ModelBase
+from django.db.models.fields import FieldDoesNotExist
 from django.utils.encoding import python_2_unicode_compatible
 from model_utils.models import TimeStampedModel
-from django.db.models.fields import FieldDoesNotExist
+from six import with_metaclass
 
 
 class UserRoleAssignmentCreator(ModelBase):
@@ -19,8 +20,11 @@ class UserRoleAssignmentCreator(ModelBase):
     The model extending UserRoleAssignment should get a foreign key to a model that is a subclass of UserRole.
     """
 
-    def __new__(cls, name, bases, attrs):
-        model = super(UserRoleAssignmentCreator, cls).__new__(cls, name, bases, attrs)
+    def __new__(mcs, name, bases, attrs):
+        """
+        Override to dynamically create foreign key for objects begotten from abstract class.
+        """
+        model = super(UserRoleAssignmentCreator, mcs).__new__(mcs, name, bases, attrs)
         for b in bases:
             if b.__name__ == 'UserRoleAssignment' and model.__name__ != b.__name__:
                 try:
@@ -40,11 +44,16 @@ class UserRoleAssignmentCreator(ModelBase):
 @python_2_unicode_compatible
 class UserRole(TimeStampedModel):
     """
-    Model defining a role a user can have
+    Model defining a role a user can have.
     """
+
     name = models.CharField(unique=True, max_length=255, db_index=True)
 
     class Meta:
+        """
+        Meta class for UserRole.
+        """
+
         abstract = True
 
     def __str__(self):
@@ -55,15 +64,19 @@ class UserRole(TimeStampedModel):
 
 
 @python_2_unicode_compatible
-class UserRoleAssignment(TimeStampedModel):
+class UserRoleAssignment(with_metaclass(UserRoleAssignmentCreator, TimeStampedModel)):
     """
-    Model for mapping users and their roles
+    Model for mapping users and their roles.
     """
-    __metaclass__ = UserRoleAssignmentCreator
+
     user = models.ForeignKey(User, db_index=True, on_delete=models.CASCADE)
     role_class = None
 
     class Meta:
+        """
+        Meta class for UserRoleAssignment.
+        """
+
         abstract = True
 
     def __str__(self):

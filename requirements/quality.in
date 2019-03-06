@@ -7,3 +7,4 @@ edx-lint                  # edX pylint rules and plugins
 isort                     # to standardize order of imports
 pycodestyle               # PEP 8 compliance validation
 pydocstyle                # PEP 257 compliance validation
+futures==3.1.1  # 3.2.0 breaks in py36, and shouldn't be required for py3 anyway. Pinning.
