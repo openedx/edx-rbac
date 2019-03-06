@@ -69,10 +69,12 @@ test: clean ## run tests in the current virtualenv
 diff_cover: test ## find diff lines that need test coverage
 	diff-cover coverage.xml
 
-test-all: quality pii_check ## run tests on every supported Python/Django combination
+# Removed pii_check from test-all, because there are no concrete models present in package  
+test-all: quality ## run tests on every supported Python/Django combination
 	tox
 
-validate: quality pii_check test ## run tests and quality checks
+# Removed pii_check from validate, because there are no concrete models present in package
+validate: quality test ## run tests and quality checks
 
 selfcheck: ## check that the Makefile is well-formed
 	@echo "The Makefile is well-formed."

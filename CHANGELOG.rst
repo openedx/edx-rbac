@@ -11,10 +11,10 @@ Change Log
 
 .. There should always be an "Unreleased" section for changes pending release.
 
-Unreleased
-~~~~~~~~~~
+[0.1.2] - 2019-03-06
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-*
+* Quality fixes
 
 [0.1.1] - 2019-03-06
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
