@@ -79,6 +79,12 @@ class UserRoleAssignment(with_metaclass(UserRoleAssignmentCreator, TimeStampedMo
 
         abstract = True
 
+    def get_context(self):
+        """
+        Return relevant context data related to this role assignment. Defaults to returning None.
+        """
+        return None
+
     def __str__(self):
         """
         Return human-readable string representation.
