@@ -30,6 +30,8 @@ docs/_build
 *.backup
 *.log
 *.pyc
+.tox/
+edx_rbac.egg-info/
 
 # Making sure not to add init file for test module
 tests/__init__.py

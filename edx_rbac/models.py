@@ -25,19 +25,17 @@ class UserRoleAssignmentCreator(ModelBase):
         Override to dynamically create foreign key for objects begotten from abstract class.
         """
         model = super(UserRoleAssignmentCreator, mcs).__new__(mcs, name, bases, attrs)
-        for b in bases:
-            if b.__name__ == 'UserRoleAssignment' and model.__name__ != b.__name__:
-                try:
-                    model._meta.get_field('role')
-                except FieldDoesNotExist:
-                    if model.role_class and issubclass(model.role_class, UserRole):
-                        model.add_to_class(
-                            'role',
-                            models.ForeignKey(model.role_class, db_index=True, on_delete=models.CASCADE),
-                        )
-                    else:
-                        raise Exception('role_class must be defined for any subclass of UserRole!')
-                return model
+        if model.__name__ != 'UserRoleAssignment' and 'UserRoleAssignment' in [b.__name__ for b in bases]:
+            try:
+                model._meta.get_field('role')
+            except FieldDoesNotExist:
+                if model.role_class and issubclass(model.role_class, UserRole):
+                    model.add_to_class(
+                        'role',
+                        models.ForeignKey(model.role_class, db_index=True, on_delete=models.CASCADE),
+                    )
+                else:
+                    raise Exception('role_class must be defined for any subclass of UserRole!')
         return model
 
 
@@ -48,6 +46,7 @@ class UserRole(TimeStampedModel):
     """
 
     name = models.CharField(unique=True, max_length=255, db_index=True)
+    description = models.TextField(null=True, blank=True)
 
     class Meta:
         """
