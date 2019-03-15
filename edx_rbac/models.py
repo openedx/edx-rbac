@@ -5,8 +5,7 @@ Database models for edx_rbac.
 
 from __future__ import absolute_import, unicode_literals
 
-# from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
 from django.db import models
 from django.db.models.base import ModelBase
 from django.db.models.fields import FieldDoesNotExist
@@ -69,7 +68,7 @@ class UserRoleAssignment(with_metaclass(UserRoleAssignmentCreator, TimeStampedMo
     Model for mapping users and their roles.
     """
 
-    user = models.ForeignKey(User, db_index=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, db_index=True, on_delete=models.CASCADE)
     role_class = None
 
     class Meta:
