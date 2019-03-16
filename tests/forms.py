@@ -2,17 +2,27 @@
 """
 Forms to be used for testing.
 """
+from __future__ import absolute_import, unicode_literals
 
-from edx_rbac.admin.forms import UserFromEmailField, UserRoleAssignmentAdminForm
+from edx_rbac.admin.forms import UserRoleAssignmentAdminForm
 from tests.models import ConcreteUserRoleAssignment
+
 
 class ConcreteUserRoleAssignmentAdminForm(UserRoleAssignmentAdminForm):
     """
     Used for testing UserRoleAssignmentAdminForm.
     """
-    def cleaned_data(self):
-    	super(ConcreteUserRoleAssignmentAdminForm, self).cleaned_data()
-    
+
     class Meta:
-    	model = ConcreteUserRoleAssignment
-    	fields = ('user', 'role')
+        """
+        Meta class for ConcreteUserRoleAssignmentAdminForm.
+        """
+
+        model = ConcreteUserRoleAssignment
+        fields = ('user', 'role')
+
+    def cleaned_data(self):  # pylint: disable=useless-super-delegation,method-hidden
+        """
+        Return cleaned data.
+        """
+        return super(ConcreteUserRoleAssignmentAdminForm, self).cleaned_data()

@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-Tests for the `edx-rbac` utilities module.
+Tests for the `edx-rbac` forms module.
 """
 from __future__ import absolute_import, unicode_literals
 
 from django.contrib.auth.models import User
-from django.core.exceptions import ValidationError
 from django.test import TestCase
 
 from tests.forms import ConcreteUserRoleAssignmentAdminForm
 from tests.models import ConcreteUserRole, ConcreteUserRoleAssignment
-from edx_rbac.admin.forms import UserFromEmailField
 
 
 class TestForms(TestCase):
@@ -29,25 +27,6 @@ class TestForms(TestCase):
         self.role = ConcreteUserRole(name='coupon-manager')
         self.role.save()
 
-    def test_user_from_email_field_clean(self):
-        """
-        UserFromEmailField clean method should return User if user exists.
-        """
-
-        field = UserFromEmailField()
-        assert self.user == field.clean(self.email)
-
-    def test_user_from_email_field_clean_error(self):
-        """
-        UserFromEmailField clean method should throw a DoesNotExist error
-        if user cannot be found.
-        """
-
-        field = UserFromEmailField()
-        unassociated_email = 'whatisedx@example.com'
-        with self.assertRaises(ValidationError):
-            field.clean(unassociated_email)
-
     def test_user_role_assignment_form(self):
         """
         When UserRoleAssignmentAdminForm is initialized and saved, a RoleAssignment
@@ -58,7 +37,7 @@ class TestForms(TestCase):
         # Role exists underneath the hood as something like: (1, u'coupon-manager')
         data = {
             'user': self.email,
-            'role': 1,  
+            'role': 1,
         }
         form = ConcreteUserRoleAssignmentAdminForm(data=data)
         assert form.is_valid()
@@ -87,7 +66,7 @@ class TestForms(TestCase):
         # is provided
         initial = {
             'user': self.email,
-            'role': 1,  
+            'role': 1,
         }
         form = ConcreteUserRoleAssignmentAdminForm(initial=initial, instance=role_assignment)
         form.is_valid()
