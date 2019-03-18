@@ -55,6 +55,8 @@ SYSTEM_WIDE_ROLE_CLASSES = [
     'tests.ConcreteUserRoleAssignment'
 ]
 
+AUTH_USER_MODEL = 'auth.User'
+
 # Required for use with edx-drf-extensions JWT functionality:
 # USER_SETTINGS overrides for djangorestframework-jwt APISettings class
 # See https://github.com/GetBlimp/django-rest-framework-jwt/blob/master/rest_framework_jwt/settings.py
