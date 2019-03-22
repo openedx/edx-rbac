@@ -3,6 +3,8 @@ Taken from https://github.com/escodebar/django-rest-framework-rules/blob/master/
 """
 from __future__ import absolute_import, unicode_literals
 
+from functools import wraps
+
 
 def permission_required(*permissions, **decorator_kwargs):
     """
@@ -14,6 +16,7 @@ def permission_required(*permissions, **decorator_kwargs):
     """
     def decorator(view):
         """Verify permissions decorator."""
+        @wraps(view)
         def wrapped_view(self, request, *args, **kwargs):
             """Wrap for the view function."""
             fn = decorator_kwargs.get('fn', None)
@@ -33,5 +36,7 @@ def permission_required(*permissions, **decorator_kwargs):
                 )
 
             return view(self, request, *args, **kwargs)
-        return wrapped_view
+
+        enabled = decorator_kwargs.get('enabled', False)
+        return wrapped_view if enabled else view
     return decorator
