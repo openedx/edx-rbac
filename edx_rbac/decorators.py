@@ -37,6 +37,6 @@ def permission_required(*permissions, **decorator_kwargs):
 
             return view(self, request, *args, **kwargs)
 
-        enabled = decorator_kwargs.get('enabled', False)
-        return wrapped_view if enabled else view
+        rbac_enabled = decorator_kwargs.get('rbac_enabled', lambda: False)
+        return wrapped_view if rbac_enabled() else view
     return decorator
