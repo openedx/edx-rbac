@@ -11,6 +11,7 @@ diff_*.html
 report
 venv
 .cache/
+.coverage
 
 # Override config files
 override.cfg

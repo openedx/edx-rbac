@@ -31,3 +31,11 @@ class ConcreteUserRoleAssignment(UserRoleAssignment):  # pylint: disable=model-m
         Generate a context string to be used in tests.
         """
         return "a-test-context"
+
+
+class ConcreteUserRoleAssignmentNoContext(UserRoleAssignment):  # pylint: disable=model-missing-unicode
+    """
+    Used for testing the UserRoleAssignment model without context returned.
+    """
+
+    role_class = ConcreteUserRole

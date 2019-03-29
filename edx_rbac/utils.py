@@ -57,12 +57,13 @@ def get_decoded_jwt_from_request(request):
     return jwt_decode_handler(jwt_cookie)
 
 
-def request_user_has_implicit_access_via_jwt(decoded_jwt, role_name):
+def request_user_has_implicit_access_via_jwt(decoded_jwt, role_name, context=None):
     """
     Check the request's user access by mapping user's roles found in jwt to local feature roles.
 
     decoded_jwt is a dict
     role_name is a string
+    context is anything
 
     Returns a boolean.
 
@@ -76,27 +77,33 @@ def request_user_has_implicit_access_via_jwt(decoded_jwt, role_name):
     """
     jwt_roles_claim = decoded_jwt.get('roles', [])
 
-    feature_roles = []
+    feature_roles = {}
     for role_data in jwt_roles_claim:
-        role_in_jwt = role_data.split(':')[0]  # split should be more robust because of our cousekeys having colons
+        # split should be more robust because of our cousekeys having colons
+        role_in_jwt, __, context_in_jwt = role_data.partition(':')
         mapped_roles = settings.SYSTEM_TO_FEATURE_ROLE_MAPPING.get(role_in_jwt, [])
-        feature_roles.extend(mapped_roles)
+        feature_roles.update({role: context_in_jwt for role in mapped_roles})
 
     if role_name in feature_roles:
-        return True
+        if not context:
+            return True
+        else:
+            return feature_roles[role_name] == context
     return False
 
 
-def user_has_access_via_database(user, role_name, role_assignment_class):
+def user_has_access_via_database(user, role_name, role_assignment_class, context=None):
     """
     Check if there is a role assignment for a given user and role.
 
     The role object itself is found via the role_name
     """
     try:
-        role_assignment_class.objects.get(user=user, role__name=role_name)
+        role_assignment = role_assignment_class.objects.get(user=user, role__name=role_name)
     except role_assignment_class.DoesNotExist:
         return False
+    if context:
+        return role_assignment.get_context() == context
     return True
 
 

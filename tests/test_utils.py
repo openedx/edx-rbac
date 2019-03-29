@@ -21,7 +21,7 @@ from edx_rbac.utils import (
     request_user_has_implicit_access_via_jwt,
     user_has_access_via_database
 )
-from tests.models import ConcreteUserRole, ConcreteUserRoleAssignment
+from tests.models import ConcreteUserRole, ConcreteUserRoleAssignment, ConcreteUserRoleAssignmentNoContext
 
 
 class TestUtils(TestCase):
@@ -89,6 +89,22 @@ class TestUtils(TestCase):
             'coupon-management',
         )
 
+    def test_request_user_has_implicit_access_via_jwt_no_context(self):
+        """
+        Helper function should discern what roles user has based on role data
+        in jwt, and then return true if any of those match the role we're
+        asking about
+        """
+        toy_decoded_jwt = {
+          "roles": [
+            "coupon-manager"
+          ]
+        }
+        assert request_user_has_implicit_access_via_jwt(
+            toy_decoded_jwt,
+            'coupon-management',
+        )
+
     def test_request_user_has_no_implicit_access_via_jwt(self):
         """
         Helper function should discern what roles user has based on role data
@@ -103,6 +119,57 @@ class TestUtils(TestCase):
         assert not request_user_has_implicit_access_via_jwt(
             toy_decoded_jwt,
             'superuser-access',
+        )
+
+    def test_request_user_has_implicit_access_via_jwt_with_context(self):
+        """
+        Helper function should discern what roles user has based on role data
+        in jwt, and then return true if any of those match the role we're
+        asking about. This case handles checking if the context matches.
+        """
+        toy_decoded_jwt = {
+            "roles": [
+                "coupon-manager:some_context"
+            ]
+        }
+        assert request_user_has_implicit_access_via_jwt(
+            toy_decoded_jwt,
+            'coupon-management',
+            'some_context'
+        )
+
+    def test_request_user_has_no_implicit_access_via_jwt_with_context(self):
+        """
+        Helper function should discern what roles user has based on role data
+        in jwt, and then return true if any of those match the role we're
+        asking about. This case handles checking if the context matches.
+        """
+        toy_decoded_jwt = {
+            "roles": [
+                "coupon-manager:some_context"
+            ]
+        }
+        assert not request_user_has_implicit_access_via_jwt(
+            toy_decoded_jwt,
+            'coupon-management',
+            'not_the_right_context'
+        )
+
+    def test_request_user_has_no_implicit_access_via_jwt_no_context(self):
+        """
+        Helper function should discern what roles user has based on role data
+        in jwt, and then return true if any of those match the role we're
+        asking about. This case handles checking if the context matches.
+        """
+        toy_decoded_jwt = {
+            "roles": [
+                "coupon-manager"
+            ]
+        }
+        assert not request_user_has_implicit_access_via_jwt(
+            toy_decoded_jwt,
+            'coupon-management',
+            'some_context'
         )
 
 
@@ -139,6 +206,56 @@ class TestUtilsWithDatabaseRequirements(TestCase):
             self.user,
             'coupon-manager',
             ConcreteUserRoleAssignment,
+        )
+
+    def test_user_has_access_via_database_with_context(self):
+        """
+        Access check should return true if RoleAssignment exists for user.
+        This case handles checking if the context matches.
+        """
+        ConcreteUserRoleAssignment.objects.create(
+            user=self.user,
+            role=self.role
+        )
+        assert user_has_access_via_database(
+            self.user,
+            'coupon-manager',
+            ConcreteUserRoleAssignment,
+            'a-test-context'
+        )
+
+    def test_user_has_no_access_via_database_with_context(self):
+        """
+        Access check should return false if RoleAssignment does not exist for user.
+        This case handles checking if the context matches.
+        """
+        ConcreteUserRoleAssignment.objects.create(
+            user=self.user,
+            role=self.role
+        )
+
+        assert not user_has_access_via_database(
+            self.user,
+            'coupon-manager',
+            ConcreteUserRoleAssignment,
+            'not_the_right_context'
+        )
+
+    def test_user_has_no_access_via_database_no_context(self):
+        """
+        Access check should return false if RoleAssignment does not exist for user.
+        This case handles checking if the context matches.
+        """
+        ConcreteUserRoleAssignmentNoContext.objects.create(
+            user=self.user,
+            role=self.role
+        )
+
+        assert not user_has_access_via_database(
+            self.user,
+            'coupon-manager',
+            ConcreteUserRoleAssignment,
+            'not_the_right_context'
         )
 
     def test_create_role_auth_claim_for_user(self):
