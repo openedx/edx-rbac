@@ -103,6 +103,8 @@ def user_has_access_via_database(user, role_name, role_assignment_class, context
     except role_assignment_class.DoesNotExist:
         return False
     if context:
+        if role_assignment.get_context() is None:
+            return True
         return role_assignment.get_context() == context
     return True
 

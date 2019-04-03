@@ -224,6 +224,24 @@ class TestUtilsWithDatabaseRequirements(TestCase):
             'a-test-context'
         )
 
+    def test_user_has_access_via_database_with_no_context(self):
+        """
+        Access check should return true if RoleAssignment exists for user.
+        This case handles checking if the context matches.
+        """
+        ConcreteUserRoleAssignment.objects.create(
+            user=self.user,
+            role=self.role
+        )
+
+        with patch('tests.models.ConcreteUserRoleAssignment.get_context', return_value=None) as mock_get_context:
+            assert user_has_access_via_database(
+                self.user,
+                'coupon-manager',
+                ConcreteUserRoleAssignment,
+                'a-test-context'
+            )
+
     def test_user_has_no_access_via_database_with_context(self):
         """
         Access check should return false if RoleAssignment does not exist for user.
