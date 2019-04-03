@@ -12,6 +12,8 @@ from edx_rest_framework_extensions.auth.jwt.cookies import jwt_cookie_name
 from edx_rest_framework_extensions.auth.jwt.decoder import jwt_decode_handler
 from six.moves.urllib.parse import urlparse  # pylint: disable=import-error
 
+ALL_ACCESS_CONTEXT = '*'
+
 
 # Taken from edx-platform
 def get_request_or_stub():
@@ -88,7 +90,8 @@ def request_user_has_implicit_access_via_jwt(decoded_jwt, role_name, context=Non
         if not context:
             return True
         else:
-            return feature_roles[role_name] == context
+            return feature_roles[role_name] in (context, ALL_ACCESS_CONTEXT)
+
     return False
 
 
@@ -102,8 +105,10 @@ def user_has_access_via_database(user, role_name, role_assignment_class, context
         role_assignment = role_assignment_class.objects.get(user=user, role__name=role_name)
     except role_assignment_class.DoesNotExist:
         return False
+
     if context:
-        return role_assignment.get_context() == context
+        return role_assignment.get_context() in (context, ALL_ACCESS_CONTEXT)
+
     return True
 
 
