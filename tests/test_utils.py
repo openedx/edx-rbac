@@ -15,6 +15,7 @@ from edx_rest_framework_extensions.auth.jwt.tests.utils import generate_jwt_toke
 from mock import patch
 
 from edx_rbac.utils import (
+    ALL_ACCESS_CONTEXT,
     create_role_auth_claim_for_user,
     get_decoded_jwt_from_request,
     get_request_or_stub,
@@ -138,6 +139,23 @@ class TestUtils(TestCase):
             'some_context'
         )
 
+    def test_request_user_has_implicit_access_via_jwt_with_all_acess_context(self):
+        """
+        Helper function should discern what roles user has based on role data
+        in jwt, and then return true if user role matches with a system wide
+        role and context matches with `ALL_ACCESS_CONTEXT`.
+        """
+        toy_decoded_jwt = {
+            'roles': [
+                'enterprise_openedx_operator:*'
+            ]
+        }
+        assert request_user_has_implicit_access_via_jwt(
+            toy_decoded_jwt,
+            'enterprise_data_admin',
+            'some_context'
+        )
+
     def test_request_user_has_no_implicit_access_via_jwt_with_context(self):
         """
         Helper function should discern what roles user has based on role data
@@ -223,6 +241,24 @@ class TestUtilsWithDatabaseRequirements(TestCase):
             ConcreteUserRoleAssignment,
             'a-test-context'
         )
+
+    def test_user_has_access_via_database_with_all_access_context(self):
+        """
+        Access check should return true if RoleAssignment exists for user.
+        This case handles checking if the role assignement has `ALL_ACCESS_CONTEXT` context.
+        """
+        ConcreteUserRoleAssignment.objects.create(
+            user=self.user,
+            role=self.role
+        )
+
+        with patch('tests.models.ConcreteUserRoleAssignment.get_context', return_value=ALL_ACCESS_CONTEXT):
+            assert user_has_access_via_database(
+                self.user,
+                'coupon-manager',
+                ConcreteUserRoleAssignment,
+                'some_context'
+            )
 
     def test_user_has_no_access_via_database_with_context(self):
         """
