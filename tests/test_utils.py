@@ -64,6 +64,23 @@ class TestUtils(TestCase):
         mock_decoder.assert_called_once()
 
     @patch('edx_rbac.utils.jwt_decode_handler')
+    def test_get_decoded_jwt_from_request_from_auth_attr(self, mock_decoder):
+        """
+        A dcoded jwt should be returned from the request auth if it is not set on the cookie.
+        """
+        payload = generate_unversioned_payload(self.request.user)
+        payload.update({
+            "roles": [
+                "some_new_role_name:some_context"
+            ]
+        })
+        jwt_token = generate_jwt_token(payload)
+        self.request.auth = jwt_token
+        get_decoded_jwt_from_request(self.request)
+
+        mock_decoder.assert_called_once()
+
+    @patch('edx_rbac.utils.jwt_decode_handler')
     def test_get_decoded_jwt_from_request_no_jwt_in_request(self, mock_decoder):
         """
         None should be returned if the request has no jwt

@@ -52,7 +52,7 @@ def get_decoded_jwt_from_request(request):
     Returns a decoded jwt dict if it finds it.
     Returns a None if it does not.
     """
-    jwt_cookie = request.COOKIES.get(jwt_cookie_name(), None)
+    jwt_cookie = request.COOKIES.get(jwt_cookie_name(), None) or getattr(request, 'auth', None)
 
     if not jwt_cookie:
         return None
