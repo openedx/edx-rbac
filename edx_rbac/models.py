@@ -83,6 +83,16 @@ class UserRoleAssignment(with_metaclass(UserRoleAssignmentCreator, TimeStampedMo
         """
         return None
 
+    @classmethod
+    def get_assignments(cls, user):
+        """
+        Return iterator of (rolename, context).
+        """
+        for assign in cls.objects.filter(
+            user=user
+        ).select_related('role'):
+            yield assign.role.name, assign.get_context()
+
     def __str__(self):
         """
         Return human-readable string representation.

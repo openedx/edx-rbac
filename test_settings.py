@@ -53,7 +53,8 @@ SYSTEM_TO_FEATURE_ROLE_MAPPING = {
 }
 
 SYSTEM_WIDE_ROLE_CLASSES = [
-    'tests.ConcreteUserRoleAssignment'
+    'tests.ConcreteUserRoleAssignment',
+    'tests.test_assignments.get_assigments',
 ]
 
 AUTH_USER_MODEL = 'auth.User'
