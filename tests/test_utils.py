@@ -322,7 +322,9 @@ class TestUtilsWithDatabaseRequirements(TestCase):
         )
 
         expected_claim = [
-            'coupon-manager:a-test-context'
+            'coupon-manager:a-test-context',
+            'test-role',
+            'test-role2:1',
         ]
         actual_claim = create_role_auth_claim_for_user(self.user)
         assert expected_claim == actual_claim

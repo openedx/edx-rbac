@@ -4,6 +4,8 @@ Utils for 'edx-rbac' module.
 """
 from __future__ import absolute_import, unicode_literals
 
+import importlib
+
 import crum
 from django.apps import apps
 from django.conf import settings
@@ -130,18 +132,20 @@ def create_role_auth_claim_for_user(user):
         ]
     """
     role_auth_claim = []
-    for system_role_class in settings.SYSTEM_WIDE_ROLE_CLASSES:
-        app_name, model_name = system_role_class.split('.')
-        model_class = apps.get_model(app_name, model_name)
+    for system_role_loc in settings.SYSTEM_WIDE_ROLE_CLASSES:
+        # location can either be a module or a django model
+        module_name, func_name = system_role_loc.rsplit('.', 1)
+        try:
+            # first, assume that this is a plain function
+            module = importlib.import_module(module_name)
+            role_func = getattr(module, func_name)
+        except (ImportError, AttributeError):
+            # otherwise, assume that it's a django model
+            module = apps.get_model(module_name, func_name)
+            role_func = module.get_assignments
 
-        role_assignments = model_class.objects.filter(
-            user=user
-        ).select_related('role')
-
-        for role_assignment in role_assignments:
-            role_string = role_assignment.role.name
-            context = role_assignment.get_context()
+        for role_string, context in role_func(user):
             if context:
-                role_string += ':{}'.format(context)
+                role_string = '{}:{}'.format(role_string, context)
             role_auth_claim.append(role_string)
     return role_auth_claim
