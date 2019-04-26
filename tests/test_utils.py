@@ -139,6 +139,16 @@ class TestUtils(TestCase):
             'superuser-access',
         )
 
+    def test_request_user_has_no_implicit_access_when_jwt_absent(self):
+        """
+        Helper function should return False when JWT is absent
+        """
+        toy_decoded_jwt = None
+        assert not request_user_has_implicit_access_via_jwt(
+            toy_decoded_jwt,
+            'superuser-access',
+        )
+
     def test_request_user_has_implicit_access_via_jwt_with_context(self):
         """
         Helper function should discern what roles user has based on role data
