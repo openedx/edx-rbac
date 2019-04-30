@@ -79,6 +79,8 @@ def request_user_has_implicit_access_via_jwt(decoded_jwt, role_name, context=Non
             'coupon-manager': ['coupon-management']
         }
     """
+    if not decoded_jwt:
+        return False
     jwt_roles_claim = decoded_jwt.get('roles', [])
 
     feature_roles = {}

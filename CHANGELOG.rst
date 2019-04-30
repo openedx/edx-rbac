@@ -11,6 +11,12 @@ Change Log
 
 .. There should always be an "Unreleased" section for changes pending release.
 
+[0.2.0] - 2019-04-30
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Check for JWT presence in implicit permission.
+* Refactor role retrieval to remove the dependency on django models for assigning roles.
+
 [0.1.11] - 2019-04-08
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
