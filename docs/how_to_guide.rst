@@ -24,7 +24,10 @@ Access
     to give access to a user to a specific resource without creating any role data in JWT.
 
 .. note::
-In both the implicit and explicit access, role data has a context that tells which resource(s) the requesting user can access
+
+    In both the implicit and explicit access, role data has a context that tells which resource(s)
+    the requesting user can access
+
 
 Implementation
 --------------
@@ -72,7 +75,8 @@ Below is a sample role data for a user in JWT and a table that explains the role
 
 
 3. For explicit access, In an edx service like `edx-enterprise-data <https://github.com/edx/edx-enterprise-data/>`_
-   create a feature specific wide role assignment for a user from within django admin at ``/admin/enterprise_data_roles/enterprisedataroleassignment/``
+   create a feature specific wide role assignment for a user from within django admin
+   at ``/admin/enterprise_data_roles/enterprisedataroleassignment/``
 
 
 4. In a service create a system-to-feature roles mapping in django settings like below
@@ -102,9 +106,9 @@ Below is a sample role data for a user in JWT and a table that explains the role
 
 6. Add ``permission_required`` decorator on individual endpoints. All the positional arguments to decorator will be
 treated as name of permissions we want to apply on endpoint and the second argument should be keyword argument named as
-``fn`` and its value could be a callable or any python object. Callable signature should match ``(request, *args, **kwargs)``.
-Either the plain python object or value returned by the callable will be passed to rules predicate as second parameter.
-Below is an endpoint with the decorator applied.
+``fn`` and its value could be a callable or any python object. Callable signature should match
+``(request, *args, **kwargs)``. Either the plain python object or value returned by the callable will
+be passed to rules predicate as second parameter. Below is an endpoint with the decorator applied.
 
 .. code-block:: python
 

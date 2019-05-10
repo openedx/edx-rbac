@@ -19,12 +19,12 @@ roles. We also need the ability to create new roles that map to different sets o
 
 Decision
 --------
-The underlying engineering problem that the OpenedX system faces is the lack of a system that provides robust authorization
-capabilities. Based on our requirements, it made sense to proceed with implementing authorization checks using Role Based
-Access Control (RBAC), where users can be granted one or more roles which are each mapped to a set of permissions. Using
-RBAC we can control access for a user at different levels of granularity. To support RBAC in the OpenedX ecosystem, this
-repository was created to provide standardized ways of defining roles and permission mappings and performing permission
-checks in any django application that requires RBAC.
+The underlying engineering problem that the OpenedX system faces is the lack of a system that provides robust
+authorization capabilities. Based on our requirements, it made sense to proceed with implementing authorization
+checks using Role Based Access Control (RBAC), where users can be granted one or more roles which are each mapped
+to a set of permissions. Using RBAC we can control access for a user at different levels of granularity.
+To support RBAC in the OpenedX ecosystem, this repository was created to provide standardized ways of defining
+roles and permission mappings and performing permission checks in any django application that requires RBAC.
 
 
 Consequences
