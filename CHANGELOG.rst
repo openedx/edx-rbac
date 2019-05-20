@@ -11,7 +11,7 @@ Change Log
 
 .. There should always be an "Unreleased" section for changes pending release.
 
-[0.3.0] - 2019-05-20
+[1.0.0] - 2019-05-20
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Removed `get_request_or_stub` and `get_decoded_jwt_from_request` from utils.py
