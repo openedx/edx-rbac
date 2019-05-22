@@ -4,21 +4,13 @@ Tests for the `edx-rbac` utilities module.
 """
 from __future__ import absolute_import, unicode_literals
 
-from django.conf import settings
 from django.contrib.auth.models import User
 from django.test import RequestFactory, TestCase
-from edx_rest_framework_extensions.auth.jwt.cookies import jwt_cookie_name
-# edx_rest_framework_extensions test utils should change when the package
-# does. Given edx_rbac is tightly coupled to edx_rest_framework_extensions,
-# using those utils seems reasonable in the way of not repeating ourselves
-from edx_rest_framework_extensions.auth.jwt.tests.utils import generate_jwt_token, generate_unversioned_payload
 from mock import patch
 
 from edx_rbac.utils import (
     ALL_ACCESS_CONTEXT,
     create_role_auth_claim_for_user,
-    get_decoded_jwt_from_request,
-    get_request_or_stub,
     request_user_has_implicit_access_via_jwt,
     user_has_access_via_database
 )
@@ -35,60 +27,6 @@ class TestUtils(TestCase):
         self.request = RequestFactory().get('/')
         self.user = User.objects.create(username='test_user', password='pw')
         self.request.user = self.user
-
-    def test_get_request_or_stub(self):
-        """
-        Outside the context of the request, we should still get a request
-        that allows us to build an absolute URI.
-        """
-        stub = get_request_or_stub()
-        expected_url = "http://{site_name}/foobar".format(site_name=settings.SITE_NAME)
-        self.assertEqual(stub.build_absolute_uri("foobar"), expected_url)
-
-    @patch('edx_rbac.utils.jwt_decode_handler')
-    def test_get_decoded_jwt_from_request(self, mock_decoder):
-        """
-        A decoded jwt should be returned from request if it exists
-        """
-        payload = generate_unversioned_payload(self.request.user)
-        payload.update({
-          "roles": [
-            "some_new_role_name:some_context"
-          ]
-        })
-        jwt_token = generate_jwt_token(payload)
-
-        self.request.COOKIES[jwt_cookie_name()] = jwt_token
-        get_decoded_jwt_from_request(self.request)
-
-        mock_decoder.assert_called_once()
-
-    @patch('edx_rbac.utils.jwt_decode_handler')
-    def test_get_decoded_jwt_from_request_from_auth_attr(self, mock_decoder):
-        """
-        A dcoded jwt should be returned from the request auth if it is not set on the cookie.
-        """
-        payload = generate_unversioned_payload(self.request.user)
-        payload.update({
-            "roles": [
-                "some_new_role_name:some_context"
-            ]
-        })
-        jwt_token = generate_jwt_token(payload)
-        self.request.auth = jwt_token
-        get_decoded_jwt_from_request(self.request)
-
-        mock_decoder.assert_called_once()
-
-    @patch('edx_rbac.utils.jwt_decode_handler')
-    def test_get_decoded_jwt_from_request_no_jwt_in_request(self, mock_decoder):
-        """
-        None should be returned if the request has no jwt
-        """
-        result = get_decoded_jwt_from_request(self.request)
-
-        assert result is None
-        mock_decoder.assert_not_called()
 
     # Check out test_settings for the variable declaration
     def test_request_user_has_implicit_access_via_jwt(self):
