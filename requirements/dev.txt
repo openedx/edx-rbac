@@ -19,41 +19,41 @@ codecov==2.0.15
 configparser==3.7.4
 contextlib2==0.5.5        # via importlib-metadata
 coverage==4.5.3
-diff-cover==2.0.0
-distlib==0.2.8
+diff-cover==2.0.1
+distlib==0.2.9.post0
 django-crum==0.7.3
 django-model-utils==3.1.2
 django-waffle==0.16.0
 django==1.11.20
 djangorestframework-jwt==1.11.0
-djangorestframework==3.9.3
+djangorestframework==3.9.4
 edx-django-utils==1.0.3
-edx-drf-extensions==2.2.1
+edx-drf-extensions==2.3.0
 edx-i18n-tools==0.4.8
-edx-lint==1.1.2
+edx-lint==1.2.1
 edx-opaque-keys==0.4.4
 enum34==1.1.6
-filelock==3.0.10
+filelock==3.0.12
 funcsigs==1.0.2
 future==0.17.1
 futures==3.1.1
 idna==2.8
-importlib-metadata==0.9   # via path.py
+importlib-metadata==0.15  # via path.py
 inflect==2.1.0            # via jinja2-pluralize
-isort==4.3.18
+isort==4.3.20
 jinja2-pluralize==0.3.0   # via diff-cover
 jinja2==2.10.1
-lazy-object-proxy==1.4.0
+lazy-object-proxy==1.4.1
 markupsafe==1.1.1
 mccabe==0.6.1
 mock==3.0.5
 more-itertools==5.0.0
-newrelic==4.18.0.118
+newrelic==4.20.0.120
 packaging==19.0
 path.py==11.5.2           # via edx-i18n-tools
 pathlib2==2.3.3
 pbr==5.2.0
-pip-tools==3.6.1
+pip-tools==3.7.0
 pluggy==0.11.0
 polib==1.1.0              # via edx-i18n-tools
 psutil==1.2.1
@@ -61,7 +61,7 @@ py==1.8.0
 pycodestyle==2.5.0
 pycryptodomex==3.8.1
 pydocstyle==3.0.0
-pygments==2.3.1           # via diff-cover
+pygments==2.4.1           # via diff-cover
 pyjwkest==1.3.2
 pyjwt==1.7.1
 pylint-celery==0.3
@@ -72,12 +72,12 @@ pymongo==3.8.0
 pyparsing==2.4.0
 pytest-cov==2.7.1
 pytest-django==3.4.8
-pytest==4.4.1
+pytest==4.5.0
 python-dateutil==2.8.0
 python-slugify==3.0.2
 pytz==2019.1
 pyyaml==5.1
-requests==2.21.0
+requests==2.22.0
 rest-condition==1.0.3
 scandir==1.10.0
 semantic-version==2.6.0
@@ -88,8 +88,9 @@ stevedore==1.30.1
 text-unidecode==1.2
 toml==0.10.0
 tox-battery==0.5.1
-tox==3.9.0
-urllib3==1.24.3
-virtualenv==16.5.0
+tox==3.12.1
+urllib3==1.25.3
+virtualenv==16.6.0
+wcwidth==0.1.7
 wrapt==1.11.1
-zipp==0.4.0               # via importlib-metadata
+zipp==0.5.1               # via importlib-metadata
