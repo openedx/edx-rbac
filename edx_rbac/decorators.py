@@ -3,6 +3,8 @@ Taken from https://github.com/escodebar/django-rest-framework-rules/blob/master/
 """
 from __future__ import absolute_import, unicode_literals
 
+import crum
+
 
 def permission_required(*permissions, **decorator_kwargs):
     """
@@ -21,6 +23,8 @@ def permission_required(*permissions, **decorator_kwargs):
                 obj = fn(request, *args, **kwargs)
             else:
                 obj = fn
+
+            crum.set_current_request(request)
 
             missing_permissions = [perm for perm in permissions
                                    if not request.user.has_perm(perm, obj)]
