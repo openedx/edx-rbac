@@ -6,6 +6,7 @@ Keeps py2 backward compatibility and only holds on to the necessary bits of the 
 """
 from __future__ import absolute_import, unicode_literals
 
+import crum
 from django.core.exceptions import ImproperlyConfigured
 from six import string_types
 
@@ -42,6 +43,8 @@ class PermissionRequiredMixin(object):
         """
         Check through permissions required and throws a permission_denied if missing any.
         """
+        crum.set_current_request(request)
+
         user = request.user
         missing_permissions = [perm for perm in self.get_permission_required()
                                if not user.has_perm(perm)]
