@@ -11,6 +11,12 @@ Change Log
 
 .. There should always be an "Unreleased" section for changes pending release.
 
+
+[1.0.3] - 2019-09-12
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Use functools.wraps to prevent the decorator from swallowing the view name
+
 [1.0.2] - 2019-07-12
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
