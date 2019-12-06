@@ -33,6 +33,20 @@ class ConcreteUserRoleAssignment(UserRoleAssignment):  # pylint: disable=model-m
         return "a-test-context"
 
 
+class ConcreteUserRoleAssignmentMultipleContexts(UserRoleAssignment):  # pylint: disable=model-missing-unicode
+    """
+    Used for testing the UserRoleAssignment model when user has multiple contexts.
+    """
+
+    role_class = ConcreteUserRole
+
+    def get_context(self):
+        """
+        Generate a list with multiple contexts to be used in tests.
+        """
+        return [u'a-test-context', u'a-second-test-context']
+
+
 class ConcreteUserRoleAssignmentNoContext(UserRoleAssignment):  # pylint: disable=model-missing-unicode
     """
     Used for testing the UserRoleAssignment model without context returned.
