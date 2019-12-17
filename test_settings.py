@@ -54,6 +54,7 @@ SYSTEM_TO_FEATURE_ROLE_MAPPING = {
 
 SYSTEM_WIDE_ROLE_CLASSES = [
     'tests.ConcreteUserRoleAssignment',
+    'tests.ConcreteUserRoleAssignmentMultipleContexts',
     'tests.test_assignments.get_assigments',
 ]
 

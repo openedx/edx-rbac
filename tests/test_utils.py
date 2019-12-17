@@ -14,7 +14,12 @@ from edx_rbac.utils import (
     request_user_has_implicit_access_via_jwt,
     user_has_access_via_database
 )
-from tests.models import ConcreteUserRole, ConcreteUserRoleAssignment, ConcreteUserRoleAssignmentNoContext
+from tests.models import (
+    ConcreteUserRole,
+    ConcreteUserRoleAssignment,
+    ConcreteUserRoleAssignmentMultipleContexts,
+    ConcreteUserRoleAssignmentNoContext
+)
 
 
 class TestUtils(TestCase):
@@ -207,10 +212,31 @@ class TestUtilsWithDatabaseRequirements(TestCase):
             'a-test-context'
         )
 
+    def test_user_with_multiple_contexts_has_access_via_database(self):
+        """
+        Access check should return true if RoleAssignment exists for user with multiple contexts.
+        """
+        ConcreteUserRoleAssignmentMultipleContexts.objects.create(
+            user=self.user,
+            role=self.role
+        )
+        assert user_has_access_via_database(
+            self.user,
+            'coupon-manager',
+            ConcreteUserRoleAssignmentMultipleContexts,
+            'a-test-context'
+        )
+        assert user_has_access_via_database(
+            self.user,
+            'coupon-manager',
+            ConcreteUserRoleAssignmentMultipleContexts,
+            'a-second-test-context'
+        )
+
     def test_user_has_access_via_database_with_all_access_context(self):
         """
         Access check should return true if RoleAssignment exists for user.
-        This case handles checking if the role assignement has `ALL_ACCESS_CONTEXT` context.
+        This case handles checking if the role assignment has `ALL_ACCESS_CONTEXT` context.
         """
         ConcreteUserRoleAssignment.objects.create(
             user=self.user,
@@ -225,10 +251,30 @@ class TestUtilsWithDatabaseRequirements(TestCase):
                 'some_context'
             )
 
+    def test_user_with_multiple_contexts_has_access_via_database_with_all_access_context(self):
+        """
+        Access check should return true if the correct RoleAssignment exists for user.
+        This case handles checking if the role assignment has `ALL_ACCESS_CONTEXT` as part of multiple contexts.
+        """
+        ConcreteUserRoleAssignmentMultipleContexts.objects.create(
+            user=self.user,
+            role=self.role
+        )
+
+        with patch(
+                'tests.models.ConcreteUserRoleAssignmentMultipleContexts.get_context',
+                return_value=[u'some_context', ALL_ACCESS_CONTEXT]
+        ):
+            assert user_has_access_via_database(
+                self.user,
+                'coupon-manager',
+                ConcreteUserRoleAssignmentMultipleContexts,
+                'a_context_bypassed_by_all_access_context'
+            )
+
     def test_user_has_no_access_via_database_with_context(self):
         """
-        Access check should return false if RoleAssignment does not exist for user.
-        This case handles checking if the context matches.
+        Access check should return false if the right RoleAssignment context does not exist for user.
         """
         ConcreteUserRoleAssignment.objects.create(
             user=self.user,
@@ -239,6 +285,23 @@ class TestUtilsWithDatabaseRequirements(TestCase):
             self.user,
             'coupon-manager',
             ConcreteUserRoleAssignment,
+            'not_the_right_context'
+        )
+
+    def test_user_with_multiple_contexts_has_no_access_via_database(self):
+        """
+        Access check should return false if the right RoleAssignment context does not exist for user with multiple
+        contexts.
+        """
+        ConcreteUserRoleAssignmentMultipleContexts.objects.create(
+            user=self.user,
+            role=self.role
+        )
+
+        assert not user_has_access_via_database(
+            self.user,
+            'coupon-manager',
+            ConcreteUserRoleAssignmentMultipleContexts,
             'not_the_right_context'
         )
 
@@ -271,6 +334,25 @@ class TestUtilsWithDatabaseRequirements(TestCase):
 
         expected_claim = [
             'coupon-manager:a-test-context',
+            'test-role',
+            'test-role2:1',
+        ]
+        actual_claim = create_role_auth_claim_for_user(self.user)
+        assert expected_claim == actual_claim
+
+    def test_create_role_auth_claim_for_user_with_multiple_contexts(self):
+        """
+        Helper function should create a list of strings based on the roles
+        associated with the user with multiple contexts.
+        """
+        ConcreteUserRoleAssignmentMultipleContexts.objects.create(
+            user=self.user,
+            role=self.role
+        )
+
+        expected_claim = [
+            'coupon-manager:a-test-context',
+            'coupon-manager:a-second-test-context',
             'test-role',
             'test-role2:1',
         ]

@@ -8,6 +8,7 @@ import importlib
 
 from django.apps import apps
 from django.conf import settings
+from six import string_types
 
 ALL_ACCESS_CONTEXT = '*'
 
@@ -54,7 +55,10 @@ def user_has_access_via_database(user, role_name, role_assignment_class, context
     """
     Check if there is a role assignment for a given user and role.
 
-    The role object itself is found via the role_name
+    The role object itself is found via the role_name. The role_assignment_class's get_context() method can return a
+    single context string which could be an ALL_ACCESS_CONTEXT or, incase of multiple user contexts, a list of strings.
+    The context argument is evaluated against the context(s) received from the role_assignment_class while accounting
+    for the ALL_ACCESS_CONTEXT to grant access.
     """
     try:
         role_assignment = role_assignment_class.objects.get(user=user, role__name=role_name)
@@ -62,8 +66,11 @@ def user_has_access_via_database(user, role_name, role_assignment_class, context
         return False
 
     if context:
-        return role_assignment.get_context() in (context, ALL_ACCESS_CONTEXT)
-
+        context_in_database = role_assignment.get_context()
+        if isinstance(context_in_database, string_types):
+            return context_in_database in (context, ALL_ACCESS_CONTEXT)
+        else:  # Multiple context case
+            return context in context_in_database or ALL_ACCESS_CONTEXT in context_in_database
     return True
 
 
@@ -84,6 +91,16 @@ def create_role_auth_claim_for_user(user):
             SystemWideConcreteUserRoleAssignment
         ]
     """
+    def append_role_auth_claim(role_string, context=None):
+        """
+        Append the formatted auth claim for a role and context.
+        """
+        if context:
+            contextual_role = '{}:{}'.format(role_string, context)
+            role_auth_claim.append(contextual_role)
+        else:
+            role_auth_claim.append(role_string)
+
     role_auth_claim = []
     for system_role_loc in settings.SYSTEM_WIDE_ROLE_CLASSES:
         # location can either be a module or a django model
@@ -99,6 +116,11 @@ def create_role_auth_claim_for_user(user):
 
         for role_string, context in role_func(user):
             if context:
-                role_string = '{}:{}'.format(role_string, context)
-            role_auth_claim.append(role_string)
+                if isinstance(context, string_types):
+                    append_role_auth_claim(role_string, context)
+                else:
+                    for item in context:
+                        append_role_auth_claim(role_string, item)
+            else:
+                append_role_auth_claim(role_string)
     return role_auth_claim
