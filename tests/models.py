@@ -11,7 +11,7 @@ from __future__ import absolute_import, unicode_literals
 from edx_rbac.models import UserRole, UserRoleAssignment
 
 
-class ConcreteUserRole(UserRole):  # pylint: disable=model-missing-unicode
+class ConcreteUserRole(UserRole):  # pylint: disable=model-no-explicit-unicode
     """
     Used for testing the UserRole model.
     """
@@ -19,7 +19,7 @@ class ConcreteUserRole(UserRole):  # pylint: disable=model-missing-unicode
     pass
 
 
-class ConcreteUserRoleAssignment(UserRoleAssignment):  # pylint: disable=model-missing-unicode
+class ConcreteUserRoleAssignment(UserRoleAssignment):  # pylint: disable=model-no-explicit-unicode
     """
     Used for testing the UserRoleAssignment model.
     """
@@ -33,7 +33,7 @@ class ConcreteUserRoleAssignment(UserRoleAssignment):  # pylint: disable=model-m
         return "a-test-context"
 
 
-class ConcreteUserRoleAssignmentMultipleContexts(UserRoleAssignment):  # pylint: disable=model-missing-unicode
+class ConcreteUserRoleAssignmentMultipleContexts(UserRoleAssignment):  # pylint: disable=model-no-explicit-unicode
     """
     Used for testing the UserRoleAssignment model when user has multiple contexts.
     """
@@ -47,7 +47,7 @@ class ConcreteUserRoleAssignmentMultipleContexts(UserRoleAssignment):  # pylint:
         return [u'a-test-context', u'a-second-test-context']
 
 
-class ConcreteUserRoleAssignmentNoContext(UserRoleAssignment):  # pylint: disable=model-missing-unicode
+class ConcreteUserRoleAssignmentNoContext(UserRoleAssignment):  # pylint: disable=model-no-explicit-unicode
     """
     Used for testing the UserRoleAssignment model without context returned.
     """
