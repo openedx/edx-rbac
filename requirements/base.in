@@ -1,7 +1,7 @@
 # Core requirements for using this application
 
 Django>=1.8,<2.0          # Web application framework
-django-model-utils        # Provides TimeStampedModel abstract base class
+django-model-utils<=3.2.0        # Provides TimeStampedModel abstract base class
 six
 django-crum
 edx-drf-extensions
