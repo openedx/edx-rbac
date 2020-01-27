@@ -45,7 +45,7 @@ class PermissionRequiredMixin(object):
         """
         crum.set_current_request(request)
 
-        user = request.user
+        user = crum.get_current_user()
         missing_permissions = [perm for perm in self.get_permission_required()
                                if not user.has_perm(perm)]
 
