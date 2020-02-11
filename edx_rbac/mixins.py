@@ -44,10 +44,15 @@ class PermissionRequiredMixin(object):
         Check through permissions required and throws a permission_denied if missing any.
         """
         crum.set_current_request(request)
-
         user = request.user
+
+        if hasattr(self, 'get_permission_object') and callable(self.get_permission_object):
+            obj = self.get_permission_object()
+        else:
+            obj = None
+
         missing_permissions = [perm for perm in self.get_permission_required()
-                               if not user.has_perm(perm)]
+                               if not user.has_perm(perm, obj)]
 
         if any(missing_permissions):
             self.permission_denied(
