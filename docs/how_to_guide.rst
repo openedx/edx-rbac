@@ -133,7 +133,12 @@ Below is a ViewSet with mixin.
         pagination_class = DefaultPagination
         permission_required = 'can_access_enterprise'
 
-8. You are all setup and now when an endpoint gets a request, role based permissions will be checked for the requesting
+8. Implement the `self.get_permission_required` method on a viewset in order to retrieve the permissions
+object to check against. This object gets passed to the rule predicate(s). Without this method implemented,
+the object passed to the rule predicate(s) will always be `None`. Note: django-rules does not support filtering
+a queryset by a user's object-level permissions.
+
+9. You are all setup and now when an endpoint gets a request, role based permissions will be checked for the requesting
 user and either HTTP 403 or any other appropriate response will be returned. In case of HTTP 403, user have no access on
 requesting resource.
 

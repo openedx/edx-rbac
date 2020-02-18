@@ -41,7 +41,9 @@ class PermissionRequiredMixin(object):
 
     def check_permissions(self, request):
         """
-        Check through permissions required and throws a permission_denied if missing any.
+        Check through permissions required and throws a permission_denied if missing any. If
+        `get_permission_object` is implemented, it will be called and should return the object
+        for which the @rules predicate checks against.
         """
         crum.set_current_request(request)
         user = request.user

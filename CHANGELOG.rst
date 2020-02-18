@@ -12,6 +12,12 @@ Change Log
 .. There should always be an "Unreleased" section for changes pending release.
 
 
+[1.1.0] - 2020-02-18
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Update `PermissionRequiredMixin` to pass through an object to rule predicates, if `self.get_permision_required` exists and is callable
+
+
 [1.0.5] - 2019-12-18
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
