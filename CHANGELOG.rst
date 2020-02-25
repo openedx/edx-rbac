@@ -12,6 +12,11 @@ Change Log
 .. There should always be an "Unreleased" section for changes pending release.
 
 
+[1.1.1] - 2020-03-02
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Fix bug in implicit role check when the same role has multiple contexts available.
+
 [1.1.0] - 2020-02-18
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
