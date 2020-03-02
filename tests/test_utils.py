@@ -160,6 +160,77 @@ class TestUtils(TestCase):
             'some_context'
         )
 
+    def test_user_with_multiple_contexts_has_access_via_jwt(self):
+        """
+        Helper function should discern what roles user has based on role data
+        in jwt, and then return true if any of those match the role we're
+        asking about. This case handles checking if each available context
+        matches when the user has access to multiple contexts.
+        """
+        toy_decoded_jwt = {
+            "roles": [
+                "coupon-manager:some_context",
+                "coupon-manager:some_other_context"
+            ]
+        }
+        assert request_user_has_implicit_access_via_jwt(
+            toy_decoded_jwt,
+            'coupon-management',
+            'some_context'
+        )
+
+        assert request_user_has_implicit_access_via_jwt(
+            toy_decoded_jwt,
+            'coupon-management',
+            'some_other_context'
+        )
+
+    def test_user_multiple_contexts_has_access_via_jwt_with_all_access_context(self):
+        """
+        Helper function should discern what roles user has based on role data
+        in jwt, and then return true if any of those match the role we're
+        asking about. This case handles checking if a context not specified
+        in the jwt matches when the user has access to multiple contexts,
+        one of which is the all access context.
+        """
+        toy_decoded_jwt = {
+            "roles": [
+                "coupon-manager:some_context",
+                "coupon-manager:*"
+            ]
+        }
+
+        assert request_user_has_implicit_access_via_jwt(
+            toy_decoded_jwt,
+            'coupon-management',
+            'some_context'
+        )
+
+        assert request_user_has_implicit_access_via_jwt(
+            toy_decoded_jwt,
+            'coupon-management',
+            'some_totally_different_context'
+        )
+
+    def test_user_with_multiple_contexts_has_no_access_via_jwt(self):
+        """
+        Helper function should discern what roles user has based on role data
+        in jwt, and then return true if any of those match the role we're
+        asking about. This case handles checking if a non-available context
+        does not match when the user has access to multiple other contexts.
+        """
+        toy_decoded_jwt = {
+            "roles": [
+                "coupon-manager:some_context",
+                "coupon-manager:some_other_context"
+            ]
+        }
+        assert not request_user_has_implicit_access_via_jwt(
+            toy_decoded_jwt,
+            'coupon-management',
+            'some_totally_different_context'
+        )
+
 
 class TestUtilsWithDatabaseRequirements(TestCase):
     """

@@ -40,13 +40,16 @@ def request_user_has_implicit_access_via_jwt(decoded_jwt, role_name, context=Non
         # split should be more robust because of our cousekeys having colons
         role_in_jwt, __, context_in_jwt = role_data.partition(':')
         mapped_roles = settings.SYSTEM_TO_FEATURE_ROLE_MAPPING.get(role_in_jwt, [])
-        feature_roles.update({role: context_in_jwt for role in mapped_roles})
+        for role in mapped_roles:
+            if role not in feature_roles:
+                feature_roles[role] = []
+            feature_roles[role].append(context_in_jwt)
 
     if role_name in feature_roles:
         if not context:
             return True
         else:
-            return feature_roles[role_name] in (context, ALL_ACCESS_CONTEXT)
+            return context in feature_roles[role_name] or ALL_ACCESS_CONTEXT in feature_roles[role_name]
 
     return False
 
