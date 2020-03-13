@@ -5,7 +5,7 @@ Forms to be used for testing.
 from __future__ import absolute_import, unicode_literals
 
 from edx_rbac.admin.forms import UserRoleAssignmentAdminForm
-from tests.models import ConcreteUserRoleAssignment
+from tests.test_models_app.models import ConcreteUserRoleAssignment
 
 
 class ConcreteUserRoleAssignmentAdminForm(UserRoleAssignmentAdminForm):
@@ -25,4 +25,5 @@ class ConcreteUserRoleAssignmentAdminForm(UserRoleAssignmentAdminForm):
         """
         Return cleaned data.
         """
+        # pylint: disable=no-member
         return super(ConcreteUserRoleAssignmentAdminForm, self).cleaned_data()

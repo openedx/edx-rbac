@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 
 from tests.forms import ConcreteUserRoleAssignmentAdminForm
-from tests.models import ConcreteUserRole, ConcreteUserRoleAssignment
+from tests.test_models_app.models import ConcreteUserRole, ConcreteUserRoleAssignment
 
 
 class TestForms(TestCase):

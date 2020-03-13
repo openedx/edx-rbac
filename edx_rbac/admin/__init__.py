@@ -14,7 +14,7 @@ class UserRoleAssignmentAdmin(admin.ModelAdmin):
     Django admin for UserRoleAssignment.
     """
 
-    class Meta(object):
+    class Meta:
         """
         Meta class for UserRoleAssignmentAdmin.
         """

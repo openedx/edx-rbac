@@ -14,7 +14,7 @@ from edx_rbac.utils import (
     request_user_has_implicit_access_via_jwt,
     user_has_access_via_database
 )
-from tests.models import (
+from tests.test_models_app.models import (
     ConcreteUserRole,
     ConcreteUserRoleAssignment,
     ConcreteUserRoleAssignmentMultipleContexts,
@@ -239,9 +239,8 @@ class TestUtilsWithDatabaseRequirements(TestCase):
 
     def setUp(self):
         super(TestUtilsWithDatabaseRequirements, self).setUp()
-        self.user = User.objects.create(username='test_user', password='pw')
-        self.role = ConcreteUserRole(name='coupon-manager')
-        self.role.save()
+        self.user = User.objects.get_or_create(username='test_user', password='pw')[0]
+        self.role = ConcreteUserRole.objects.get_or_create(name='coupon-manager')[0]
 
     def test_user_has_access_via_database(self):
         """
@@ -314,7 +313,7 @@ class TestUtilsWithDatabaseRequirements(TestCase):
             role=self.role
         )
 
-        with patch('tests.models.ConcreteUserRoleAssignment.get_context', return_value=ALL_ACCESS_CONTEXT):
+        with patch('tests.test_models_app.models.ConcreteUserRoleAssignment.get_context', return_value=ALL_ACCESS_CONTEXT):
             assert user_has_access_via_database(
                 self.user,
                 'coupon-manager',
@@ -333,7 +332,7 @@ class TestUtilsWithDatabaseRequirements(TestCase):
         )
 
         with patch(
-                'tests.models.ConcreteUserRoleAssignmentMultipleContexts.get_context',
+                'tests.test_models_app.models.ConcreteUserRoleAssignmentMultipleContexts.get_context',
                 return_value=[u'some_context', ALL_ACCESS_CONTEXT]
         ):
             assert user_has_access_via_database(

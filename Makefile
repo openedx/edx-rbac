@@ -5,7 +5,10 @@
 .DEFAULT_GOAL := help
 
 define BROWSER_PYSCRIPT
-import os, webbrowser, sys
+import os
+import sys
+import webbrowser
+
 try:
 	from urllib import pathname2url
 except:
@@ -50,6 +53,7 @@ upgrade: ## update the requirements/*.txt files with the latest packages satisfy
 	pip-compile --upgrade -o requirements/travis.txt requirements/travis.in
 	pip-compile --upgrade -o requirements/dev.txt requirements/dev.in
 	# Let tox control the Django version for tests
+	grep -e "^django==" requirements/base.txt > requirements/django.txt
 	sed '/^[dD]jango==/d' requirements/test.txt > requirements/test.tmp
 	mv requirements/test.tmp requirements/test.txt
 

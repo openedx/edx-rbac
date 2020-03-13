@@ -1,14 +1,14 @@
 language: python
 python:
-- 2.7
-- 3.6
+- 3.5
 env:
-- TOXENV=master
+- TOXENV=django111
+- TOXENV=django20
+- TOXENV=django21
+- TOXENV=django22
 matrix:
   include:
-  - python: 3.6
-    env: TOXENV=quality
-  - python: 2.7
+  - python: 3.5
     env: TOXENV=quality
 cache:
 - pip

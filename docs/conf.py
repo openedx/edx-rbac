@@ -21,10 +21,11 @@ import re
 import sys
 from subprocess import check_call
 
-import edx_theme
 from django import setup as django_setup
 from django.conf import settings
 from django.utils import six
+
+import edx_theme
 
 
 def get_version(*file_paths):
@@ -497,7 +498,7 @@ def on_init(app):  # pylint: disable=unused-argument
         bin_path = os.path.abspath(os.path.join(sys.prefix, 'bin'))
         apidoc_path = os.path.join(bin_path, apidoc_path)
     check_call([apidoc_path, '-o', docs_path, os.path.join(root_path, 'edx_rbac'),
-                os.path.join(root_path, 'edx_rbac/migrations')])
+                os.path.join(root_path, 'edx_rbac/../tests/migrations')])
 
 
 def setup(app):
