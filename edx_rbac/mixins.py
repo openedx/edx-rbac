@@ -11,7 +11,7 @@ from django.core.exceptions import ImproperlyConfigured
 from six import string_types
 
 
-class PermissionRequiredMixin(object):
+class PermissionRequiredMixin:
     """
     Mixin for checking permissions with django rules.
     """

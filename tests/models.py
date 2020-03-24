@@ -16,8 +16,6 @@ class ConcreteUserRole(UserRole):  # pylint: disable=model-no-explicit-unicode
     Used for testing the UserRole model.
     """
 
-    pass
-
 
 class ConcreteUserRoleAssignment(UserRoleAssignment):  # pylint: disable=model-no-explicit-unicode
     """
