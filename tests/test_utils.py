@@ -239,9 +239,8 @@ class TestUtilsWithDatabaseRequirements(TestCase):
 
     def setUp(self):
         super(TestUtilsWithDatabaseRequirements, self).setUp()
-        self.user = User.objects.create(username='test_user', password='pw')
-        self.role = ConcreteUserRole(name='coupon-manager')
-        self.role.save()
+        self.user = User.objects.get_or_create(username='test_user', password='pw')[0]
+        self.role = ConcreteUserRole.objects.get_or_create(name='coupon-manager')[0]
 
     def test_user_has_access_via_database(self):
         """

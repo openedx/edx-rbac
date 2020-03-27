@@ -12,6 +12,11 @@ Change Log
 .. There should always be an "Unreleased" section for changes pending release.
 
 
+[1.1.2] - 2020-03-27
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Added support for Django 2.0, 2.1, and 2.2.
+
 [1.1.1] - 2020-03-02
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
