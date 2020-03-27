@@ -6,10 +6,7 @@ env:
 - TOXENV=django20
 - TOXENV=django21
 - TOXENV=django22
-matrix:
-  include:
-  - python: 3.5
-    env: TOXENV=quality
+- TOXENV=quality
 cache:
 - pip
 install:

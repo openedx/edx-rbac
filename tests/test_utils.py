@@ -14,7 +14,7 @@ from edx_rbac.utils import (
     request_user_has_implicit_access_via_jwt,
     user_has_access_via_database
 )
-from tests.test_models_app.models import (
+from tests.models import (
     ConcreteUserRole,
     ConcreteUserRoleAssignment,
     ConcreteUserRoleAssignmentMultipleContexts,
@@ -313,7 +313,7 @@ class TestUtilsWithDatabaseRequirements(TestCase):
             role=self.role
         )
 
-        with patch('tests.test_models_app.models.ConcreteUserRoleAssignment.get_context', return_value=ALL_ACCESS_CONTEXT):
+        with patch('tests.models.ConcreteUserRoleAssignment.get_context', return_value=ALL_ACCESS_CONTEXT):
             assert user_has_access_via_database(
                 self.user,
                 'coupon-manager',
@@ -332,7 +332,7 @@ class TestUtilsWithDatabaseRequirements(TestCase):
         )
 
         with patch(
-                'tests.test_models_app.models.ConcreteUserRoleAssignmentMultipleContexts.get_context',
+                'tests.models.ConcreteUserRoleAssignmentMultipleContexts.get_context',
                 return_value=[u'some_context', ALL_ACCESS_CONTEXT]
         ):
             assert user_has_access_via_database(

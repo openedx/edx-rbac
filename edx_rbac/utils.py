@@ -6,6 +6,7 @@ from __future__ import absolute_import, unicode_literals
 
 import importlib
 
+from django.apps import apps
 from django.conf import settings
 from six import string_types
 
@@ -113,9 +114,8 @@ def create_role_auth_claim_for_user(user):
             role_func = getattr(module, func_name)
         except (ImportError, AttributeError):
             # otherwise, assume that it's a django model
-            models = importlib.import_module('{0}.models'.format(module_name))
-            model = getattr(models, func_name)
-            role_func = model.get_assignments
+            module = apps.get_model(module_name, func_name)
+            role_func = module.get_assignments
 
         for role_string, context in role_func(user):
             if context:

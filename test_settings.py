@@ -32,7 +32,7 @@ INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'edx_rbac',
-    'tests.test_models_app',
+    'tests',
 )
 
 LOCALE_PATHS = [
@@ -53,8 +53,8 @@ SYSTEM_TO_FEATURE_ROLE_MAPPING = {
 }
 
 SYSTEM_WIDE_ROLE_CLASSES = [
-    'tests.test_models_app.ConcreteUserRoleAssignment',
-    'tests.test_models_app.ConcreteUserRoleAssignmentMultipleContexts',
+    'tests.ConcreteUserRoleAssignment',
+    'tests.ConcreteUserRoleAssignmentMultipleContexts',
     'tests.test_assignments.get_assigments',
 ]
 

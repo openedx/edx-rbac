@@ -52,7 +52,6 @@ class UserRole(TimeStampedModel):
         Meta class for UserRole.
         """
 
-        app_label = 'edx_rbac'
         abstract = True
 
     def __str__(self):
@@ -76,7 +75,6 @@ class UserRoleAssignment(with_metaclass(UserRoleAssignmentCreator, TimeStampedMo
         Meta class for UserRoleAssignment.
         """
 
-        app_label = 'edx_rbac'
         abstract = True
 
     def get_context(self):
