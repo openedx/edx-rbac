@@ -68,9 +68,7 @@ requirements: ## install development environment requirements
 	pip-sync requirements/dev.txt requirements/private.*
 
 test: clean ## run tests in the current virtualenv
-	touch tests/__init__.py
 	pytest
-	rm tests/__init__.py
 
 diff_cover: test ## find diff lines that need test coverage
 	diff-cover coverage.xml
