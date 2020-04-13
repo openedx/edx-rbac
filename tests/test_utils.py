@@ -4,7 +4,7 @@ Tests for the `edx-rbac` utilities module.
 """
 from __future__ import absolute_import, unicode_literals
 
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AnonymousUser, User
 from django.test import RequestFactory, TestCase
 from mock import patch
 
@@ -390,6 +390,18 @@ class TestUtilsWithDatabaseRequirements(TestCase):
             'coupon-manager',
             ConcreteUserRoleAssignment,
             'not_the_right_context'
+        )
+
+    def test_anonymous_user_has_no_access_via_database(self):
+        """
+        Access check should return false if user is an AnonymousUser object
+        """
+        user = AnonymousUser()
+        assert not user_has_access_via_database(
+            user,
+            'coupon-manager',
+            ConcreteUserRoleAssignment,
+            'test_context'
         )
 
     def test_create_role_auth_claim_for_user(self):
