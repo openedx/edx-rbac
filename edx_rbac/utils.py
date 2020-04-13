@@ -63,6 +63,8 @@ def user_has_access_via_database(user, role_name, role_assignment_class, context
     The context argument is evaluated against the context(s) received from the role_assignment_class while accounting
     for the ALL_ACCESS_CONTEXT to grant access.
     """
+    if user.is_anonymous:
+        return False
     try:
         role_assignment = role_assignment_class.objects.get(user=user, role__name=role_name)
     except role_assignment_class.DoesNotExist:
