@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# pylint: disable=C0111,W6005,W6100,useless-suppression
+# pylint: disable=C0111,useless-suppression
 """
 Package metadata for edx_rbac.
 """
