@@ -12,6 +12,12 @@ Change Log
 .. There should always be an "Unreleased" section for changes pending release.
 
 
+[1.2.0] - 2020-04-30
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Removed support for django 2.0 and 2.1
+* Added Support for Python 3.8
+
 [1.1.3] - 2020-04-13
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
