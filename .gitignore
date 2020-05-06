@@ -36,3 +36,9 @@ edx_rbac.egg-info/
 
 # Visual Studio Code
 .vscode
+
+# emacs
+*~
+
+# virtual environments
+venvs/

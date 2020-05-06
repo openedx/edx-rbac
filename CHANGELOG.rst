@@ -11,6 +11,16 @@ Change Log
 
 .. There should always be an "Unreleased" section for changes pending release.
 
+Unreleased
+--------------------
+
+[1.2.1] - 2020-05-08
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Exposes a new ``utils.feature_roles_from_jwt()`` function, which, given a decoded JWT,
+  will provide a mapping of feature roles to contexts/identifiers.
+* Modifies ``utils.user_has_access_via_database()`` to check for multiple database role assignments
+  for a given user and role name (i.e. uses a ``filter()`` instead of a ``get()``).
 
 [1.2.0] - 2020-04-30
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

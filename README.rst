@@ -11,12 +11,12 @@ codebase.
 
 Library to help managing role based access controls for django apps
 
-Overview (please modify)
-------------------------
+Overview
+--------
 
-The ``README.rst`` file should then provide an overview of the code in this
-repository, including the main components and useful entry points for starting
-to understand the code in more detail.
+Library to help manage role based access controls for django apps.
+See the `Getting started <https://github.com/edx/edx-rbac/blob/master/docs/getting_started.rst>`_ guide to begin developing.
+
 
 Documentation
 -------------

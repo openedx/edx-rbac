@@ -5,6 +5,7 @@ Utils for 'edx-rbac' module.
 from __future__ import absolute_import, unicode_literals
 
 import importlib
+from collections import defaultdict
 
 from django.apps import apps
 from django.conf import settings
@@ -33,17 +34,8 @@ def request_user_has_implicit_access_via_jwt(decoded_jwt, role_name, context=Non
     """
     if not decoded_jwt:
         return False
-    jwt_roles_claim = decoded_jwt.get('roles', [])
 
-    feature_roles = {}
-    for role_data in jwt_roles_claim:
-        # split should be more robust because of our cousekeys having colons
-        role_in_jwt, __, context_in_jwt = role_data.partition(':')
-        mapped_roles = settings.SYSTEM_TO_FEATURE_ROLE_MAPPING.get(role_in_jwt, [])
-        for role in mapped_roles:
-            if role not in feature_roles:
-                feature_roles[role] = []
-            feature_roles[role].append(context_in_jwt)
+    feature_roles = feature_roles_from_jwt(decoded_jwt)
 
     if role_name in feature_roles:
         if not context:
@@ -52,6 +44,28 @@ def request_user_has_implicit_access_via_jwt(decoded_jwt, role_name, context=Non
             return context in feature_roles[role_name] or ALL_ACCESS_CONTEXT in feature_roles[role_name]
 
     return False
+
+
+def feature_roles_from_jwt(decoded_jwt):
+    """
+    Get the mapping of feature roles to roles found in the given JWT.
+
+    Given a decoded JWT, returns a mapping of feature role names to list of
+    contexts for which that role name applies.  A "context" here usually
+    means the primary identifier of some resource.
+    """
+    jwt_roles_claim = decoded_jwt.get('roles', [])
+
+    feature_roles = defaultdict(list)
+
+    for role_data in jwt_roles_claim:
+        # split should be more robust because of our cousekeys having colons
+        role_in_jwt, __, context_in_jwt = role_data.partition(':')
+        mapped_roles = settings.SYSTEM_TO_FEATURE_ROLE_MAPPING.get(role_in_jwt, [])
+        for role in mapped_roles:
+            feature_roles[role].append(context_in_jwt)
+
+    return feature_roles
 
 
 def user_has_access_via_database(user, role_name, role_assignment_class, context=None):
@@ -65,18 +79,26 @@ def user_has_access_via_database(user, role_name, role_assignment_class, context
     """
     if getattr(user, 'is_anonymous', False):
         return False
-    try:
-        role_assignment = role_assignment_class.objects.get(user=user, role__name=role_name)
-    except role_assignment_class.DoesNotExist:
+
+    role_assignments = role_assignment_class.objects.filter(user=user, role__name=role_name)
+
+    if not role_assignments:
         return False
 
-    if context:
-        context_in_database = role_assignment.get_context()
+    if not context:
+        return True
+
+    assigned_contexts = set()
+
+    for assignment in role_assignments:
+        context_in_database = assignment.get_context()
         if isinstance(context_in_database, string_types):
-            return context_in_database in (context, ALL_ACCESS_CONTEXT)
-        else:  # Multiple context case
-            return context in context_in_database or ALL_ACCESS_CONTEXT in context_in_database
-    return True
+            assigned_contexts.add(context_in_database)
+        else:
+            # There are multiple contexts allowed via this assignment
+            assigned_contexts.update(context_in_database)
+
+    return (context in assigned_contexts) or (ALL_ACCESS_CONTEXT in assigned_contexts)
 
 
 def create_role_auth_claim_for_user(user):
