@@ -14,6 +14,14 @@ Change Log
 Unreleased
 --------------------
 
+[1.3.0] - 2020-06-11
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Adds a PermissionRequiredForListingMixin that can be used in DRF ModelViewSets and supports a list action.
+  This should allow list actions to return all of the elements from a base_queryset that
+  the requesting user has access to, either via their JWT or DB-assigned roles.
+* Adds/modifies utility functions that deal with permission-checking to support multiple roles and multiple contexts.
+
 [1.2.1] - 2020-05-08
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

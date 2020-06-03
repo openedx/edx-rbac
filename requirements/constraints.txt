@@ -1,0 +1,8 @@
+# Stay on the same Django major version as our other services
+Django<3
+
+# stevedore 2.0.0 doesn't install on python 3.5 (circa 2020-06-10)
+stevedore<2
+
+# zipp 2.0.0 requires Python >= 3.6
+zipp==1.0.0
