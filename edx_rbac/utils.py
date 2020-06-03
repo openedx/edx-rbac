@@ -6,9 +6,12 @@ from __future__ import absolute_import, unicode_literals
 
 import importlib
 from collections import defaultdict
+from collections.abc import Iterable
 
 from django.apps import apps
 from django.conf import settings
+from edx_rest_framework_extensions.auth.jwt.authentication import get_decoded_jwt_from_auth
+from edx_rest_framework_extensions.auth.jwt.cookies import get_decoded_jwt as get_decoded_jwt_from_cookie
 from six import string_types
 
 ALL_ACCESS_CONTEXT = '*'
@@ -35,15 +38,38 @@ def request_user_has_implicit_access_via_jwt(decoded_jwt, role_name, context=Non
     if not decoded_jwt:
         return False
 
-    feature_roles = feature_roles_from_jwt(decoded_jwt)
+    assigned_contexts = contexts_accessible_from_jwt(decoded_jwt, [role_name])
+    return _user_has_access(assigned_contexts, context)
 
-    if role_name in feature_roles:
-        if not context:
-            return True
-        else:
-            return context in feature_roles[role_name] or ALL_ACCESS_CONTEXT in feature_roles[role_name]
 
-    return False
+def contexts_accessible_from_request(request, role_names):
+    """
+    Uses the JWT provided from a given `request` to determine
+    the set of accessible contexts for the given `role_name`.
+
+    This answers the question: What are all of the contexts accessible to the
+    requesting user under the given role via the request's JWT?
+    """
+    return contexts_accessible_from_jwt(
+        get_decoded_jwt(request),
+        role_names
+    )
+
+
+def contexts_accessible_from_jwt(decoded_jwt, role_names):
+    """
+    Given a `decoded_jwt` dictionary and a list of role names,
+    returns a set of contexts (identifiers) to which the JWT
+    grants access for the given roles.  May contain the "wildcard" `ALL_ACCESS_CONTEXT`,
+    which grants access within these roles to any context.
+    """
+    assigned_contexts_by_feature_role = feature_roles_from_jwt(decoded_jwt)
+    accessible_contexts = set()
+    for role_name in role_names:
+        accessible_contexts.update(
+            assigned_contexts_by_feature_role.get(role_name, [])
+        )
+    return accessible_contexts
 
 
 def feature_roles_from_jwt(decoded_jwt):
@@ -80,25 +106,28 @@ def user_has_access_via_database(user, role_name, role_assignment_class, context
     if getattr(user, 'is_anonymous', False):
         return False
 
-    role_assignments = role_assignment_class.objects.filter(user=user, role__name=role_name)
+    assigned_contexts = contexts_accessible_from_database(user, [role_name], role_assignment_class)
+    return _user_has_access(assigned_contexts, context)
 
-    if not role_assignments:
-        return False
 
-    if not context:
-        return True
+def contexts_accessible_from_database(user, role_names, role_assignment_class):
+    """
+    Given a user and role, returns a set of contexts (identifiers) to
+    which the user has access for the role.  May contain the "wildcard" `ALL_ACCESS_CONTEXT`,
+    which grants access in this role to any context.
+
+    This answers the question: What are all of the contexts accessible to the
+    requesting user under the given role via DB-persisted role assignments?
+    """
+    role_assignments = role_assignment_class.objects.filter(user=user, role__name__in=role_names)
 
     assigned_contexts = set()
 
     for assignment in role_assignments:
-        context_in_database = assignment.get_context()
-        if isinstance(context_in_database, string_types):
-            assigned_contexts.add(context_in_database)
-        else:
-            # There are multiple contexts allowed via this assignment
-            assigned_contexts.update(context_in_database)
-
-    return (context in assigned_contexts) or (ALL_ACCESS_CONTEXT in assigned_contexts)
+        assigned_contexts.update(
+            set_from_collection_or_single_item(assignment.get_context())
+        )
+    return assigned_contexts
 
 
 def create_role_auth_claim_for_user(user):
@@ -151,3 +180,55 @@ def create_role_auth_claim_for_user(user):
             else:
                 append_role_auth_claim(role_string)
     return role_auth_claim
+
+
+def is_iterable(obj):
+    """
+    Returns True if obj is an instance of collections.abc.Iterable.
+    """
+    return isinstance(obj, Iterable)
+
+
+def set_from_collection_or_single_item(obj):
+    """
+    For iterables that are not strings, returns a set of the iterable.
+    For all other types of objects, returns a set containing only the object.
+    """
+    if is_iterable(obj) and not isinstance(obj, string_types):
+        return set(obj)
+    return set([obj])
+
+
+def get_decoded_jwt(request):
+    """
+    Decodes the request's JWT from either cookies or auth payload and returns it.
+    Defaults to an empty dictionary.
+    """
+    decoded_jwt = get_decoded_jwt_from_cookie(request) or get_decoded_jwt_from_auth(request)
+    return decoded_jwt or {}
+
+
+def has_access_to_all(assigned_contexts):
+    """
+    Determines whether the `ALL_ACCESS_CONTEXT` token is in the set of assigned contexts.
+    """
+    return ALL_ACCESS_CONTEXT in assigned_contexts
+
+
+def _user_has_access(assigned_contexts, requested_context):
+    """
+    `assigned_contexts` - A set of contexts/identifiers which have been assigned access to some user.
+    `requested_context` - 0 or many contexts of which to check access.
+    """
+    # If there are no contexts assigned, return False.
+    if not assigned_contexts:
+        return False
+
+    # If the user has access to at least one context, and no particular
+    # context was asked to be checked in this call, return True.
+    if not requested_context:
+        return True
+
+    contexts_to_check = set_from_collection_or_single_item(requested_context)
+
+    return has_access_to_all(assigned_contexts) or contexts_to_check.issubset(assigned_contexts)
