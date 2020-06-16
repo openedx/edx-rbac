@@ -119,13 +119,11 @@ def contexts_accessible_from_database(user, role_names, role_assignment_class):
     This answers the question: What are all of the contexts accessible to the
     requesting user under the given role via DB-persisted role assignments?
     """
-    role_assignments = role_assignment_class.objects.filter(user=user, role__name__in=role_names)
-
     assigned_contexts = set()
 
-    for assignment in role_assignments:
+    for _, context in role_assignment_class.get_assignments(user, role_names):
         assigned_contexts.update(
-            set_from_collection_or_single_item(assignment.get_context())
+            set_from_collection_or_single_item(context)
         )
     return assigned_contexts
 

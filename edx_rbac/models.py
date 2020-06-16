@@ -84,14 +84,17 @@ class UserRoleAssignment(with_metaclass(UserRoleAssignmentCreator, TimeStampedMo
         return None
 
     @classmethod
-    def get_assignments(cls, user):
+    def get_assignments(cls, user, role_names=None):
         """
         Return iterator of (rolename, context).
         """
-        for assign in cls.objects.filter(
-            user=user
-        ).select_related('role'):
-            yield assign.role.name, assign.get_context()
+        if not user.is_anonymous:
+            kwargs = {'user': user}
+            if role_names:
+                kwargs['role__name__in'] = role_names
+
+            for assignment in cls.objects.filter(**kwargs).select_related('role'):
+                yield assignment.role.name, assignment.get_context()
 
     def __str__(self):
         """
