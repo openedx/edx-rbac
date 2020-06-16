@@ -14,6 +14,12 @@ Change Log
 Unreleased
 --------------------
 
+[1.3.1] - 2020-06-16
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Update ``get_assignments()`` to guard against AnonymousUsers.
+* Update ``contexts_accessible_from_database()`` to use ``get_assignments()`` instead of building a "custom" QuerySet.
+
 [1.3.0] - 2020-06-11
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
