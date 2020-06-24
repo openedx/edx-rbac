@@ -3,8 +3,6 @@
 Database models for edx_rbac.
 """
 
-from __future__ import absolute_import, unicode_literals
-
 from django.conf import settings
 from django.db import models
 from django.db.models.base import ModelBase

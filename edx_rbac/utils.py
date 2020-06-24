@@ -2,7 +2,6 @@
 """
 Utils for 'edx-rbac' module.
 """
-from __future__ import absolute_import, unicode_literals
 
 import importlib
 from collections import defaultdict

@@ -1,7 +1,6 @@
 """
 Taken from https://github.com/escodebar/django-rest-framework-rules/blob/master/rest_framework_rules/decorators.py.
 """
-from __future__ import absolute_import, unicode_literals
 
 import functools
 
