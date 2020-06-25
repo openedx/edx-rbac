@@ -2,7 +2,6 @@
 """
 Tests for the `edx-rbac` utilities module.
 """
-from __future__ import absolute_import, unicode_literals
 
 from contextlib import contextmanager
 from unittest import mock

@@ -2,7 +2,6 @@
 """
 Django admin integration for djangoapps using edx-rbac.
 """
-from __future__ import absolute_import, unicode_literals
 
 from django.contrib import admin
 

@@ -13,7 +13,7 @@ All configuration values have a default; values that are commented out
 serve to show the default.
 """
 
-from __future__ import absolute_import, unicode_literals
+
 
 import io
 import os
@@ -21,11 +21,10 @@ import re
 import sys
 from subprocess import check_call
 
+import edx_theme
 from django import setup as django_setup
 from django.conf import settings
 from django.utils import six
-
-import edx_theme
 
 
 def get_version(*file_paths):

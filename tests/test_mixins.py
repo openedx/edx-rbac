@@ -1,7 +1,6 @@
 """
 Tests for the `edx-rbac` mixins module.
 """
-from __future__ import absolute_import, unicode_literals
 
 from unittest import mock
 

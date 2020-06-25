@@ -2,7 +2,6 @@
 """
 Fields to be used for djangoapps extending edx_rbac.
 """
-from __future__ import absolute_import, unicode_literals
 
 from django import forms
 from django.apps import apps

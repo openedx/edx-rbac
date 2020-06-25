@@ -4,7 +4,6 @@ Mixin adapted from https://github.com/escodebar/django-rest-framework-rules/blob
 
 Keeps py2 backward compatibility and only holds on to the necessary bits of the mixin needed.
 """
-from __future__ import absolute_import, unicode_literals
 
 import crum
 from django.core.exceptions import ImproperlyConfigured
