@@ -26,10 +26,48 @@ class ToyViewSet(PermissionRequiredForListingMixin):
     allowed_roles = ['role_1', 'role_2']
     role_assignment_class = ToyRoleAssignmentClass
 
-    request = mock.Mock()
+    request = mock.MagicMock()
     action = 'list'
 
-    base_queryset = mock.Mock()
+    base_queryset = mock.MagicMock()
+    # Falsey (empty) QuerySets are allowed
+    base_queryset.__bool__.return_value = False
+
+    def permission_denied(self, request):
+        raise PermissionDenied
+
+
+class ToyViewSetNullBaseQueryset(PermissionRequiredForListingMixin):
+    """
+    Toy class for testing that an exception is raised
+    when base_queryset returns None.
+    """
+    list_lookup_field = 'something'
+    allowed_roles = ['role_1', 'role_2']
+    role_assignment_class = ToyRoleAssignmentClass
+
+    request = mock.MagicMock()
+    action = 'list'
+
+    base_queryset = None  # should raise an AssertionError
+
+    def permission_denied(self, request):
+        raise PermissionDenied
+
+
+class ToyViewSetEmptyListLookupField(PermissionRequiredForListingMixin):
+    """
+    Toy class for testing that an exception is raised
+    when base_queryset returns None.
+    """
+    list_lookup_field = 'something'
+    allowed_roles = ['role_1', 'role_2']
+    role_assignment_class = ToyRoleAssignmentClass
+
+    request = mock.MagicMock()
+    action = 'list'
+
+    base_queryset = None  # should raise an AssertionError
 
     def permission_denied(self, request):
         raise PermissionDenied
@@ -196,3 +234,21 @@ class TestPermissionRequiredForListingMixin(TestCase):
         expected_queryset = viewset.base_queryset
 
         assert expected_queryset == actual_queryset
+
+    def test_get_queryset_assertion_error_for_null_base_queryset(self):
+        """
+        The get_queryset() method should raise an exception
+        if the base_queryset property is null.
+        """
+        viewset = ToyViewSetNullBaseQueryset()
+        with self.assertRaises(Exception):
+            viewset.get_queryset()
+
+    def test_get_queryset_assertion_error_for_empty_list_lookup_field(self):
+        """
+        The get_queryset() method should raise an exception
+        if the list_lookup_field is empty.
+        """
+        viewset = ToyViewSetEmptyListLookupField()
+        with self.assertRaises(Exception):
+            viewset.get_queryset()

@@ -169,10 +169,10 @@ class PermissionRequiredForListingMixin(PermissionRequiredMixin):
         and `self.list_lookup_field` to be defined.
         You'll most likely want it to be `MyModel.objects.all().order_by('some_field')`.
         """
-        if not getattr(self, 'base_queryset', None):
+        if getattr(self, 'base_queryset', None) is None:
             raise Exception('{} must have a non-null "base_queryset" field.'.format(self.__class__))
         if not getattr(self, 'list_lookup_field', None):
-            raise Exception('{} must have a non-null "list_lookup_field" field.'.format(self.__class__))
+            raise Exception('{} must have a truthy "list_lookup_field" field.'.format(self.__class__))
 
         if self.request_action == 'list':
             if not self.accessible_contexts:
