@@ -14,6 +14,12 @@ Change Log
 Unreleased
 --------------------
 
+[1.3.2] - 2020-07-28
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* ``PermissionRequiredForListingMixin.get_queryset()`` should allow falsey ``base_queryset`` properties, like
+  an empty ``QuerySet`` object.  Adds tests to verify that this is the case.
+
 [1.3.1] - 2020-06-16
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
