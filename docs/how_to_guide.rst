@@ -1,6 +1,5 @@
 RBAC authorization guide
 ========================
-
 This guide covers information you need to know to implement role-based authorization on API endpoints.
 
 
@@ -11,9 +10,10 @@ Background
 What is a role? What do "access" and "authorization" even mean?  This section provides a brief
 outline of how Role-Based Access Control (RBAC).
 
+
 The Big Idea
 ^^^^^^^^^^^^
-There are many different types of users within the edX ecosystem, for example: a learner in a course,
+There are many different types of users within the Open edX ecosystem, for example: a learner in a course,
 a course author, a course administrator, an enterprise administrator, or a global administrator. We often
 want to restrict access to certain resources based on the type of user requesting access to those resources.
 A "role" is simply a synonym for "type of user".  In edx-rbac, we provide utilities to define a mapping
@@ -28,21 +28,36 @@ which are boolean functions that answer "is this resource accessible in a certai
 These predicates can be defined based on a user's role. `django-rules` then allows us to map predicates to
 a Django permission.
 
-This is all pretty straightforward.  The complexity lies in the fact that the edX ecosystem is composed
-of discrete micro-services and micro-frontends.
+This is all pretty straightforward.  The complexity lies in the fact that the
+Open edX ecosystem ("the ecosystem" hereafter) is composed
+of discrete micro-services and micro-frontends. The edx-rbac solution to this complexity is to define
+two different types of roles and let each service specify a mapping between them.
+
+
+Central Authentication Service
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The LMS service (that is, ``courses.edx.org``) is the central Authentication provider in the Open edX ecosystem. It
+provides authenticated users with a JSON Web Token (JWT) in the form of a cookie.  This JWT specifies the set of
+roles that are applicable to the user throughout the ecosystem.
+See `OEP-42: Authentication <https://open-edx-proposals.readthedocs.io/en/latest/oep-0042-bp-authentication.html>`_
+for a broader overview of Authentication.
 
 
 Roles
 ^^^^^
+edx-rbac makes use of two types of roles:
 
-* System wide roles:
-    These are the roles used across all the edx services. Role data is added by LMS using a mapping
-    between a user and a role. Role data is communicated by JSON Web Tokens.
+* System wide roles: These are the roles used across the ecosystem.
+  Role data is added to an authenticated user's JWT cookie based on `assignment` relationships between
+  the user, a role, and a context (which is usually a resource identifier).  This assignment is usually
+  persisted using a Django model.
+
 * Feature specific roles:
-    These are specific to a feature/service and role assignment is created through django admin by a specific service.
+    These are specific to a feature/service.  They may be inferred based on an assigned system-wide role,
+    or declared explicitly via an assignment relationship.
 
 Access
-------
+^^^^^^
 * Implicit:
     Verify the request's user access by mapping user's system wide roles found in JWT to local feature roles.
 * Explicit:
@@ -53,7 +68,6 @@ Access
 
     In both the implicit and explicit access, role data has a context that tells which resource(s)
     the requesting user can access
-
 
 Implementation
 --------------
