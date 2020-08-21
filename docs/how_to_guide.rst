@@ -1,14 +1,40 @@
 RBAC authorization guide
 ========================
 
-This section covers information you need to know to implement RBAC authorization on API endpoints.
+This guide covers information you need to know to implement role-based authorization on API endpoints.
 
 
 .. contents:: Table of Contents
 
+Background
+----------
+What is a role? What do "access" and "authorization" even mean?  This section provides a brief
+outline of how Role-Based Access Control (RBAC).
+
+The Big Idea
+^^^^^^^^^^^^
+There are many different types of users within the edX ecosystem, for example: a learner in a course,
+a course author, a course administrator, an enterprise administrator, or a global administrator. We often
+want to restrict access to certain resources based on the type of user requesting access to those resources.
+A "role" is simply a synonym for "type of user".  In edx-rbac, we provide utilities to define a mapping
+of users to roles (that is, we can specify that "jane" has the role "enterprise administrator").
+
+Similarly, there are many different types of permissions that may be applicable to some type of resource, for example:
+permission to read data about some resource, permission to update a resource, etc.  Django allows
+us to define permissions at the model (type of resource) or object (a specific instance of a model).
+
+We can make use of a library called `django-rules <https://github.com/dfunckt/django-rules>`_ to define "predicates",
+which are boolean functions that answer "is this resource accessible in a certain to the requesting user?"
+These predicates can be defined based on a user's role. `django-rules` then allows us to map predicates to
+a Django permission.
+
+This is all pretty straightforward.  The complexity lies in the fact that the edX ecosystem is composed
+of discrete micro-services and micro-frontends.
+
 
 Roles
------
+^^^^^
+
 * System wide roles:
     These are the roles used across all the edx services. Role data is added by LMS using a mapping
     between a user and a role. Role data is communicated by JSON Web Tokens.
@@ -147,3 +173,10 @@ Admin Interface
 ---------------
 For explicit access, role assignment for a user is created through django admin, so you have to add/inherit appropriate
 rbac model and form classes in your service. You can see an actual admin implementation `here <https://github.com/edx/edx-enterprise-data/blob/master/enterprise_data_roles/admin.py>`_
+
+Reference Material
+------------------
+* ADR 1 in this repo.
+* All of the OEPs about JWTs.
+* ``JWT_AUTH`` middleware, cookies, and configuration.
+* django-rules
