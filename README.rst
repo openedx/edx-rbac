@@ -4,24 +4,14 @@ edx-rbac
 |pypi-badge| |travis-badge| |codecov-badge| |doc-badge| |pyversions-badge|
 |license-badge|
 
-The ``README.rst`` file should start with a brief description of the repository,
-which sets it in the context of other repositories under the ``edx``
-organization. It should make clear where this fits in to the overall edX
-codebase.
-
-Library to help managing role based access controls for django apps
-
 Overview
 --------
 
-Library to help manage role based access controls for django apps.
-See the `Getting started <https://github.com/edx/edx-rbac/blob/master/docs/getting_started.rst>`_ guide to begin developing.
-
-
-Documentation
--------------
-
-The full documentation is at https://edx-rbac.readthedocs.org.
+Library to help manage role based access controls for django services.
+* See the `Getting started <https://github.com/edx/edx-rbac/blob/master/docs/getting_started.rst>`_ guide to setup
+your development environment.
+* See the `How To Guide <https://github.com/edx/edx-rbac/blob/master/docs/how_to_guide.rst>`_ to learn about the
+fundamentals of edx-rbac and how to implement RBAC in your Django service.
 
 License
 -------
