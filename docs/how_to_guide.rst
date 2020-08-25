@@ -75,6 +75,10 @@ To add RBAC implicit and explicit authorization checks, you need to follow the b
 `edx-enterprise-data <https://github.com/edx/edx-enterprise-data/>`_ and `ecommece <https://github.com/edx/ecommerce>`_
 codebases as an example.
 
+0. `Configure Django <https://github.com/dfunckt/django-rules#configuring-django>`_ to use the ``rules`` package -
+   include ``'rules.apps.AutodiscoverRulesConfig'`` in your app's ``INSTALLED_APPS`` and add ``'rules.permissions.ObjectPermissionBackend'`` to your
+   app's ``AUTHENTICATION_BACKENDS``.
+
 1. In LMS create a `system wide role data migration <https://github.com/edx/edx-enterprise/blob/master/enterprise/migrations/0066_add_system_wide_enterprise_operator_role.py>`_. You only need to do this if you are creating a new role. We create
 system wide role when we want to give access to users to a system wide resource, for example, being a Course Instructor
 for a specific Course.
@@ -173,7 +177,7 @@ Below is a ViewSet with mixin.
         pagination_class = DefaultPagination
         permission_required = 'can_access_enterprise'
 
-8. Implement the `self.get_permission_required` method on a viewset in order to retrieve the permissions
+8. Implement the ``self.get_permission_object`` method on a viewset in order to retrieve the permissions
 object to check against. This object gets passed to the rule predicate(s). Without this method implemented,
 the object passed to the rule predicate(s) will always be `None`. Note: django-rules does not support filtering
 a queryset by a user's object-level permissions.
@@ -194,3 +198,8 @@ Reference Material
 * All of the OEPs about JWTs.
 * ``JWT_AUTH`` middleware, cookies, and configuration.
 * django-rules
+
+Free-form notes
+---------------
+* edx_rbac should include ``rules`` as a dependency.
+* We should consider configuring cookiecutter Django IDAs with the rules Django config by default.
