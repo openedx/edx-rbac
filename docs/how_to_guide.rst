@@ -75,16 +75,26 @@ To add RBAC implicit and explicit authorization checks, you need to follow the b
 `edx-enterprise-data <https://github.com/edx/edx-enterprise-data/>`_ and `ecommece <https://github.com/edx/ecommerce>`_
 codebases as an example.
 
-0. `Configure Django <https://github.com/dfunckt/django-rules#configuring-django>`_ to use the ``rules`` package -
-   include ``'rules.apps.AutodiscoverRulesConfig'`` in your app's ``INSTALLED_APPS`` and add ``'rules.permissions.ObjectPermissionBackend'`` to your
-   app's ``AUTHENTICATION_BACKENDS``.
+1. `Configure Django <https://github.com/dfunckt/django-rules#configuring-django>`_ to use the ``rules`` package:
 
-1. In LMS create a `system wide role data migration <https://github.com/edx/edx-enterprise/blob/master/enterprise/migrations/0066_add_system_wide_enterprise_operator_role.py>`_. You only need to do this if you are creating a new role. We create
-system wide role when we want to give access to users to a system wide resource, for example, being a Course Instructor
-for a specific Course.
+.. code-block:: python
 
+    INSTALLED_APPS = (
+        # ...
+        'rules.apps.AutodiscoverRulesConfig',
+    )
+    # ...
+    AUTHENTICATION_BACKENDS = (
+        # ...
+        'rules.permissions.ObjectPermissionBackend',
+        'django.contrib.auth.backends.ModelBackend',
+    )
 
-2. For implicit access, In LMS create a system wide role assignment for a user using django admin at
+2. In LMS create a `system wide role data migration <https://github.com/edx/edx-enterprise/blob/master/enterprise/migrations/0066_add_system_wide_enterprise_operator_role.py>`_. You only need to do this if you are creating a new role. We create
+   system wide role when we want to give access to users to a system wide resource, for example, being a Course Instructor
+   for a specific Course.
+
+3. For implicit access, In LMS create a system wide role assignment for a user using django admin at
    ``/admin/enterprise/systemwideenterpriseuserroleassignment/``. LMS must have a ``SYSTEM_WIDE_ROLE_CLASSES`` django
    setting which contains the name of system wide role assignment model class. This will be used to add role data in JWT
    by LMS using ``create_role_auth_claim_for_user`` rbac util function. A ``SYSTEM_WIDE_ROLE_CLASSES`` django setting
@@ -118,12 +128,12 @@ Below is a sample role data for a user in JWT and a table that explains the role
 +-----------------------+-----------------------+-----------------------+
 
 
-3. For explicit access, In an edx service like `edx-enterprise-data <https://github.com/edx/edx-enterprise-data/>`_
+4. For explicit access, In an edx service like `edx-enterprise-data <https://github.com/edx/edx-enterprise-data/>`_
    create a feature specific wide role assignment for a user from within django admin
    at ``/admin/enterprise_data_roles/enterprisedataroleassignment/``
 
 
-4. In a service create a system-to-feature roles mapping in django settings like below
+5. In a service create a system-to-feature roles mapping in django settings like below
 
 .. code-block:: python
 
@@ -137,7 +147,7 @@ Below is a sample role data for a user in JWT and a table that explains the role
     }
 
 
-5. Add rules for implicit and explicit authorization checks using below rbac util functions
+6. Add rules for implicit and explicit authorization checks using below rbac util functions
     a. request_user_has_implicit_access_via_jwt
     b. user_has_access_via_database
 
@@ -148,7 +158,7 @@ Below is a sample role data for a user in JWT and a table that explains the role
     to get detailed information on how to create and use rules.
 
 
-6. Add ``permission_required`` decorator on individual endpoints. All the positional arguments to decorator will be
+7. Add ``permission_required`` decorator on individual endpoints. All the positional arguments to decorator will be
 treated as name of permissions we want to apply on endpoint and the second argument should be keyword argument named as
 ``fn`` and its value could be a callable or any python object. Callable signature should match
 ``(request, *args, **kwargs)``. Either the plain python object or value returned by the callable will
@@ -163,7 +173,7 @@ be passed to rules predicate as second parameter. Below is an endpoint with the 
     def courses(self, request, pk=None):
 
 
-7. Use ``PermissionRequiredMixin`` mixin for all endpoints in a viewset. A viewset must define a class level variable
+8. Use ``PermissionRequiredMixin`` mixin for all endpoints in a viewset. A viewset must define a class level variable
 named as ``permission_required`` and its value can be single permission name of list of permission names to be applied
 on all endpoints in the viewset.
 Below is a ViewSet with mixin.
@@ -177,12 +187,12 @@ Below is a ViewSet with mixin.
         pagination_class = DefaultPagination
         permission_required = 'can_access_enterprise'
 
-8. Implement the ``self.get_permission_object`` method on a viewset in order to retrieve the permissions
+9. Implement the ``self.get_permission_object`` method on a viewset in order to retrieve the permissions
 object to check against. This object gets passed to the rule predicate(s). Without this method implemented,
 the object passed to the rule predicate(s) will always be `None`. Note: django-rules does not support filtering
 a queryset by a user's object-level permissions.
 
-9. You are all setup and now when an endpoint gets a request, role based permissions will be checked for the requesting
+10. You are all setup and now when an endpoint gets a request, role based permissions will be checked for the requesting
 user and either HTTP 403 or any other appropriate response will be returned. In case of HTTP 403, user have no access on
 requesting resource.
 
@@ -191,15 +201,3 @@ Admin Interface
 ---------------
 For explicit access, role assignment for a user is created through django admin, so you have to add/inherit appropriate
 rbac model and form classes in your service. You can see an actual admin implementation `here <https://github.com/edx/edx-enterprise-data/blob/master/enterprise_data_roles/admin.py>`_
-
-Reference Material
-------------------
-* ADR 1 in this repo.
-* All of the OEPs about JWTs.
-* ``JWT_AUTH`` middleware, cookies, and configuration.
-* django-rules
-
-Free-form notes
----------------
-* edx_rbac should include ``rules`` as a dependency.
-* We should consider configuring cookiecutter Django IDAs with the rules Django config by default.
