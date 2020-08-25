@@ -73,7 +73,9 @@ Implementation
 --------------
 To add RBAC implicit and explicit authorization checks, you need to follow the below steps. Here we are using ``LMS``,
 `edx-enterprise-data <https://github.com/edx/edx-enterprise-data/>`_ and `ecommece <https://github.com/edx/ecommerce>`_
-codebases as an example.
+codebases as an example.  There is also an `RBAC demo repo <https://github.com/iloveagent57/edx_rbac_demo/>`_ that
+demonstrates how to configure django-rules, set up feature roles/mappings, define rule predicates and permissions, and
+make use of those in a DRF viewset.
 
 1. `Configure Django <https://github.com/dfunckt/django-rules#configuring-django>`_ to use the ``rules`` package:
 
