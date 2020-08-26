@@ -8,7 +8,7 @@ This guide covers information you need to know to implement role-based authoriza
 Background
 ----------
 What is a role? What do "access" and "authorization" even mean?  This section provides a brief
-outline of how Role-Based Access Control (RBAC).
+outline of how Role-Based Access Control (RBAC) works.
 
 
 The Big Idea
@@ -21,10 +21,10 @@ of users to roles (that is, we can specify that "jane" has the role "enterprise 
 
 Similarly, there are many different types of permissions that may be applicable to some type of resource, for example:
 permission to read data about some resource, permission to update a resource, etc.  Django allows
-us to define permissions at the model (type of resource) or object (a specific instance of a model).
+us to define permissions for a model (type of resource) or an object (a specific instance of a model).
 
 We can make use of a library called `django-rules <https://github.com/dfunckt/django-rules>`_ to define "predicates",
-which are boolean functions that answer "is this resource accessible in a certain to the requesting user?"
+which are boolean functions that answer "is this resource accessible to the requesting user?"
 These predicates can be defined based on a user's role. `django-rules` then allows us to map predicates to
 a Django permission.
 
@@ -50,19 +50,19 @@ edx-rbac makes use of two types of roles:
 * System wide roles: These are the roles used across the ecosystem.
   Role data is added to an authenticated user's JWT cookie based on `assignment` relationships between
   the user, a role, and a context (which is usually a resource identifier).  This assignment is usually
-  persisted using a Django model.
+  persisted using a Django model.  The JWT cookie is populated when the user authenticates into the central auth system.
 
 * Feature specific roles:
-    These are specific to a feature/service.  They may be inferred based on an assigned system-wide role,
-    or declared explicitly via an assignment relationship.
+  These are specific to a feature/service.  They may be inferred based on an assigned system-wide role,
+  or declared explicitly via an assignment relationship.
 
 Access
 ^^^^^^
 * Implicit:
-    Verify the request's user access by mapping user's system wide roles found in JWT to local feature roles.
+  Verify the request's user access by mapping user's system wide roles found in JWT to local feature roles.
 * Explicit:
-    Verify if there is a role assignment for a given user and role. Explicit access is used when we manually want
-    to give access to a user to a specific resource without creating any role data in JWT.
+  Verify if there is a role assignment for a given user and role. Explicit access is used when we manually want
+  to give access to a user to a specific resource without creating any role data in JWT.
 
 .. note::
 
@@ -72,7 +72,7 @@ Access
 Implementation
 --------------
 To add RBAC implicit and explicit authorization checks, you need to follow the below steps. Here we are using ``LMS``,
-`edx-enterprise-data <https://github.com/edx/edx-enterprise-data/>`_ and `ecommece <https://github.com/edx/ecommerce>`_
+`edx-enterprise-data <https://github.com/edx/edx-enterprise-data/>`_ and `ecommerce <https://github.com/edx/ecommerce>`_
 codebases as an example.  There is also an `RBAC demo repo <https://github.com/iloveagent57/edx_rbac_demo/>`_ that
 demonstrates how to configure django-rules, set up feature roles/mappings, define rule predicates and permissions, and
 make use of those in a DRF viewset.
@@ -92,15 +92,16 @@ make use of those in a DRF viewset.
         'django.contrib.auth.backends.ModelBackend',
     )
 
-2. In LMS create a `system wide role data migration <https://github.com/edx/edx-enterprise/blob/master/enterprise/migrations/0066_add_system_wide_enterprise_operator_role.py>`_. You only need to do this if you are creating a new role. We create
-   system wide role when we want to give access to users to a system wide resource, for example, being a Course Instructor
+2. In the LMS, create a `system wide role data migration <https://github.com/edx/edx-enterprise/blob/master/enterprise/migrations/0066_add_system_wide_enterprise_operator_role.py>`_.
+   You only need to do this if you are creating a new role. We create a system wide role when we want to
+   give access to users to a system wide resource, for example, being a Course Instructor
    for a specific Course.
 
-3. For implicit access, In LMS create a system wide role assignment for a user using django admin at
+3. For implicit access, in the LMS, create a system wide role assignment for a user using django admin at
    ``/admin/enterprise/systemwideenterpriseuserroleassignment/``. LMS must have a ``SYSTEM_WIDE_ROLE_CLASSES`` django
-   setting which contains the name of system wide role assignment model class. This will be used to add role data in JWT
-   by LMS using ``create_role_auth_claim_for_user`` rbac util function. A ``SYSTEM_WIDE_ROLE_CLASSES`` django setting
-   will look like below
+   setting which contains the name of the system wide role assignment model class. The LMS will use these classes
+   to add role data to JWTs via the ``edx_rbac.utils.create_role_auth_claim_for_user`` function.
+   A ``SYSTEM_WIDE_ROLE_CLASSES`` django setting will look as follows:
 
 .. code-block:: python
 
@@ -130,7 +131,7 @@ Below is a sample role data for a user in JWT and a table that explains the role
 +-----------------------+-----------------------+-----------------------+
 
 
-4. For explicit access, In an edx service like `edx-enterprise-data <https://github.com/edx/edx-enterprise-data/>`_
+4. For explicit access, in an edx service like `edx-enterprise-data <https://github.com/edx/edx-enterprise-data/>`_
    create a feature specific wide role assignment for a user from within django admin
    at ``/admin/enterprise_data_roles/enterprisedataroleassignment/``
 

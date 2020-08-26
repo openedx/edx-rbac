@@ -10,10 +10,10 @@ Overview
 Library to help manage role based access controls for django services.
 
 * See the `Getting started <https://github.com/edx/edx-rbac/blob/master/docs/getting_started.rst>`_ guide to setup
-your development environment.
+  your development environment.
 
 * See the `How To Guide <https://github.com/edx/edx-rbac/blob/master/docs/how_to_guide.rst>`_ to learn about the
-fundamentals of edx-rbac and how to implement RBAC in your Django service.
+  fundamentals of edx-rbac and how to implement RBAC in your Django service.
 
 License
 -------
