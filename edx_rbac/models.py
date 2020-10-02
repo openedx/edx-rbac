@@ -7,7 +7,6 @@ from django.conf import settings
 from django.db import models
 from django.db.models.base import ModelBase
 from django.db.models.fields import FieldDoesNotExist
-from django.utils.encoding import python_2_unicode_compatible
 from model_utils.models import TimeStampedModel
 from six import with_metaclass
 
@@ -36,7 +35,6 @@ class UserRoleAssignmentCreator(ModelBase):
         return model
 
 
-@python_2_unicode_compatible
 class UserRole(TimeStampedModel):
     """
     Model defining a role a user can have.
@@ -59,7 +57,6 @@ class UserRole(TimeStampedModel):
         return self.name
 
 
-@python_2_unicode_compatible
 class UserRoleAssignment(with_metaclass(UserRoleAssignmentCreator, TimeStampedModel)):
     """
     Model for mapping users and their roles.
