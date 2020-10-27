@@ -7,15 +7,15 @@
 certifi==2020.6.20        # via requests
 cffi==1.14.0              # via cryptography
 chardet==3.0.4            # via requests
-cryptography==3.0         # via pyjwt
-django-crum==0.7.6        # via -r requirements/base.in
-django-model-utils==4.0.0  # via -r requirements/base.in
+cryptography==3.2         # via pyjwt
+django-crum==0.7.6        # via -r base.in
+django-model-utils==4.0.0  # via -r base.in
 django-waffle==1.0.0      # via edx-django-utils, edx-drf-extensions
-django==2.2.14            # via -c requirements/constraints.txt, -r requirements/base.in, django-crum, django-model-utils, djangorestframework, drf-jwt, edx-django-utils, edx-drf-extensions, rest-condition
+django==2.2.14            # via -c constraints.txt, -r base.in, django-crum, django-model-utils, djangorestframework, drf-jwt, edx-django-utils, edx-drf-extensions, rest-condition
 djangorestframework==3.11.0  # via drf-jwt, edx-drf-extensions, rest-condition
 drf-jwt==1.16.2           # via edx-drf-extensions
 edx-django-utils==3.4.0   # via edx-drf-extensions
-edx-drf-extensions==6.1.1  # via -r requirements/base.in
+edx-drf-extensions==6.1.1  # via -r base.in
 edx-opaque-keys==2.1.1    # via edx-drf-extensions
 future==0.18.2            # via pyjwkest
 idna==2.10                # via requests
@@ -32,7 +32,7 @@ pytz==2020.1              # via django
 requests==2.24.0          # via edx-drf-extensions, pyjwkest
 rest-condition==1.0.3     # via edx-drf-extensions
 semantic-version==2.8.5   # via edx-drf-extensions
-six==1.15.0               # via -r requirements/base.in, cryptography, edx-drf-extensions, edx-opaque-keys, pyjwkest, python-dateutil, stevedore
+six==1.15.0               # via -r base.in, cryptography, edx-drf-extensions, edx-opaque-keys, pyjwkest, python-dateutil, stevedore
 sqlparse==0.3.1           # via django
-stevedore==1.32.0         # via -c requirements/constraints.txt, edx-opaque-keys
+stevedore==1.32.0         # via -c constraints.txt, edx-opaque-keys
 urllib3==1.25.9           # via requests

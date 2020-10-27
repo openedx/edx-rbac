@@ -5,55 +5,53 @@
 #    make upgrade
 #
 attrs==19.3.0             # via pytest
-certifi==2020.6.20        # via -r requirements/base.txt, requests
-cffi==1.14.0              # via -r requirements/base.txt, cryptography
-chardet==3.0.4            # via -r requirements/base.txt, requests
+certifi==2020.6.20        # via -r base.txt, requests
+cffi==1.14.0              # via -r base.txt, cryptography
+chardet==3.0.4            # via -r base.txt, requests
 click==7.1.2              # via code-annotations
-code-annotations==0.3.4   # via -r requirements/test.in
+code-annotations==0.3.4   # via -r test.in
 coverage==5.2             # via pytest-cov
-cryptography==3.0         # via -r requirements/base.txt, pyjwt
-ddt==1.4.1                # via -r requirements/test.in
-django-crum==0.7.6        # via -r requirements/base.txt
-django-model-utils==4.0.0  # via -r requirements/base.txt
-django-waffle==1.0.0      # via -r requirements/base.txt, edx-django-utils, edx-drf-extensions
-djangorestframework==3.11.0  # via -r requirements/base.txt, drf-jwt, edx-drf-extensions, rest-condition
-drf-jwt==1.16.2           # via -r requirements/base.txt, edx-drf-extensions
-edx-django-utils==3.4.0   # via -r requirements/base.txt, edx-drf-extensions
-edx-drf-extensions==6.1.1  # via -r requirements/base.txt
-edx-opaque-keys==2.1.1    # via -r requirements/base.txt, edx-drf-extensions
-future==0.18.2            # via -r requirements/base.txt, pyjwkest
-idna==2.10                # via -r requirements/base.txt, requests
-importlib-metadata==1.7.0  # via pluggy, pytest
+cryptography==3.2         # via -r base.txt, pyjwt
+ddt==1.4.1                # via -r test.in
+django-crum==0.7.6        # via -r base.txt
+django-model-utils==4.0.0  # via -r base.txt
+django-waffle==1.0.0      # via -r base.txt, edx-django-utils, edx-drf-extensions
+django==2.2.14            # via -c constraints.txt, -r base.txt, code-annotations, django-crum, django-model-utils, djangorestframework, drf-jwt, edx-django-utils, edx-drf-extensions, rest-condition
+djangorestframework==3.11.0  # via -r base.txt, drf-jwt, edx-drf-extensions, rest-condition
+drf-jwt==1.16.2           # via -r base.txt, edx-drf-extensions
+edx-django-utils==3.4.0   # via -r base.txt, edx-drf-extensions
+edx-drf-extensions==6.1.1  # via -r base.txt
+edx-opaque-keys==2.1.1    # via -r base.txt, edx-drf-extensions
+future==0.18.2            # via -r base.txt, pyjwkest
+idna==2.10                # via -r base.txt, requests
 jinja2==2.11.2            # via code-annotations
 markupsafe==1.1.1         # via jinja2
 more-itertools==8.4.0     # via pytest
-newrelic==5.14.1.144      # via -r requirements/base.txt, edx-django-utils
+newrelic==5.14.1.144      # via -r base.txt, edx-django-utils
 packaging==20.4           # via pytest
-pathlib2==2.3.5           # via pytest
-pbr==5.4.5                # via -r requirements/base.txt, stevedore
+pbr==5.4.5                # via -r base.txt, stevedore
 pluggy==0.13.1            # via pytest
-psutil==1.2.1             # via -r requirements/base.txt, edx-django-utils
+psutil==1.2.1             # via -r base.txt, edx-django-utils
 py==1.9.0                 # via pytest
-pycparser==2.20           # via -r requirements/base.txt, cffi
-pycryptodomex==3.9.8      # via -r requirements/base.txt, pyjwkest
-pyjwkest==1.4.2           # via -r requirements/base.txt, edx-drf-extensions
-pyjwt[crypto]==1.7.1      # via -r requirements/base.txt, drf-jwt
-pymongo==3.10.1           # via -r requirements/base.txt, edx-opaque-keys
+pycparser==2.20           # via -r base.txt, cffi
+pycryptodomex==3.9.8      # via -r base.txt, pyjwkest
+pyjwkest==1.4.2           # via -r base.txt, edx-drf-extensions
+pyjwt[crypto]==1.7.1      # via -r base.txt, drf-jwt
+pymongo==3.10.1           # via -r base.txt, edx-opaque-keys
 pyparsing==2.4.7          # via packaging
-pytest-cov==2.10.0        # via -r requirements/test.in
-pytest-django==3.9.0      # via -r requirements/test.in
+pytest-cov==2.10.0        # via -r test.in
+pytest-django==3.9.0      # via -r test.in
 pytest==5.4.3             # via pytest-cov, pytest-django
-python-dateutil==2.8.1    # via -r requirements/base.txt, edx-drf-extensions
+python-dateutil==2.8.1    # via -r base.txt, edx-drf-extensions
 python-slugify==4.0.1     # via code-annotations
-pytz==2020.1              # via -r requirements/base.txt, django
+pytz==2020.1              # via -r base.txt, django
 pyyaml==5.3.1             # via code-annotations
-requests==2.24.0          # via -r requirements/base.txt, edx-drf-extensions, pyjwkest
-rest-condition==1.0.3     # via -r requirements/base.txt, edx-drf-extensions
-semantic-version==2.8.5   # via -r requirements/base.txt, edx-drf-extensions
-six==1.15.0               # via -r requirements/base.txt, cryptography, edx-drf-extensions, edx-opaque-keys, packaging, pathlib2, pyjwkest, python-dateutil, stevedore
-sqlparse==0.3.1           # via -r requirements/base.txt, django
-stevedore==1.32.0         # via -c requirements/constraints.txt, -r requirements/base.txt, code-annotations, edx-opaque-keys
+requests==2.24.0          # via -r base.txt, edx-drf-extensions, pyjwkest
+rest-condition==1.0.3     # via -r base.txt, edx-drf-extensions
+semantic-version==2.8.5   # via -r base.txt, edx-drf-extensions
+six==1.15.0               # via -r base.txt, cryptography, edx-drf-extensions, edx-opaque-keys, packaging, pyjwkest, python-dateutil, stevedore
+sqlparse==0.3.1           # via -r base.txt, django
+stevedore==1.32.0         # via -c constraints.txt, -r base.txt, code-annotations, edx-opaque-keys
 text-unidecode==1.3       # via python-slugify
-urllib3==1.25.9           # via -r requirements/base.txt, requests
+urllib3==1.25.9           # via -r base.txt, requests
 wcwidth==0.2.5            # via pytest
-zipp==1.0.0               # via -c requirements/constraints.txt, importlib-metadata
