@@ -57,8 +57,8 @@ refer to this `list of resources`_ if you need any assistance.
     :target: https://pypi.python.org/pypi/edx-rbac/
     :alt: PyPI
 
-.. |travis-badge| image:: https://travis-ci.org/edx/edx-rbac.svg?branch=master
-    :target: https://travis-ci.org/edx/edx-rbac
+.. |travis-badge| image:: https://travis-ci.com/edx/edx-rbac.svg?branch=master
+    :target: https://travis-ci.com/edx/edx-rbac
     :alt: Travis
 
 .. |codecov-badge| image:: http://codecov.io/github/edx/edx-rbac/coverage.svg?branch=master
