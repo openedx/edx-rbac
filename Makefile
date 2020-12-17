@@ -48,12 +48,13 @@ upgrade: export CUSTOM_COMPILE_COMMAND=make upgrade
 upgrade: ## update the requirements/*.txt files with the latest packages satisfying requirements/*.in
 	pip install -qr requirements/pip-tools.txt
 	# Make sure to compile files after any other files they include!
+	pip-compile --upgrade --allow-unsafe --rebuild -o requirements/pip.txt requirements/pip.in
 	pip-compile --upgrade -o requirements/pip-tools.txt requirements/pip-tools.in
 	pip-compile --upgrade -o requirements/base.txt requirements/base.in
 	pip-compile --upgrade -o requirements/test.txt requirements/test.in
 	pip-compile --upgrade -o requirements/doc.txt requirements/doc.in
 	pip-compile --upgrade -o requirements/quality.txt requirements/quality.in
-	pip-compile --upgrade -o requirements/travis.txt requirements/travis.in
+	pip-compile --upgrade -o requirements/ci.txt requirements/ci.in
 	pip-compile --upgrade -o requirements/dev.txt requirements/dev.in
 	# Let tox control the Django version for tests
 	grep -e "^django==" requirements/base.txt > requirements/django.txt
@@ -66,7 +67,10 @@ quality: ## check coding style with pycodestyle and pylint
 pii_check: ## check for PII annotations on all Django models
 	tox -e pii_check
 
-requirements: clean_pycrypto piptools dev_requirements ## install pip tools and dev requirements
+requirements: clean_pycrypto pip piptools dev_requirements ## install pip tools and dev requirements
+
+pip:
+	pip install -qr requirements/pip.txt
 
 piptools: ## install pinned version of pip-compile and pip-sync
 	pip install -qr requirements/pip-tools.txt
