@@ -6,7 +6,8 @@ from contextlib import contextmanager
 from unittest import mock
 
 import ddt
-from django.contrib.auth.models import AnonymousUser, User
+from django.contrib import auth
+from django.contrib.auth.models import AnonymousUser
 from django.test import RequestFactory, TestCase
 
 from edx_rbac.utils import (
@@ -30,6 +31,7 @@ from tests.models import (
 
 COUPON_MANAGEMENT_FEATURE_ROLE = 'coupon-management'
 DATA_API_ACCESS_FEATURE_ROLE = 'data_api_access'
+User = auth.get_user_model()
 
 
 @ddt.ddt

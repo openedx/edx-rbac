@@ -23,7 +23,7 @@ class UserFromEmailField(forms.EmailField):
         """
         try:
             user = USER_MODEL.objects.get(email=value)
-        except USER_MODEL.DoesNotExist:
-            raise ValidationError(f'User with email {value} does not exist')
+        except USER_MODEL.DoesNotExist as error:
+            raise ValidationError(f'User with email {value} does not exist') from error
 
         return user

@@ -7,7 +7,6 @@ Keeps py2 backward compatibility and only holds on to the necessary bits of the 
 import crum
 from django.core.exceptions import ImproperlyConfigured
 from django.utils.functional import cached_property
-from six import string_types
 
 from edx_rbac import utils
 

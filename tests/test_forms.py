@@ -2,11 +2,13 @@
 Tests for the `edx-rbac` forms module.
 """
 
-from django.contrib.auth.models import User
+from django.contrib import auth
 from django.test import TestCase
 
 from tests.forms import ConcreteUserRoleAssignmentAdminForm
 from tests.models import ConcreteUserRole, ConcreteUserRoleAssignment
+
+User = auth.get_user_model()
 
 
 class TestForms(TestCase):

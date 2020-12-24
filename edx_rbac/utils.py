@@ -10,7 +10,6 @@ from django.apps import apps
 from django.conf import settings
 from edx_rest_framework_extensions.auth.jwt.authentication import get_decoded_jwt_from_auth
 from edx_rest_framework_extensions.auth.jwt.cookies import get_decoded_jwt as get_decoded_jwt_from_cookie
-from six import string_types
 
 ALL_ACCESS_CONTEXT = '*'
 
