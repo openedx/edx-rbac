@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Mixin adapted from https://github.com/escodebar/django-rest-framework-rules/blob/master/rest_framework_rules/mixins.py.
 
@@ -35,7 +34,7 @@ class PermissionRequiredMixin:
                 '{0}.get_permission_required().'
                 .format(self.__class__.__name__)
             )
-        if isinstance(self.permission_required, string_types):
+        if isinstance(self.permission_required, str):
             perms = (self.permission_required, )
         else:
             perms = self.permission_required
@@ -170,9 +169,9 @@ class PermissionRequiredForListingMixin(PermissionRequiredMixin):
         You'll most likely want it to be `MyModel.objects.all().order_by('some_field')`.
         """
         if getattr(self, 'base_queryset', None) is None:
-            raise Exception('{} must have a non-null "base_queryset" field.'.format(self.__class__))
+            raise Exception(f'{self.__class__} must have a non-null "base_queryset" field.')
         if not getattr(self, 'list_lookup_field', None):
-            raise Exception('{} must have a truthy "list_lookup_field" field.'.format(self.__class__))
+            raise Exception(f'{self.__class__} must have a truthy "list_lookup_field" field.')
 
         if self.request_action == 'list':
             if not self.accessible_contexts:

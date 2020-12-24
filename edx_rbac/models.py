@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Database models for edx_rbac.
 """
@@ -20,7 +19,7 @@ class UserRoleAssignmentCreator(ModelBase):
         """
         Override to dynamically create foreign key for objects begotten from abstract class.
         """
-        model = super(UserRoleAssignmentCreator, mcs).__new__(mcs, name, bases, attrs)
+        model = super().__new__(mcs, name, bases, attrs)
         if model.__name__ != 'UserRoleAssignment' and 'UserRoleAssignment' in [b.__name__ for b in bases]:
             try:
                 model._meta.get_field('role')
@@ -57,7 +56,7 @@ class UserRole(TimeStampedModel):
         return self.name
 
 
-class UserRoleAssignment(with_metaclass(UserRoleAssignmentCreator, TimeStampedModel)):
+class UserRoleAssignment(TimeStampedModel, metaclass=UserRoleAssignmentCreator):
     """
     Model for mapping users and their roles.
     """

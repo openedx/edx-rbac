@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 """
 These models exist solely for testing.
 
@@ -40,7 +39,7 @@ class ConcreteUserRoleAssignmentMultipleContexts(UserRoleAssignment):  # pylint:
         """
         Generate a list with multiple contexts to be used in tests.
         """
-        return [u'a-test-context', u'a-second-test-context']
+        return ['a-test-context', 'a-second-test-context']
 
 
 class ConcreteUserRoleAssignmentNoContext(UserRoleAssignment):  # pylint: disable=model-no-explicit-unicode

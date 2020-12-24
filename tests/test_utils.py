@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Tests for the `edx-rbac` utilities module.
 """
@@ -52,7 +51,7 @@ class TestUtils(TestCase):
     """
 
     def setUp(self):
-        super(TestUtils, self).setUp()
+        super().setUp()
         self.request = RequestFactory().get('/')
         self.user = User.objects.create(username='test_user', password='pw')
         self.request.user = self.user
@@ -419,7 +418,7 @@ class TestUtilsWithDatabaseRequirements(TestCase):
     """
 
     def setUp(self):
-        super(TestUtilsWithDatabaseRequirements, self).setUp()
+        super().setUp()
         self.user = User.objects.get_or_create(username='test_user', password='pw')[0]
         self.role = ConcreteUserRole.objects.get_or_create(name='coupon-manager')[0]
 
@@ -527,7 +526,7 @@ class TestUtilsWithDatabaseRequirements(TestCase):
         """
         with self.create_user_role_assignment_multiple_contexts(), mock.patch(
                 'tests.models.ConcreteUserRoleAssignmentMultipleContexts.get_context',
-                return_value=[u'some_context', ALL_ACCESS_CONTEXT]
+                return_value=['some_context', ALL_ACCESS_CONTEXT]
         ):
             assert user_has_access_via_database(
                 self.user,

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Tests for the `edx-rbac` forms module.
 """
@@ -16,7 +15,7 @@ class TestForms(TestCase):
     """
 
     def setUp(self):
-        super(TestForms, self).setUp()
+        super().setUp()
         self.email = 'cool4eva@gmail.com'
         self.user = User.objects.create(
             username='test_user',
@@ -53,7 +52,7 @@ class TestForms(TestCase):
         user2 = User.objects.create(
             username='test_user2',
             password='pw2',
-            email='{}2'.format(self.email),
+            email=f'{self.email}2',
         )
         role_assignment = ConcreteUserRoleAssignment.objects.create(
             user=user2,
