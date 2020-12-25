@@ -7,7 +7,8 @@ from contextlib import contextmanager
 from unittest import mock
 
 import ddt
-from django.contrib.auth.models import AnonymousUser, User
+from django.contrib import auth
+from django.contrib.auth.models import AnonymousUser
 from django.test import RequestFactory, TestCase
 
 from edx_rbac.utils import (
@@ -31,6 +32,7 @@ from tests.models import (
 
 COUPON_MANAGEMENT_FEATURE_ROLE = 'coupon-management'
 DATA_API_ACCESS_FEATURE_ROLE = 'data_api_access'
+User = auth.get_user_model()
 
 
 @ddt.ddt
@@ -52,7 +54,7 @@ class TestUtils(TestCase):
     """
 
     def setUp(self):
-        super(TestUtils, self).setUp()
+        super().setUp()
         self.request = RequestFactory().get('/')
         self.user = User.objects.create(username='test_user', password='pw')
         self.request.user = self.user
@@ -419,7 +421,7 @@ class TestUtilsWithDatabaseRequirements(TestCase):
     """
 
     def setUp(self):
-        super(TestUtilsWithDatabaseRequirements, self).setUp()
+        super().setUp()
         self.user = User.objects.get_or_create(username='test_user', password='pw')[0]
         self.role = ConcreteUserRole.objects.get_or_create(name='coupon-manager')[0]
 

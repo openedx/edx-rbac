@@ -24,14 +24,14 @@ class UserRoleAssignmentCreator(ModelBase):
         if model.__name__ != 'UserRoleAssignment' and 'UserRoleAssignment' in [b.__name__ for b in bases]:
             try:
                 model._meta.get_field('role')
-            except FieldDoesNotExist:
+            except FieldDoesNotExist as error:
                 if model.role_class and issubclass(model.role_class, UserRole):
                     model.add_to_class(
                         'role',
                         models.ForeignKey(model.role_class, db_index=True, on_delete=models.CASCADE),
                     )
                 else:
-                    raise Exception('role_class must be defined for any subclass of UserRole!')
+                    raise Exception('role_class must be defined for any subclass of UserRole!') from error
         return model
 
 
