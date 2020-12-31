@@ -1,7 +1,7 @@
 edx-rbac
 =============================
 
-|pypi-badge| |travis-badge| |codecov-badge| |doc-badge| |pyversions-badge|
+|pypi-badge| |ci-badge| |codecov-badge| |doc-badge| |pyversions-badge|
 |license-badge|
 
 Overview
@@ -57,9 +57,9 @@ refer to this `list of resources`_ if you need any assistance.
     :target: https://pypi.python.org/pypi/edx-rbac/
     :alt: PyPI
 
-.. |travis-badge| image:: https://travis-ci.org/edx/edx-rbac.svg?branch=master
-    :target: https://travis-ci.org/edx/edx-rbac
-    :alt: Travis
+.. |ci-badge| image:: https://github.com/edx/edx-rbac/workflows/Python%20CI/badge.svg?branch=master
+    :target: https://github.com/edx/edx-rbac/actions?query=workflow%3A%22Python+CI%22
+    :alt: CI
 
 .. |codecov-badge| image:: http://codecov.io/github/edx/edx-rbac/coverage.svg?branch=master
     :target: http://codecov.io/github/edx/edx-rbac?branch=master
