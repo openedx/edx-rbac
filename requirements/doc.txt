@@ -52,7 +52,7 @@ pytest-django==4.1.0      # via -r requirements/test.txt
 pytest==6.2.1             # via -r requirements/test.txt, pytest-cov, pytest-django
 python-dateutil==2.8.1    # via -r requirements/test.txt, edx-drf-extensions
 python-slugify==4.0.1     # via -r requirements/test.txt, code-annotations
-pytz==2020.4              # via -r requirements/test.txt, babel, django
+pytz==2020.5              # via -r requirements/test.txt, babel, django
 pyyaml==5.3.1             # via -r requirements/test.txt, code-annotations
 readme-renderer==28.0     # via -r requirements/doc.in
 requests==2.25.1          # via -r requirements/test.txt, edx-drf-extensions, pyjwkest, sphinx
@@ -61,7 +61,7 @@ restructuredtext-lint==1.3.2  # via doc8
 semantic-version==2.8.5   # via -r requirements/test.txt, edx-drf-extensions
 six==1.15.0               # via -r requirements/test.txt, bleach, cryptography, doc8, edx-drf-extensions, edx-opaque-keys, edx-sphinx-theme, pyjwkest, python-dateutil, readme-renderer, stevedore
 snowballstemmer==2.0.0    # via sphinx
-sphinx==3.4.0             # via -r requirements/doc.in, edx-sphinx-theme
+sphinx==3.4.1             # via -r requirements/doc.in, edx-sphinx-theme
 sphinxcontrib-applehelp==1.0.2  # via sphinx
 sphinxcontrib-devhelp==1.0.2  # via sphinx
 sphinxcontrib-htmlhelp==1.0.3  # via sphinx

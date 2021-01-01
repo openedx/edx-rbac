@@ -36,7 +36,7 @@ futures==3.1.1            # via -r requirements/quality.txt
 idna==2.10                # via -r requirements/ci.txt, -r requirements/quality.txt, requests
 inflect==5.0.2            # via jinja2-pluralize
 iniconfig==1.1.1          # via -r requirements/quality.txt, pytest
-isort==5.6.4              # via -r requirements/quality.txt, pylint
+isort==5.7.0              # via -r requirements/quality.txt, pylint
 jinja2-pluralize==0.3.0   # via diff-cover
 jinja2==2.11.2            # via -r requirements/quality.txt, code-annotations, diff-cover, jinja2-pluralize
 lazy-object-proxy==1.4.3  # via -r requirements/quality.txt, astroid
@@ -47,7 +47,7 @@ packaging==20.8           # via -r requirements/ci.txt, -r requirements/quality.
 path.py==12.5.0           # via edx-i18n-tools
 path==15.0.1              # via path.py
 pbr==5.5.1                # via -r requirements/quality.txt, stevedore
-pip-tools==5.4.0          # via -r requirements/pip-tools.txt
+pip-tools==5.5.0          # via -r requirements/pip-tools.txt
 pluggy==0.13.1            # via -r requirements/ci.txt, -r requirements/quality.txt, diff-cover, pytest, tox
 polib==1.1.0              # via edx-i18n-tools
 psutil==5.8.0             # via -r requirements/quality.txt, edx-django-utils
@@ -70,12 +70,12 @@ pytest-django==4.1.0      # via -r requirements/quality.txt
 pytest==6.2.1             # via -r requirements/quality.txt, pytest-cov, pytest-django
 python-dateutil==2.8.1    # via -r requirements/quality.txt, edx-drf-extensions
 python-slugify==4.0.1     # via -r requirements/quality.txt, code-annotations
-pytz==2020.4              # via -r requirements/quality.txt, django
+pytz==2020.5              # via -r requirements/quality.txt, django
 pyyaml==5.3.1             # via -r requirements/quality.txt, code-annotations, edx-i18n-tools
 requests==2.25.1          # via -r requirements/ci.txt, -r requirements/quality.txt, codecov, edx-drf-extensions, pyjwkest
 rest-condition==1.0.3     # via -r requirements/quality.txt, edx-drf-extensions
 semantic-version==2.8.5   # via -r requirements/quality.txt, edx-drf-extensions
-six==1.15.0               # via -r requirements/ci.txt, -r requirements/pip-tools.txt, -r requirements/quality.txt, astroid, cryptography, edx-drf-extensions, edx-i18n-tools, edx-lint, edx-opaque-keys, pip-tools, pyjwkest, python-dateutil, stevedore, tox, virtualenv
+six==1.15.0               # via -r requirements/ci.txt, -r requirements/quality.txt, astroid, cryptography, edx-drf-extensions, edx-i18n-tools, edx-lint, edx-opaque-keys, pyjwkest, python-dateutil, stevedore, tox, virtualenv
 snowballstemmer==2.0.0    # via -r requirements/quality.txt, pydocstyle
 sqlparse==0.4.1           # via -r requirements/quality.txt, django
 stevedore==1.32.0         # via -c requirements/constraints.txt, -r requirements/quality.txt, code-annotations, edx-django-utils, edx-opaque-keys
