@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Fields to be used for djangoapps extending edx_rbac.
 """
@@ -24,7 +23,7 @@ class UserFromEmailField(forms.EmailField):
         """
         try:
             user = USER_MODEL.objects.get(email=value)
-        except USER_MODEL.DoesNotExist:
-            raise ValidationError('User with email {} does not exist'.format(value))
+        except USER_MODEL.DoesNotExist as error:
+            raise ValidationError(f'User with email {value} does not exist') from error
 
         return user

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Utils for 'edx-rbac' module.
 """
@@ -11,7 +10,6 @@ from django.apps import apps
 from django.conf import settings
 from edx_rest_framework_extensions.auth.jwt.authentication import get_decoded_jwt_from_auth
 from edx_rest_framework_extensions.auth.jwt.cookies import get_decoded_jwt as get_decoded_jwt_from_cookie
-from six import string_types
 
 ALL_ACCESS_CONTEXT = '*'
 
@@ -149,7 +147,7 @@ def create_role_auth_claim_for_user(user):
         Append the formatted auth claim for a role and context.
         """
         if context:
-            contextual_role = '{}:{}'.format(role_string, context)
+            contextual_role = f'{role_string}:{context}'
             role_auth_claim.append(contextual_role)
         else:
             role_auth_claim.append(role_string)
@@ -169,7 +167,7 @@ def create_role_auth_claim_for_user(user):
 
         for role_string, context in role_func(user):
             if context:
-                if isinstance(context, string_types):
+                if isinstance(context, str):
                     append_role_auth_claim(role_string, context)
                 else:
                     for item in context:
@@ -191,9 +189,9 @@ def set_from_collection_or_single_item(obj):
     For iterables that are not strings, returns a set of the iterable.
     For all other types of objects, returns a set containing only the object.
     """
-    if is_iterable(obj) and not isinstance(obj, string_types):
+    if is_iterable(obj) and not isinstance(obj, str):
         return set(obj)
-    return set([obj])
+    return {obj}
 
 
 def get_decoded_jwt(request):

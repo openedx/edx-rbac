@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Database models for edx_rbac.
 """
@@ -8,7 +7,6 @@ from django.db import models
 from django.db.models.base import ModelBase
 from django.db.models.fields import FieldDoesNotExist
 from model_utils.models import TimeStampedModel
-from six import with_metaclass
 
 
 class UserRoleAssignmentCreator(ModelBase):
@@ -20,18 +18,18 @@ class UserRoleAssignmentCreator(ModelBase):
         """
         Override to dynamically create foreign key for objects begotten from abstract class.
         """
-        model = super(UserRoleAssignmentCreator, mcs).__new__(mcs, name, bases, attrs)
+        model = super().__new__(mcs, name, bases, attrs)
         if model.__name__ != 'UserRoleAssignment' and 'UserRoleAssignment' in [b.__name__ for b in bases]:
             try:
                 model._meta.get_field('role')
-            except FieldDoesNotExist:
+            except FieldDoesNotExist as error:
                 if model.role_class and issubclass(model.role_class, UserRole):
                     model.add_to_class(
                         'role',
                         models.ForeignKey(model.role_class, db_index=True, on_delete=models.CASCADE),
                     )
                 else:
-                    raise Exception('role_class must be defined for any subclass of UserRole!')
+                    raise Exception('role_class must be defined for any subclass of UserRole!') from error
         return model
 
 
@@ -57,7 +55,7 @@ class UserRole(TimeStampedModel):
         return self.name
 
 
-class UserRoleAssignment(with_metaclass(UserRoleAssignmentCreator, TimeStampedModel)):
+class UserRoleAssignment(TimeStampedModel, metaclass=UserRoleAssignmentCreator):
     """
     Model for mapping users and their roles.
     """

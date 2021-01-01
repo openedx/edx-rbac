@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 edx_rbac Django application initialization.
 """

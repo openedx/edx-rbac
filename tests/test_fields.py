@@ -1,13 +1,14 @@
-# -*- coding: utf-8 -*-
 """
 Tests for the `edx-rbac` fields module.
 """
 
-from django.contrib.auth.models import User
+from django.contrib import auth
 from django.core.exceptions import ValidationError
 from django.test import TestCase
 
 from edx_rbac.fields import UserFromEmailField
+
+User = auth.get_user_model()
 
 
 class TestFields(TestCase):
@@ -16,7 +17,7 @@ class TestFields(TestCase):
     """
 
     def setUp(self):
-        super(TestFields, self).setUp()
+        super().setUp()
         self.email = 'cool4eva@gmail.com'
         self.user = User.objects.create(
             username='test_user',

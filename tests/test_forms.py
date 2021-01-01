@@ -1,13 +1,14 @@
-# -*- coding: utf-8 -*-
 """
 Tests for the `edx-rbac` forms module.
 """
 
-from django.contrib.auth.models import User
+from django.contrib import auth
 from django.test import TestCase
 
 from tests.forms import ConcreteUserRoleAssignmentAdminForm
 from tests.models import ConcreteUserRole, ConcreteUserRoleAssignment
+
+User = auth.get_user_model()
 
 
 class TestForms(TestCase):
@@ -16,7 +17,7 @@ class TestForms(TestCase):
     """
 
     def setUp(self):
-        super(TestForms, self).setUp()
+        super().setUp()
         self.email = 'cool4eva@gmail.com'
         self.user = User.objects.create(
             username='test_user',
@@ -53,7 +54,7 @@ class TestForms(TestCase):
         user2 = User.objects.create(
             username='test_user2',
             password='pw2',
-            email='{}2'.format(self.email),
+            email=f'{self.email}2',
         )
         role_assignment = ConcreteUserRoleAssignment.objects.create(
             user=user2,

@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 # pylint: disable=C0111,useless-suppression
 """
 Package metadata for edx_rbac.
@@ -61,9 +60,9 @@ def is_requirement(line):
 VERSION = get_version('edx_rbac', '__init__.py')
 
 if sys.argv[-1] == 'tag':
-    print(u"Tagging the version on github:")
-    os.system(u"git tag -a %s -m 'version %s'" % (VERSION, VERSION))
-    os.system(u"git push --tags")
+    print("Tagging the version on github:")
+    os.system("git tag -a %s -m 'version %s'" % (VERSION, VERSION))
+    os.system("git push --tags")
     sys.exit()
 
 README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Forms to be used for testing.
 """
@@ -25,4 +24,4 @@ class ConcreteUserRoleAssignmentAdminForm(UserRoleAssignmentAdminForm):
         Return cleaned data.
         """
         # pylint: disable=no-member
-        return super(ConcreteUserRoleAssignmentAdminForm, self).cleaned_data()
+        return super().cleaned_data()

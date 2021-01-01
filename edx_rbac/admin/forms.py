@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Forms to be used for djangoapps extending edx_rbac.
 """
@@ -27,4 +26,4 @@ class UserRoleAssignmentAdminForm(forms.ModelForm):
         if instance:
             initial['user'] = instance.user.email
             kwargs['initial'] = initial
-        super(UserRoleAssignmentAdminForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
