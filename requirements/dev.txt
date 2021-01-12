@@ -53,13 +53,13 @@ coverage==5.3.1
     #   -r requirements/quality.txt
     #   codecov
     #   pytest-cov
-cryptography==3.2.1
+cryptography==3.3.1
     # via
     #   -r requirements/quality.txt
     #   pyjwt
 ddt==1.4.1
     # via -r requirements/quality.txt
-diff-cover==4.1.0
+diff-cover==4.1.1
     # via -r requirements/dev.in
 distlib==0.3.1
     # via
@@ -129,27 +129,13 @@ idna==2.10
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   requests
-importlib-metadata==2.1.1
-    # via
-    #   -r requirements/ci.txt
-    #   -r requirements/quality.txt
-    #   inflect
-    #   path
-    #   pluggy
-    #   pytest
-    #   tox
-    #   virtualenv
-importlib-resources==3.2.1
-    # via
-    #   -r requirements/ci.txt
-    #   virtualenv
-inflect==3.0.2
+inflect==5.0.2
     # via jinja2-pluralize
 iniconfig==1.1.1
     # via
     #   -r requirements/quality.txt
     #   pytest
-isort==4.3.21
+isort==5.7.0
     # via
     #   -r requirements/quality.txt
     #   pylint
@@ -173,11 +159,6 @@ mccabe==0.6.1
     # via
     #   -r requirements/quality.txt
     #   pylint
-more-itertools==8.6.0
-    # via
-    #   -r requirements/ci.txt
-    #   -r requirements/quality.txt
-    #   zipp
 newrelic==5.24.0.153
     # via
     #   -r requirements/quality.txt
@@ -190,12 +171,8 @@ packaging==20.8
     #   tox
 path.py==12.5.0
     # via edx-i18n-tools
-path==13.1.0
+path==15.0.1
     # via path.py
-pathlib2==2.3.5
-    # via
-    #   -r requirements/quality.txt
-    #   pytest
 pbr==5.5.1
     # via
     #   -r requirements/quality.txt
@@ -276,7 +253,7 @@ pytest-cov==2.10.1
     # via -r requirements/quality.txt
 pytest-django==4.1.0
     # via -r requirements/quality.txt
-pytest==6.1.2
+pytest==6.2.1
     # via
     #   -r requirements/quality.txt
     #   pytest-cov
@@ -323,7 +300,6 @@ six==1.15.0
     #   edx-i18n-tools
     #   edx-lint
     #   edx-opaque-keys
-    #   pathlib2
     #   pyjwkest
     #   python-dateutil
     #   stevedore
@@ -357,20 +333,16 @@ toml==0.10.2
     #   tox
 tox-battery==0.6.1
     # via -r requirements/ci.txt
-tox==3.20.1
+tox==3.21.0
     # via
     #   -r requirements/ci.txt
     #   tox-battery
-typed-ast==1.4.2
-    # via
-    #   -r requirements/quality.txt
-    #   astroid
 urllib3==1.26.2
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   requests
-virtualenv==20.2.2
+virtualenv==20.3.0
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -378,13 +350,6 @@ wrapt==1.12.1
     # via
     #   -r requirements/quality.txt
     #   astroid
-zipp==1.0.0
-    # via
-    #   -c requirements/constraints.txt
-    #   -r requirements/ci.txt
-    #   -r requirements/quality.txt
-    #   importlib-metadata
-    #   importlib-resources
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip

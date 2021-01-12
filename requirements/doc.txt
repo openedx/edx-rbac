@@ -37,7 +37,7 @@ coverage==5.3.1
     # via
     #   -r requirements/test.txt
     #   pytest-cov
-cryptography==3.2.1
+cryptography==3.3.1
     # via
     #   -r requirements/test.txt
     #   pyjwt
@@ -105,11 +105,6 @@ idna==2.10
     #   requests
 imagesize==1.2.0
     # via sphinx
-importlib-metadata==2.1.1
-    # via
-    #   -r requirements/test.txt
-    #   pluggy
-    #   pytest
 iniconfig==1.1.1
     # via
     #   -r requirements/test.txt
@@ -123,10 +118,6 @@ markupsafe==1.1.1
     # via
     #   -r requirements/test.txt
     #   jinja2
-more-itertools==8.6.0
-    # via
-    #   -r requirements/test.txt
-    #   zipp
 newrelic==5.24.0.153
     # via
     #   -r requirements/test.txt
@@ -137,10 +128,6 @@ packaging==20.8
     #   bleach
     #   pytest
     #   sphinx
-pathlib2==2.3.5
-    # via
-    #   -r requirements/test.txt
-    #   pytest
 pbr==5.5.1
     # via
     #   -r requirements/test.txt
@@ -190,7 +177,7 @@ pytest-cov==2.10.1
     # via -r requirements/test.txt
 pytest-django==4.1.0
     # via -r requirements/test.txt
-pytest==6.1.2
+pytest==6.2.1
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -239,7 +226,6 @@ six==1.15.0
     #   edx-drf-extensions
     #   edx-opaque-keys
     #   edx-sphinx-theme
-    #   pathlib2
     #   pyjwkest
     #   python-dateutil
     #   readme-renderer
@@ -287,10 +273,6 @@ urllib3==1.26.2
     #   requests
 webencodings==0.5.1
     # via bleach
-zipp==1.0.0
-    # via
-    #   -r requirements/test.txt
-    #   importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
