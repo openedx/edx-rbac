@@ -38,7 +38,7 @@ coverage==5.3.1
     # via
     #   -r requirements/test.txt
     #   pytest-cov
-cryptography==3.3.1
+cryptography==3.2.1
     # via
     #   -r requirements/test.txt
     #   pyjwt
@@ -81,7 +81,7 @@ edx-django-utils==3.13.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-edx-drf-extensions==6.2.0
+edx-drf-extensions==6.3.0
     # via -r requirements/test.txt
 edx-lint==1.6
     # via -r requirements/quality.in
@@ -99,11 +99,16 @@ idna==2.10
     # via
     #   -r requirements/test.txt
     #   requests
+importlib-metadata==2.1.1
+    # via
+    #   -r requirements/test.txt
+    #   pluggy
+    #   pytest
 iniconfig==1.1.1
     # via
     #   -r requirements/test.txt
     #   pytest
-isort==5.7.0
+isort==4.3.21
     # via
     #   -r requirements/quality.in
     #   pylint
@@ -119,11 +124,19 @@ markupsafe==1.1.1
     #   jinja2
 mccabe==0.6.1
     # via pylint
+more-itertools==8.6.0
+    # via
+    #   -r requirements/test.txt
+    #   zipp
 newrelic==5.24.0.153
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
 packaging==20.8
+    # via
+    #   -r requirements/test.txt
+    #   pytest
+pathlib2==2.3.5
     # via
     #   -r requirements/test.txt
     #   pytest
@@ -189,7 +202,7 @@ pytest-cov==2.10.1
     # via -r requirements/test.txt
 pytest-django==4.1.0
     # via -r requirements/test.txt
-pytest==6.2.1
+pytest==6.1.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -231,6 +244,7 @@ six==1.15.0
     #   edx-drf-extensions
     #   edx-lint
     #   edx-opaque-keys
+    #   pathlib2
     #   pyjwkest
     #   python-dateutil
     #   stevedore
@@ -256,9 +270,16 @@ toml==0.10.2
     #   -r requirements/test.txt
     #   pylint
     #   pytest
+typed-ast==1.4.2
+    # via astroid
 urllib3==1.26.2
     # via
     #   -r requirements/test.txt
     #   requests
 wrapt==1.12.1
     # via astroid
+zipp==1.0.0
+    # via
+    #   -c requirements/constraints.txt
+    #   -r requirements/test.txt
+    #   importlib-metadata

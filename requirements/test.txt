@@ -24,7 +24,7 @@ code-annotations==0.10.2
     # via -r requirements/test.in
 coverage==5.3.1
     # via pytest-cov
-cryptography==3.3.1
+cryptography==3.2.1
     # via
     #   -r requirements/base.txt
     #   pyjwt
@@ -66,7 +66,7 @@ edx-django-utils==3.13.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-edx-drf-extensions==6.2.0
+edx-drf-extensions==6.3.0
     # via -r requirements/base.txt
 edx-opaque-keys==2.1.1
     # via
@@ -80,17 +80,25 @@ idna==2.10
     # via
     #   -r requirements/base.txt
     #   requests
+importlib-metadata==2.1.1
+    # via
+    #   pluggy
+    #   pytest
 iniconfig==1.1.1
     # via pytest
 jinja2==2.11.2
     # via code-annotations
 markupsafe==1.1.1
     # via jinja2
+more-itertools==8.6.0
+    # via zipp
 newrelic==5.24.0.153
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
 packaging==20.8
+    # via pytest
+pathlib2==2.3.5
     # via pytest
 pbr==5.5.1
     # via
@@ -130,7 +138,7 @@ pytest-cov==2.10.1
     # via -r requirements/test.in
 pytest-django==4.1.0
     # via -r requirements/test.in
-pytest==6.2.1
+pytest==6.1.2
     # via
     #   pytest-cov
     #   pytest-django
@@ -165,6 +173,7 @@ six==1.15.0
     #   cryptography
     #   edx-drf-extensions
     #   edx-opaque-keys
+    #   pathlib2
     #   pyjwkest
     #   python-dateutil
     #   stevedore
@@ -187,3 +196,7 @@ urllib3==1.26.2
     # via
     #   -r requirements/base.txt
     #   requests
+zipp==1.0.0
+    # via
+    #   -c requirements/constraints.txt
+    #   importlib-metadata
