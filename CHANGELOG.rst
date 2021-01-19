@@ -14,6 +14,12 @@ Change Log
 Unreleased
 --------------------
 
+[1.4.0] - 2021-01-20
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Add a ``UserRoleAssignment.applies_to_all`` field, because explicit is better than implicit.
+  See the ADR at `docs/decisions/0002-explicit-role-assignment-wildcard.rst`.
+
 [1.3.3] - 2020-10-02
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
