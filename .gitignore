@@ -42,3 +42,6 @@ edx_rbac.egg-info/
 
 # virtual environments
 venvs/
+
+# Test settings DB file
+default.db

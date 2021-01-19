@@ -6,6 +6,7 @@ from django.conf import settings
 from django.db import models
 from django.db.models.base import ModelBase
 from django.db.models.fields import FieldDoesNotExist
+from django.utils.translation import ugettext_lazy as _
 from model_utils.models import TimeStampedModel
 
 
@@ -59,9 +60,18 @@ class UserRoleAssignment(TimeStampedModel, metaclass=UserRoleAssignmentCreator):
     """
     Model for mapping users and their roles.
     """
+    role_class = None
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, db_index=True, on_delete=models.CASCADE)
-    role_class = None
+
+    applies_to_all_contexts = models.BooleanField(
+        default=False,
+        null=False,
+        help_text=_(
+            'If true, indicates that the user is effectively assigned their role for any and all contexts. '
+            'Defaults to False.'
+        ),
+    )
 
     class Meta:
         """
