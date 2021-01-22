@@ -42,7 +42,7 @@ drf-jwt==1.17.3
     # via edx-drf-extensions
 edx-django-utils==3.13.0
     # via edx-drf-extensions
-edx-drf-extensions==6.2.0
+edx-drf-extensions==6.4.0
     # via -r requirements/base.in
 edx-opaque-keys==2.1.1
     # via edx-drf-extensions
@@ -50,7 +50,7 @@ future==0.18.2
     # via pyjwkest
 idna==2.10
     # via requests
-newrelic==5.24.0.153
+newrelic==6.0.1.155
     # via edx-django-utils
 pbr==5.5.1
     # via stevedore
