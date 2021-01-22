@@ -20,7 +20,7 @@ chardet==4.0.0
     #   requests
 click==7.1.2
     # via code-annotations
-code-annotations==0.10.2
+code-annotations==1.0.0
     # via -r requirements/test.in
 coverage==5.3.1
     # via pytest-cov
@@ -66,7 +66,7 @@ edx-django-utils==3.13.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-edx-drf-extensions==6.2.0
+edx-drf-extensions==6.4.0
     # via -r requirements/base.txt
 edx-opaque-keys==2.1.1
     # via
@@ -86,7 +86,7 @@ jinja2==2.11.2
     # via code-annotations
 markupsafe==1.1.1
     # via jinja2
-newrelic==5.24.0.153
+newrelic==6.0.1.155
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -126,7 +126,7 @@ pymongo==3.11.2
     #   edx-opaque-keys
 pyparsing==2.4.7
     # via packaging
-pytest-cov==2.10.1
+pytest-cov==2.11.1
     # via -r requirements/test.in
 pytest-django==4.1.0
     # via -r requirements/test.in
@@ -144,7 +144,7 @@ pytz==2020.5
     # via
     #   -r requirements/base.txt
     #   django
-pyyaml==5.3.1
+pyyaml==5.4.1
     # via code-annotations
 requests==2.25.1
     # via
