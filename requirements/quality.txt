@@ -32,7 +32,7 @@ click==7.1.2
     #   click-log
     #   code-annotations
     #   edx-lint
-code-annotations==1.0.2
+code-annotations==1.1.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -57,7 +57,7 @@ django-waffle==2.1.0
     #   -r requirements/test.txt
     #   edx-django-utils
     #   edx-drf-extensions
-django==2.2.17
+django==2.2.18
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/test.txt
@@ -86,9 +86,9 @@ edx-django-utils==3.13.0
     #   edx-drf-extensions
 edx-drf-extensions==6.4.0
     # via -r requirements/test.txt
-edx-lint==3.0.2
+edx-lint==4.0.1
     # via -r requirements/quality.in
-edx-opaque-keys==2.1.1
+edx-opaque-keys==2.2.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
@@ -110,7 +110,7 @@ isort==5.7.0
     # via
     #   -r requirements/quality.in
     #   pylint
-jinja2==2.11.2
+jinja2==2.11.3
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -126,7 +126,7 @@ newrelic==6.0.1.155
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-packaging==20.8
+packaging==20.9
     # via
     #   -r requirements/test.txt
     #   pytest
@@ -180,7 +180,7 @@ pylint==2.6.0
     #   pylint-celery
     #   pylint-django
     #   pylint-plugin-utils
-pymongo==3.11.2
+pymongo==3.11.3
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
@@ -205,7 +205,7 @@ python-slugify==4.0.1
     # via
     #   -r requirements/test.txt
     #   code-annotations
-pytz==2020.5
+pytz==2021.1
     # via
     #   -r requirements/test.txt
     #   django
@@ -233,7 +233,6 @@ six==1.15.0
     #   cryptography
     #   edx-drf-extensions
     #   edx-lint
-    #   edx-opaque-keys
     #   pyjwkest
     #   python-dateutil
     #   stevedore
