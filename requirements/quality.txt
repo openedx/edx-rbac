@@ -16,7 +16,7 @@ certifi==2020.12.5
     # via
     #   -r requirements/test.txt
     #   requests
-cffi==1.14.4
+cffi==1.14.5
     # via
     #   -r requirements/test.txt
     #   cryptography
@@ -40,7 +40,7 @@ coverage==5.4
     # via
     #   -r requirements/test.txt
     #   pytest-cov
-cryptography==3.3.1
+cryptography==3.4.4
     # via
     #   -r requirements/test.txt
     #   pyjwt
@@ -152,7 +152,7 @@ pycparser==2.20
     # via
     #   -r requirements/test.txt
     #   cffi
-pycryptodomex==3.9.9
+pycryptodomex==3.10.1
     # via
     #   -r requirements/test.txt
     #   pyjwkest
@@ -230,7 +230,6 @@ six==1.15.0
     # via
     #   -r requirements/test.txt
     #   astroid
-    #   cryptography
     #   edx-drf-extensions
     #   edx-lint
     #   pyjwkest
