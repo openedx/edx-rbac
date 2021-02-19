@@ -56,7 +56,7 @@ coverage==5.4
     #   -r requirements/quality.txt
     #   codecov
     #   pytest-cov
-cryptography==3.4.4
+cryptography==3.4.6
     # via
     #   -r requirements/quality.txt
     #   pyjwt
@@ -107,7 +107,7 @@ edx-django-utils==3.13.0
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
-edx-drf-extensions==6.4.0
+edx-drf-extensions==6.5.0
     # via -r requirements/quality.txt
 edx-i18n-tools==0.5.3
     # via -r requirements/dev.in
@@ -214,7 +214,7 @@ pycryptodomex==3.10.1
     #   pyjwkest
 pydocstyle==5.1.1
     # via -r requirements/quality.txt
-pygments==2.7.4
+pygments==2.8.0
     # via diff-cover
 pyjwkest==1.4.2
     # via
@@ -237,7 +237,7 @@ pylint-plugin-utils==0.6
     #   -r requirements/quality.txt
     #   pylint-celery
     #   pylint-django
-pylint==2.6.0
+pylint==2.6.2
     # via
     #   -r requirements/quality.txt
     #   edx-lint
@@ -335,7 +335,7 @@ toml==0.10.2
     #   tox
 tox-battery==0.6.1
     # via -r requirements/ci.txt
-tox==3.21.4
+tox==3.22.0
     # via
     #   -r requirements/ci.txt
     #   tox-battery
