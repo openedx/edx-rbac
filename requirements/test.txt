@@ -24,7 +24,7 @@ code-annotations==1.1.0
     # via -r requirements/test.in
 coverage==5.4
     # via pytest-cov
-cryptography==3.4.4
+cryptography==3.4.6
     # via
     #   -r requirements/base.txt
     #   pyjwt
@@ -66,7 +66,7 @@ edx-django-utils==3.13.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-edx-drf-extensions==6.4.0
+edx-drf-extensions==6.5.0
     # via -r requirements/base.txt
 edx-opaque-keys==2.2.0
     # via
