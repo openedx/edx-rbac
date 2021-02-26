@@ -8,7 +8,7 @@ appdirs==1.4.4
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-astroid==2.4.2
+astroid==2.5
     # via
     #   -r requirements/quality.txt
     #   pylint
@@ -79,7 +79,7 @@ django-waffle==2.1.0
     #   -r requirements/quality.txt
     #   edx-django-utils
     #   edx-drf-extensions
-django==2.2.18
+django==2.2.19
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/quality.txt
@@ -111,7 +111,7 @@ edx-drf-extensions==6.5.0
     # via -r requirements/quality.txt
 edx-i18n-tools==0.5.3
     # via -r requirements/dev.in
-edx-lint==4.0.1
+edx-lint==4.1.0
     # via -r requirements/quality.txt
 edx-opaque-keys==2.2.0
     # via
@@ -133,7 +133,7 @@ idna==2.10
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   requests
-inflect==5.0.2
+inflect==5.2.0
     # via jinja2-pluralize
 iniconfig==1.1.1
     # via
@@ -151,7 +151,7 @@ jinja2==2.11.3
     #   code-annotations
     #   diff-cover
     #   jinja2-pluralize
-lazy-object-proxy==1.4.3
+lazy-object-proxy==1.5.2
     # via
     #   -r requirements/quality.txt
     #   astroid
@@ -163,7 +163,7 @@ mccabe==0.6.1
     # via
     #   -r requirements/quality.txt
     #   pylint
-newrelic==6.0.1.155
+newrelic==6.2.0.156
     # via
     #   -r requirements/quality.txt
     #   edx-django-utils
@@ -175,7 +175,7 @@ packaging==20.9
     #   tox
 path.py==12.5.0
     # via edx-i18n-tools
-path==15.1.0
+path==15.1.2
     # via path.py
 pbr==5.5.1
     # via
@@ -237,7 +237,7 @@ pylint-plugin-utils==0.6
     #   -r requirements/quality.txt
     #   pylint-celery
     #   pylint-django
-pylint==2.6.2
+pylint==2.7.1
     # via
     #   -r requirements/quality.txt
     #   edx-lint
@@ -298,7 +298,6 @@ six==1.15.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
-    #   astroid
     #   edx-drf-extensions
     #   edx-i18n-tools
     #   edx-lint
