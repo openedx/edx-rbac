@@ -62,7 +62,7 @@ cryptography==3.4.6
     #   pyjwt
 ddt==1.4.1
     # via -r requirements/quality.txt
-diff-cover==4.2.3
+diff-cover==5.0.1
     # via -r requirements/dev.in
 distlib==0.3.1
     # via
@@ -103,7 +103,7 @@ drf-jwt==1.17.3
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
-edx-django-utils==3.13.0
+edx-django-utils==3.15.0
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
@@ -133,12 +133,8 @@ idna==2.10
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   requests
-importlib-metadata==3.7.0
-    # via inflect
-inflect==3.0.2
-    # via
-    #   diff-cover
-    #   jinja2-pluralize
+inflect==5.3.0
+    # via jinja2-pluralize
 iniconfig==1.1.1
     # via
     #   -r requirements/quality.txt
@@ -167,8 +163,6 @@ mccabe==0.6.1
     # via
     #   -r requirements/quality.txt
     #   pylint
-more-itertools==8.7.0
-    # via zipp
 newrelic==6.2.0.156
     # via
     #   -r requirements/quality.txt
@@ -220,7 +214,7 @@ pycryptodomex==3.10.1
     #   pyjwkest
 pydocstyle==5.1.1
     # via -r requirements/quality.txt
-pygments==2.8.0
+pygments==2.8.1
     # via diff-cover
 pyjwkest==1.4.2
     # via
@@ -357,10 +351,6 @@ wrapt==1.12.1
     # via
     #   -r requirements/quality.txt
     #   astroid
-zipp==1.0.0
-    # via
-    #   -c requirements/constraints.txt
-    #   importlib-metadata
 
 # The following packages are considered to be unsafe in a requirements file:
 # pip
