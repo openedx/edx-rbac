@@ -83,7 +83,7 @@ drf-jwt==1.17.3
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-edx-django-utils==3.13.0
+edx-django-utils==3.15.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
@@ -152,7 +152,7 @@ pycryptodomex==3.10.1
     # via
     #   -r requirements/test.txt
     #   pyjwkest
-pygments==2.8.0
+pygments==2.8.1
     # via
     #   doc8
     #   readme-renderer
@@ -230,7 +230,7 @@ six==1.15.0
     #   stevedore
 snowballstemmer==2.1.0
     # via sphinx
-sphinx==3.5.1
+sphinx==3.5.2
     # via
     #   -r requirements/doc.in
     #   edx-sphinx-theme
