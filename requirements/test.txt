@@ -28,7 +28,7 @@ cryptography==3.4.6
     # via
     #   -r requirements/base.txt
     #   pyjwt
-ddt==1.4.1
+ddt==1.4.2
     # via -r requirements/test.in
 django-crum==0.7.9
     # via
@@ -58,7 +58,7 @@ djangorestframework==3.12.2
     #   drf-jwt
     #   edx-drf-extensions
     #   rest-condition
-drf-jwt==1.17.3
+drf-jwt==1.18.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
@@ -181,7 +181,7 @@ text-unidecode==1.3
     # via python-slugify
 toml==0.10.2
     # via pytest
-urllib3==1.26.3
+urllib3==1.26.4
     # via
     #   -r requirements/base.txt
     #   requests
