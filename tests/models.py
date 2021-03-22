@@ -42,6 +42,20 @@ class ConcreteUserRoleAssignmentMultipleContexts(UserRoleAssignment):
         return ['a-test-context', 'a-second-test-context']
 
 
+class ConcreteUserRoleAssignmentDuplicateContexts(UserRoleAssignment):
+    """
+    Used for testing the UserRoleAssignment model when user has multiple, duplicate contexts.
+    """
+
+    role_class = ConcreteUserRole
+
+    def get_context(self):
+        """
+        Generate a list with multiple, duplicate contexts to be used in tests.
+        """
+        return ['a-test-context', 'a-second-test-context', 'a-test-context']
+
+
 class ConcreteUserRoleAssignmentNoContext(UserRoleAssignment):
     """
     Used for testing the UserRoleAssignment model without context returned.

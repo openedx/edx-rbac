@@ -14,6 +14,13 @@ Change Log
 Unreleased
 --------------------
 
+[1.4.2] - 2021-03-22
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Modifies ``create_role_auth_claim_for_user`` to return a list of *unique*
+  (role:context) entries, so that the JWT does not become too large
+  to fit in cookies/headers.
+
 [1.4.1] - 2021-01-22
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
