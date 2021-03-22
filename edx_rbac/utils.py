@@ -130,13 +130,13 @@ def create_role_auth_claim_for_user(user):
     Create role auth claim for a given user.
 
     Takes a user, and for each RoleAssignment class specified in config as a
-    system wide jwt role associated with that user, creates a list of strings
-    denoting the role and context.
+    system wide jwt role associated with that user, creates and returns
+    a list of unique strings denoting the role and context.
 
-    Returns a list.
+    The SYSTEM_WIDE_ROLE_CLASSES setting is a list of classes whose roles (and associated contexts)
+    should be added to the JWT.
 
-    This setting is a list of classes whose roles should be added to the
-    jwt. The setting should look something like this:
+    The setting should look something like this:
 
         SYSTEM_WIDE_ROLE_CLASSES = [
             SystemWideConcreteUserRoleAssignment
@@ -148,11 +148,11 @@ def create_role_auth_claim_for_user(user):
         """
         if context:
             contextual_role = f'{role_string}:{context}'
-            role_auth_claim.append(contextual_role)
+            role_auth_claim.add(contextual_role)
         else:
-            role_auth_claim.append(role_string)
+            role_auth_claim.add(role_string)
 
-    role_auth_claim = []
+    role_auth_claim = set()
     for system_role_loc in settings.SYSTEM_WIDE_ROLE_CLASSES:
         # location can either be a module or a django model
         module_name, func_name = system_role_loc.rsplit('.', 1)
@@ -174,7 +174,8 @@ def create_role_auth_claim_for_user(user):
                         append_role_auth_claim(role_string, item)
             else:
                 append_role_auth_claim(role_string)
-    return role_auth_claim
+
+    return list(role_auth_claim)
 
 
 def is_iterable(obj):

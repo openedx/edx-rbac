@@ -25,6 +25,7 @@ from edx_rbac.utils import (
 from tests.models import (
     ConcreteUserRole,
     ConcreteUserRoleAssignment,
+    ConcreteUserRoleAssignmentDuplicateContexts,
     ConcreteUserRoleAssignmentMultipleContexts,
     ConcreteUserRoleAssignmentNoContext
 )
@@ -414,6 +415,7 @@ class TestUtils(TestCase):
         assert expected_result == _user_has_access(assigned_contexts, requested_contexts)
 
 
+@ddt.ddt
 class TestUtilsWithDatabaseRequirements(TestCase):
     """
     TestUtilsWithDatabaseRequirements tests.
@@ -446,6 +448,12 @@ class TestUtilsWithDatabaseRequirements(TestCase):
     def create_user_role_assignment_multiple_contexts(self):
         """ Helper to create a "Multiple Context" assignment for this object's user and role. """
         with self._create_assignment(ConcreteUserRoleAssignmentMultipleContexts):
+            yield
+
+    @contextmanager
+    def create_user_role_assignment_duplicate_contexts(self):
+        """ Helper to create a "Duplicate Context" assignment for this object's user and role. """
+        with self._create_assignment(ConcreteUserRoleAssignmentDuplicateContexts):
             yield
 
     @contextmanager
@@ -599,14 +607,20 @@ class TestUtilsWithDatabaseRequirements(TestCase):
                 'test-role2:1',
             ]
             actual_claim = create_role_auth_claim_for_user(self.user)
-            assert expected_claim == actual_claim
+            self.assertCountEqual(expected_claim, actual_claim)
 
-    def test_create_role_auth_claim_for_user_with_multiple_contexts(self):
+    @ddt.data(
+        'create_user_role_assignment_duplicate_contexts',
+        'create_user_role_assignment_multiple_contexts',
+    )
+    def test_create_role_auth_claim_for_user_with_many_contexts(self, role_assignment_context_manager_name):
         """
         Helper function should create a list of strings based on the roles
-        associated with the user with multiple contexts.
+        associated with the user with multiple contexts, and it should
+        always be a list of unique items.
         """
-        with self.create_user_role_assignment_multiple_contexts():
+        role_assignment_context_manager = getattr(self, role_assignment_context_manager_name)
+        with role_assignment_context_manager():
             expected_claim = [
                 'coupon-manager:a-test-context',
                 'coupon-manager:a-second-test-context',
@@ -614,4 +628,4 @@ class TestUtilsWithDatabaseRequirements(TestCase):
                 'test-role2:1',
             ]
             actual_claim = create_role_auth_claim_for_user(self.user)
-            assert expected_claim == actual_claim
+            self.assertCountEqual(expected_claim, actual_claim)
