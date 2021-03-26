@@ -40,7 +40,7 @@ coverage==5.5
     # via
     #   -r requirements/test.txt
     #   pytest-cov
-cryptography==3.4.6
+cryptography==3.4.7
     # via
     #   -r requirements/test.txt
     #   pyjwt
@@ -70,7 +70,7 @@ django==2.2.19
     #   edx-drf-extensions
     #   edx-lint
     #   rest-condition
-djangorestframework==3.12.2
+djangorestframework==3.12.3
     # via
     #   -r requirements/test.txt
     #   drf-jwt
@@ -86,7 +86,7 @@ edx-django-utils==3.15.0
     #   edx-drf-extensions
 edx-drf-extensions==6.5.0
     # via -r requirements/test.txt
-edx-lint==4.1.1
+edx-lint==5.0.0
     # via -r requirements/quality.in
 edx-opaque-keys==2.2.0
     # via
@@ -106,7 +106,7 @@ iniconfig==1.1.1
     # via
     #   -r requirements/test.txt
     #   pytest
-isort==5.7.0
+isort==5.8.0
     # via
     #   -r requirements/quality.in
     #   pylint
@@ -114,7 +114,7 @@ jinja2==2.11.3
     # via
     #   -r requirements/test.txt
     #   code-annotations
-lazy-object-proxy==1.5.2
+lazy-object-proxy==1.6.0
     # via astroid
 markupsafe==1.1.1
     # via
