@@ -31,7 +31,7 @@ click==7.1.2
     # via
     #   -r requirements/test.txt
     #   code-annotations
-code-annotations==1.1.0
+code-annotations==1.1.1
     # via -r requirements/test.txt
 coverage==5.5
     # via
@@ -65,7 +65,7 @@ django==2.2.19
     #   edx-django-utils
     #   edx-drf-extensions
     #   rest-condition
-djangorestframework==3.12.3
+djangorestframework==3.12.4
     # via
     #   -r requirements/test.txt
     #   drf-jwt
@@ -79,7 +79,7 @@ docutils==0.16
     #   readme-renderer
     #   restructuredtext-lint
     #   sphinx
-drf-jwt==1.18.0
+drf-jwt==1.19.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
@@ -93,7 +93,7 @@ edx-opaque-keys==2.2.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-edx-sphinx-theme==2.0.0
+edx-sphinx-theme==2.1.0
     # via -r requirements/doc.in
 future==0.18.2
     # via
@@ -161,7 +161,7 @@ pyjwkest==1.4.2
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-pyjwt[crypto]==1.7.1
+pyjwt[crypto]==2.0.1
     # via
     #   -r requirements/test.txt
     #   drf-jwt

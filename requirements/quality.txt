@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-astroid==2.5.1
+astroid==2.5.2
     # via
     #   pylint
     #   pylint-celery
@@ -32,7 +32,7 @@ click==7.1.2
     #   click-log
     #   code-annotations
     #   edx-lint
-code-annotations==1.1.0
+code-annotations==1.1.1
     # via
     #   -r requirements/test.txt
     #   edx-lint
@@ -70,13 +70,13 @@ django==2.2.19
     #   edx-drf-extensions
     #   edx-lint
     #   rest-condition
-djangorestframework==3.12.3
+djangorestframework==3.12.4
     # via
     #   -r requirements/test.txt
     #   drf-jwt
     #   edx-drf-extensions
     #   rest-condition
-drf-jwt==1.18.0
+drf-jwt==1.19.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
@@ -162,7 +162,7 @@ pyjwkest==1.4.2
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-pyjwt[crypto]==1.7.1
+pyjwt[crypto]==2.0.1
     # via
     #   -r requirements/test.txt
     #   drf-jwt
@@ -174,7 +174,7 @@ pylint-plugin-utils==0.6
     # via
     #   pylint-celery
     #   pylint-django
-pylint==2.7.2
+pylint==2.7.4
     # via
     #   edx-lint
     #   pylint-celery
