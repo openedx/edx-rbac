@@ -33,12 +33,12 @@ django==2.2.19
     #   edx-django-utils
     #   edx-drf-extensions
     #   rest-condition
-djangorestframework==3.12.3
+djangorestframework==3.12.4
     # via
     #   drf-jwt
     #   edx-drf-extensions
     #   rest-condition
-drf-jwt==1.18.0
+drf-jwt==1.19.0
     # via edx-drf-extensions
 edx-django-utils==3.15.0
     # via edx-drf-extensions
@@ -62,7 +62,7 @@ pycryptodomex==3.10.1
     # via pyjwkest
 pyjwkest==1.4.2
     # via edx-drf-extensions
-pyjwt[crypto]==1.7.1
+pyjwt[crypto]==2.0.1
     # via drf-jwt
 pymongo==3.11.3
     # via edx-opaque-keys
