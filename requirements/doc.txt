@@ -54,7 +54,7 @@ django-waffle==2.1.0
     #   -r requirements/test.txt
     #   edx-django-utils
     #   edx-drf-extensions
-django==2.2.19
+django==2.2.20
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -73,7 +73,7 @@ djangorestframework==3.12.4
     #   rest-condition
 doc8==0.8.1
     # via -r requirements/doc.in
-docutils==0.16
+docutils==0.17
     # via
     #   doc8
     #   readme-renderer
@@ -83,7 +83,7 @@ drf-jwt==1.19.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-edx-django-utils==3.15.0
+edx-django-utils==3.16.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
@@ -177,7 +177,7 @@ pytest-cov==2.11.1
     # via -r requirements/test.txt
 pytest-django==4.1.0
     # via -r requirements/test.txt
-pytest==6.2.2
+pytest==6.2.3
     # via
     #   -r requirements/test.txt
     #   pytest-cov

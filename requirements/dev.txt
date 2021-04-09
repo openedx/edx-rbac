@@ -79,7 +79,7 @@ django-waffle==2.1.0
     #   -r requirements/quality.txt
     #   edx-django-utils
     #   edx-drf-extensions
-django==2.2.19
+django==2.2.20
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/quality.txt
@@ -103,7 +103,7 @@ drf-jwt==1.19.0
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
-edx-django-utils==3.15.0
+edx-django-utils==3.16.0
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
@@ -261,7 +261,7 @@ pytest-cov==2.11.1
     # via -r requirements/quality.txt
 pytest-django==4.1.0
     # via -r requirements/quality.txt
-pytest==6.2.2
+pytest==6.2.3
     # via
     #   -r requirements/quality.txt
     #   pytest-cov
