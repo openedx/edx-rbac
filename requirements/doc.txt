@@ -73,7 +73,7 @@ djangorestframework==3.12.4
     #   rest-condition
 doc8==0.8.1
     # via -r requirements/doc.in
-docutils==0.17
+docutils==0.16
     # via
     #   doc8
     #   readme-renderer
@@ -175,7 +175,7 @@ pyparsing==2.4.7
     #   packaging
 pytest-cov==2.11.1
     # via -r requirements/test.txt
-pytest-django==4.1.0
+pytest-django==4.2.0
     # via -r requirements/test.txt
 pytest==6.2.3
     # via
@@ -230,7 +230,7 @@ six==1.15.0
     #   stevedore
 snowballstemmer==2.1.0
     # via sphinx
-sphinx==3.5.3
+sphinx==3.5.4
     # via
     #   -r requirements/doc.in
     #   edx-sphinx-theme
