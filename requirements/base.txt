@@ -52,7 +52,7 @@ idna==2.10
     # via requests
 newrelic==6.2.0.156
     # via edx-django-utils
-pbr==5.5.1
+pbr==5.6.0
     # via stevedore
 psutil==5.8.0
     # via edx-django-utils
@@ -62,7 +62,7 @@ pycryptodomex==3.10.1
     # via pyjwkest
 pyjwkest==1.4.2
     # via edx-drf-extensions
-pyjwt[crypto]==2.0.1
+pyjwt[crypto]==2.1.0
     # via drf-jwt
 pymongo==3.11.3
     # via edx-opaque-keys
