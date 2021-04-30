@@ -92,7 +92,7 @@ newrelic==6.2.0.156
     #   edx-django-utils
 packaging==20.9
     # via pytest
-pbr==5.5.1
+pbr==5.6.0
     # via
     #   -r requirements/base.txt
     #   stevedore
@@ -116,7 +116,7 @@ pyjwkest==1.4.2
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-pyjwt[crypto]==2.0.1
+pyjwt[crypto]==2.1.0
     # via
     #   -r requirements/base.txt
     #   drf-jwt
