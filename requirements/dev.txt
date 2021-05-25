@@ -13,7 +13,7 @@ astroid==2.5.6
     #   -r requirements/quality.txt
     #   pylint
     #   pylint-celery
-attrs==21.1.0
+attrs==21.2.0
     # via
     #   -r requirements/quality.txt
     #   pytest
@@ -36,7 +36,7 @@ click-log==0.3.2
     # via
     #   -r requirements/quality.txt
     #   edx-lint
-click==7.1.2
+click==8.0.1
     # via
     #   -r requirements/pip-tools.txt
     #   -r requirements/quality.txt
@@ -44,13 +44,13 @@ click==7.1.2
     #   code-annotations
     #   edx-lint
     #   pip-tools
-code-annotations==1.1.1
+code-annotations==1.1.2
     # via
     #   -r requirements/quality.txt
     #   edx-lint
 codecov==2.1.11
     # via -r requirements/ci.txt
-coverage==5.5
+coverage[toml]==5.5
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
@@ -62,7 +62,7 @@ cryptography==3.4.7
     #   pyjwt
 ddt==1.4.2
     # via -r requirements/quality.txt
-diff-cover==5.0.1
+diff-cover==5.1.1
     # via -r requirements/dev.in
 distlib==0.3.1
     # via
@@ -74,16 +74,15 @@ django-crum==0.7.9
     #   edx-django-utils
 django-model-utils==4.1.1
     # via -r requirements/quality.txt
-django-waffle==2.1.0
+django-waffle==2.2.0
     # via
     #   -r requirements/quality.txt
     #   edx-django-utils
     #   edx-drf-extensions
-django==2.2.22
+django==2.2.23
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/quality.txt
-    #   code-annotations
     #   django-crum
     #   django-model-utils
     #   djangorestframework
@@ -99,7 +98,7 @@ djangorestframework==3.12.4
     #   drf-jwt
     #   edx-drf-extensions
     #   rest-condition
-drf-jwt==1.19.0
+drf-jwt==1.19.1
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
@@ -113,7 +112,7 @@ edx-i18n-tools==0.5.3
     # via -r requirements/dev.in
 edx-lint==5.0.0
     # via -r requirements/quality.txt
-edx-opaque-keys==2.2.0
+edx-opaque-keys==2.2.1
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
@@ -145,7 +144,7 @@ isort==5.8.0
     #   pylint
 jinja2-pluralize==0.3.0
     # via diff-cover
-jinja2==2.11.3
+jinja2==3.0.1
     # via
     #   -r requirements/quality.txt
     #   code-annotations
@@ -155,7 +154,7 @@ lazy-object-proxy==1.6.0
     # via
     #   -r requirements/quality.txt
     #   astroid
-markupsafe==1.1.1
+markupsafe==2.0.1
     # via
     #   -r requirements/quality.txt
     #   jinja2
@@ -216,7 +215,7 @@ pycryptodomex==3.10.1
     # via
     #   -r requirements/quality.txt
     #   pyjwkest
-pydocstyle==6.0.0
+pydocstyle==6.1.1
     # via -r requirements/quality.txt
 pygments==2.9.0
     # via diff-cover
@@ -257,9 +256,9 @@ pyparsing==2.4.7
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   packaging
-pytest-cov==2.11.1
+pytest-cov==2.12.0
     # via -r requirements/quality.txt
-pytest-django==4.2.0
+pytest-django==4.3.0
     # via -r requirements/quality.txt
 pytest==6.2.4
     # via
@@ -334,6 +333,7 @@ toml==0.10.2
     #   -r requirements/ci.txt
     #   -r requirements/pip-tools.txt
     #   -r requirements/quality.txt
+    #   coverage
     #   pep517
     #   pylint
     #   pytest
@@ -349,7 +349,7 @@ urllib3==1.26.4
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   requests
-virtualenv==20.4.6
+virtualenv==20.4.7
     # via
     #   -r requirements/ci.txt
     #   tox
