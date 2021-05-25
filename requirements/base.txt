@@ -18,11 +18,11 @@ django-crum==0.7.9
     #   edx-django-utils
 django-model-utils==4.1.1
     # via -r requirements/base.in
-django-waffle==2.1.0
+django-waffle==2.2.0
     # via
     #   edx-django-utils
     #   edx-drf-extensions
-django==2.2.22
+django==2.2.23
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
@@ -38,13 +38,13 @@ djangorestframework==3.12.4
     #   drf-jwt
     #   edx-drf-extensions
     #   rest-condition
-drf-jwt==1.19.0
+drf-jwt==1.19.1
     # via edx-drf-extensions
 edx-django-utils==4.0.0
     # via edx-drf-extensions
 edx-drf-extensions==6.5.0
     # via -r requirements/base.in
-edx-opaque-keys==2.2.0
+edx-opaque-keys==2.2.1
     # via edx-drf-extensions
 future==0.18.2
     # via pyjwkest
