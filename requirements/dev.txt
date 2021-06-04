@@ -17,7 +17,7 @@ attrs==21.2.0
     # via
     #   -r requirements/quality.txt
     #   pytest
-certifi==2020.12.5
+certifi==2021.5.30
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
@@ -50,7 +50,7 @@ code-annotations==1.1.2
     #   edx-lint
 codecov==2.1.11
     # via -r requirements/ci.txt
-coverage[toml]==5.5
+coverage==5.5
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
@@ -62,9 +62,9 @@ cryptography==3.4.7
     #   pyjwt
 ddt==1.4.2
     # via -r requirements/quality.txt
-diff-cover==5.1.1
+diff-cover==5.1.2
     # via -r requirements/dev.in
-distlib==0.3.1
+distlib==0.3.2
     # via
     #   -r requirements/ci.txt
     #   virtualenv
@@ -79,7 +79,7 @@ django-waffle==2.2.0
     #   -r requirements/quality.txt
     #   edx-django-utils
     #   edx-drf-extensions
-django==2.2.23
+django==2.2.24
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/quality.txt
@@ -102,7 +102,7 @@ drf-jwt==1.19.1
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
-edx-django-utils==4.0.0
+edx-django-utils==4.1.0
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
@@ -240,7 +240,7 @@ pylint-plugin-utils==0.6
     #   -r requirements/quality.txt
     #   pylint-celery
     #   pylint-django
-pylint==2.8.2
+pylint==2.8.3
     # via
     #   -r requirements/quality.txt
     #   edx-lint
@@ -256,7 +256,7 @@ pyparsing==2.4.7
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   packaging
-pytest-cov==2.12.0
+pytest-cov==2.12.1
     # via -r requirements/quality.txt
 pytest-django==4.3.0
     # via -r requirements/quality.txt
@@ -333,10 +333,10 @@ toml==0.10.2
     #   -r requirements/ci.txt
     #   -r requirements/pip-tools.txt
     #   -r requirements/quality.txt
-    #   coverage
     #   pep517
     #   pylint
     #   pytest
+    #   pytest-cov
     #   tox
 tox-battery==0.6.1
     # via -r requirements/ci.txt
