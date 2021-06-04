@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-certifi==2020.12.5
+certifi==2021.5.30
     # via requests
 cffi==1.14.5
     # via cryptography
@@ -22,7 +22,7 @@ django-waffle==2.2.0
     # via
     #   edx-django-utils
     #   edx-drf-extensions
-django==2.2.23
+django==2.2.24
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/base.in
@@ -40,7 +40,7 @@ djangorestframework==3.12.4
     #   rest-condition
 drf-jwt==1.19.1
     # via edx-drf-extensions
-edx-django-utils==4.0.0
+edx-django-utils==4.1.0
     # via edx-drf-extensions
 edx-drf-extensions==6.5.0
     # via -r requirements/base.in
