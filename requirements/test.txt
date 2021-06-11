@@ -85,7 +85,7 @@ jinja2==3.0.1
     # via code-annotations
 markupsafe==2.0.1
     # via jinja2
-newrelic==6.4.0.157
+newrelic==6.4.1.158
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -127,7 +127,7 @@ pyparsing==2.4.7
     # via packaging
 pytest-cov==2.12.1
     # via -r requirements/test.in
-pytest-django==4.3.0
+pytest-django==4.4.0
     # via -r requirements/test.in
 pytest==6.2.4
     # via
