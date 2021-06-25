@@ -85,7 +85,7 @@ jinja2==3.0.1
     # via code-annotations
 markupsafe==2.0.1
     # via jinja2
-newrelic==6.4.1.158
+newrelic==6.4.3.160
     # via
     #   -r requirements/base.txt
     #   edx-django-utils

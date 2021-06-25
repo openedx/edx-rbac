@@ -117,7 +117,7 @@ markupsafe==2.0.1
     # via
     #   -r requirements/test.txt
     #   jinja2
-newrelic==6.4.1.158
+newrelic==6.4.3.160
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
