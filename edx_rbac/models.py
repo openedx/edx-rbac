@@ -3,9 +3,9 @@ Database models for edx_rbac.
 """
 
 from django.conf import settings
+from django.core.exceptions import FieldDoesNotExist
 from django.db import models
 from django.db.models.base import ModelBase
-from django.db.models.fields import FieldDoesNotExist
 from django.utils.translation import ugettext_lazy as _
 from model_utils.models import TimeStampedModel
 
