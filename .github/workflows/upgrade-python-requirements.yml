@@ -1,6 +1,6 @@
 name: Upgrade Requirements
 
- on:
+on:
    schedule:
      # will start the job at 07:00 UTC every Wednesday
      - cron: "0 7 * * 3"
@@ -11,7 +11,7 @@ name: Upgrade Requirements
          required: true
          default: 'master'
 
- jobs:
+jobs:
    upgrade_requirements:
      runs-on: ubuntu-20.04
 
