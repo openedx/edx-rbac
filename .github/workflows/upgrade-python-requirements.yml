@@ -36,22 +36,25 @@ jobs:
          run: |
            cd $GITHUB_WORKSPACE
            make upgrade
+
        - name: setup testeng-ci
          run: |
            git clone https://github.com/edx/testeng-ci.git
            cd $GITHUB_WORKSPACE/testeng-ci
            pip install -r requirements/base.txt
+
        - name: create pull request
          env:
            GITHUB_TOKEN: ${{ secrets.REQUIREMENTS_BOT_GITHUB_TOKEN }}
            GITHUB_USER_EMAIL: ${{ secrets.REQUIREMENTS_BOT_GITHUB_EMAIL }}
-         run: |  
+         run: |
            cd $GITHUB_WORKSPACE/testeng-ci
            python -m jenkins.pull_request_creator --repo-root=$GITHUB_WORKSPACE \
            --target-branch="${{ env.target_branch }}" --base-branch-name="upgrade-python-requirements" \
            --commit-message="chore: Updating Python Requirements" --pr-title="Python Requirements Update" \
            --pr-body="Python requirements update.Please review the [changelogs](https://openedx.atlassian.net/wiki/spaces/TE/pages/1001521320/Python+Package+Changelogs) for the upgraded packages." \
            --user-reviewers="" --team-reviewers="arbi-bom" --delete-old-pull-requests
+
        - name: Send failure notification
          if: ${{ failure() }}
          uses: dawidd6/action-send-mail@v3
