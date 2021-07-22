@@ -22,9 +22,7 @@ cffi==1.14.6
     # via
     #   -r requirements/test.txt
     #   cryptography
-chardet==4.0.0
-    # via doc8
-charset-normalizer==2.0.2
+charset-normalizer==2.0.3
     # via
     #   -r requirements/test.txt
     #   requests
@@ -71,7 +69,7 @@ djangorestframework==3.12.4
     #   drf-jwt
     #   edx-drf-extensions
     #   rest-condition
-doc8==0.8.1
+doc8==0.9.0
     # via -r requirements/doc.in
 docutils==0.17.1
     # via
@@ -221,7 +219,6 @@ six==1.16.0
     # via
     #   -r requirements/test.txt
     #   bleach
-    #   doc8
     #   edx-drf-extensions
     #   edx-sphinx-theme
     #   pyjwkest
