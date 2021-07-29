@@ -30,7 +30,7 @@ click==8.0.1
     # via
     #   -r requirements/test.txt
     #   code-annotations
-code-annotations==1.1.2
+code-annotations==1.2.0
     # via -r requirements/test.txt
 coverage==5.5
     # via
@@ -227,7 +227,7 @@ six==1.16.0
     #   stevedore
 snowballstemmer==2.1.0
     # via sphinx
-sphinx==4.1.1
+sphinx==4.1.2
     # via
     #   -r requirements/doc.in
     #   edx-sphinx-theme
