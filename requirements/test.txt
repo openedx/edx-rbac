@@ -20,7 +20,7 @@ charset-normalizer==2.0.3
     #   requests
 click==8.0.1
     # via code-annotations
-code-annotations==1.1.2
+code-annotations==1.2.0
     # via -r requirements/test.in
 coverage==5.5
     # via pytest-cov
