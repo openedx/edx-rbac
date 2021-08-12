@@ -42,7 +42,7 @@ drf-jwt==1.19.1
     # via edx-drf-extensions
 edx-django-utils==4.2.0
     # via edx-drf-extensions
-edx-drf-extensions==6.6.0
+edx-drf-extensions==7.0.1
     # via -r requirements/base.in
 edx-opaque-keys==2.2.2
     # via edx-drf-extensions
@@ -63,7 +63,9 @@ pycryptodomex==3.10.1
 pyjwkest==1.4.2
     # via edx-drf-extensions
 pyjwt[crypto]==2.1.0
-    # via drf-jwt
+    # via
+    #   drf-jwt
+    #   edx-drf-extensions
 pymongo==3.12.0
     # via edx-opaque-keys
 python-dateutil==2.8.2
