@@ -63,7 +63,7 @@ cryptography==3.4.7
     #   pyjwt
 ddt==1.4.2
     # via -r requirements/quality.txt
-diff-cover==6.2.1
+diff-cover==6.3.0
     # via -r requirements/dev.in
 distlib==0.3.2
     # via
@@ -107,7 +107,7 @@ edx-django-utils==4.2.0
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
-edx-drf-extensions==6.6.0
+edx-drf-extensions==7.0.1
     # via -r requirements/quality.txt
 edx-i18n-tools==0.7.0
     # via -r requirements/dev.in
@@ -230,6 +230,7 @@ pyjwt[crypto]==2.1.0
     # via
     #   -r requirements/quality.txt
     #   drf-jwt
+    #   edx-drf-extensions
 pylint==2.9.6
     # via
     #   -r requirements/quality.txt
@@ -339,7 +340,7 @@ toml==0.10.2
     #   pytest
     #   pytest-cov
     #   tox
-tomli==1.2.0
+tomli==1.2.1
     # via
     #   -r requirements/pip-tools.txt
     #   pep517
@@ -354,11 +355,11 @@ urllib3==1.26.6
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   requests
-virtualenv==20.7.0
+virtualenv==20.7.2
     # via
     #   -r requirements/ci.txt
     #   tox
-wheel==0.36.2
+wheel==0.37.0
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools

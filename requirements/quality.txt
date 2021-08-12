@@ -83,7 +83,7 @@ edx-django-utils==4.2.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-edx-drf-extensions==6.6.0
+edx-drf-extensions==7.0.1
     # via -r requirements/test.txt
 edx-lint==5.0.0
     # via -r requirements/quality.in
@@ -165,6 +165,7 @@ pyjwt[crypto]==2.1.0
     # via
     #   -r requirements/test.txt
     #   drf-jwt
+    #   edx-drf-extensions
 pylint==2.9.6
     # via
     #   edx-lint
