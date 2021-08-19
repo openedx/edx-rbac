@@ -150,7 +150,7 @@ pycryptodomex==3.10.1
     # via
     #   -r requirements/test.txt
     #   pyjwkest
-pygments==2.9.0
+pygments==2.10.0
     # via
     #   doc8
     #   readme-renderer

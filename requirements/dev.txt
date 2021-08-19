@@ -63,7 +63,7 @@ cryptography==3.4.7
     #   pyjwt
 ddt==1.4.2
     # via -r requirements/quality.txt
-diff-cover==6.3.0
+diff-cover==6.3.1
     # via -r requirements/dev.in
 distlib==0.3.2
     # via
@@ -220,7 +220,7 @@ pycryptodomex==3.10.1
     #   pyjwkest
 pydocstyle==6.1.1
     # via -r requirements/quality.txt
-pygments==2.9.0
+pygments==2.10.0
     # via diff-cover
 pyjwkest==1.4.2
     # via
@@ -344,7 +344,7 @@ tomli==1.2.1
     # via
     #   -r requirements/pip-tools.txt
     #   pep517
-tox==3.24.1
+tox==3.24.2
     # via
     #   -r requirements/ci.txt
     #   tox-battery
