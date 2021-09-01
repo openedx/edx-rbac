@@ -12,7 +12,7 @@ attrs==21.2.0
     #   pytest
 babel==2.9.1
     # via sphinx
-bleach==4.0.0
+bleach==4.1.0
     # via readme-renderer
 certifi==2021.5.30
     # via
@@ -36,7 +36,7 @@ coverage==5.5
     # via
     #   -r requirements/test.txt
     #   pytest-cov
-cryptography==3.4.7
+cryptography==3.4.8
     # via
     #   -r requirements/test.txt
     #   pyjwt
@@ -81,7 +81,7 @@ drf-jwt==1.19.1
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-edx-django-utils==4.2.0
+edx-django-utils==4.4.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
@@ -116,7 +116,7 @@ markupsafe==2.0.1
     # via
     #   -r requirements/test.txt
     #   jinja2
-newrelic==6.8.0.163
+newrelic==6.8.1.164
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -130,7 +130,7 @@ pbr==5.6.0
     # via
     #   -r requirements/test.txt
     #   stevedore
-pluggy==0.13.1
+pluggy==1.0.0
     # via
     #   -r requirements/test.txt
     #   pytest
@@ -172,7 +172,7 @@ pyparsing==2.4.7
     # via
     #   -r requirements/test.txt
     #   packaging
-pytest==6.2.4
+pytest==6.2.5
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -225,7 +225,6 @@ six==1.16.0
     #   pyjwkest
     #   python-dateutil
     #   readme-renderer
-    #   stevedore
 snowballstemmer==2.1.0
     # via sphinx
 sphinx==4.1.2
@@ -248,7 +247,7 @@ sqlparse==0.4.1
     # via
     #   -r requirements/test.txt
     #   django
-stevedore==1.32.0
+stevedore==3.4.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
