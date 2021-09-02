@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-astroid==2.6.6
+astroid==2.7.3
     # via
     #   pylint
     #   pylint-celery
@@ -40,7 +40,7 @@ coverage==5.5
     # via
     #   -r requirements/test.txt
     #   pytest-cov
-cryptography==3.4.7
+cryptography==3.4.8
     # via
     #   -r requirements/test.txt
     #   pyjwt
@@ -48,7 +48,7 @@ ddt==1.4.2
     # via -r requirements/test.txt
 django==2.2.24
     # via
-    #   -c requirements/constraints.txt
+    #   -c requirements/common_constraints.txt
     #   -r requirements/test.txt
     #   django-crum
     #   django-model-utils
@@ -56,7 +56,6 @@ django==2.2.24
     #   drf-jwt
     #   edx-django-utils
     #   edx-drf-extensions
-    #   edx-lint
     #   rest-condition
 django-crum==0.7.9
     # via
@@ -79,13 +78,13 @@ drf-jwt==1.19.1
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-edx-django-utils==4.2.0
+edx-django-utils==4.4.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
 edx-drf-extensions==7.0.1
     # via -r requirements/test.txt
-edx-lint==5.0.0
+edx-lint==5.1.0
     # via -r requirements/quality.in
 edx-opaque-keys==2.2.2
     # via
@@ -121,7 +120,7 @@ markupsafe==2.0.1
     #   jinja2
 mccabe==0.6.1
     # via pylint
-newrelic==6.8.0.163
+newrelic==6.8.1.164
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -133,7 +132,9 @@ pbr==5.6.0
     # via
     #   -r requirements/test.txt
     #   stevedore
-pluggy==0.13.1
+platformdirs==2.3.0
+    # via pylint
+pluggy==1.0.0
     # via
     #   -r requirements/test.txt
     #   pytest
@@ -166,7 +167,7 @@ pyjwt[crypto]==2.1.0
     #   -r requirements/test.txt
     #   drf-jwt
     #   edx-drf-extensions
-pylint==2.9.6
+pylint==2.10.2
     # via
     #   edx-lint
     #   pylint-celery
@@ -188,7 +189,7 @@ pyparsing==2.4.7
     # via
     #   -r requirements/test.txt
     #   packaging
-pytest==6.2.4
+pytest==6.2.5
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -233,16 +234,14 @@ six==1.16.0
     #   edx-lint
     #   pyjwkest
     #   python-dateutil
-    #   stevedore
 snowballstemmer==2.1.0
     # via pydocstyle
 sqlparse==0.4.1
     # via
     #   -r requirements/test.txt
     #   django
-stevedore==1.32.0
+stevedore==3.4.0
     # via
-    #   -c requirements/constraints.txt
     #   -r requirements/test.txt
     #   code-annotations
     #   edx-django-utils

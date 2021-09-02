@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-astroid==2.6.6
+astroid==2.7.3
     # via
     #   -r requirements/quality.txt
     #   pylint
@@ -26,8 +26,6 @@ cffi==1.14.6
     # via
     #   -r requirements/quality.txt
     #   cryptography
-chardet==4.0.0
-    # via diff-cover
 charset-normalizer==2.0.4
     # via
     #   -r requirements/ci.txt
@@ -57,21 +55,23 @@ coverage==5.5
     #   -r requirements/quality.txt
     #   codecov
     #   pytest-cov
-cryptography==3.4.7
+cryptography==3.4.8
     # via
     #   -r requirements/quality.txt
     #   pyjwt
 ddt==1.4.2
     # via -r requirements/quality.txt
-diff-cover==6.3.1
-    # via -r requirements/dev.in
+diff-cover==4.0.0
+    # via
+    #   -c requirements/constraints.txt
+    #   -r requirements/dev.in
 distlib==0.3.2
     # via
     #   -r requirements/ci.txt
     #   virtualenv
 django==2.2.24
     # via
-    #   -c requirements/constraints.txt
+    #   -c requirements/common_constraints.txt
     #   -r requirements/quality.txt
     #   django-crum
     #   django-model-utils
@@ -80,7 +80,6 @@ django==2.2.24
     #   edx-django-utils
     #   edx-drf-extensions
     #   edx-i18n-tools
-    #   edx-lint
     #   rest-condition
 django-crum==0.7.9
     # via
@@ -103,7 +102,7 @@ drf-jwt==1.19.1
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
-edx-django-utils==4.2.0
+edx-django-utils==4.4.0
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
@@ -111,7 +110,7 @@ edx-drf-extensions==7.0.1
     # via -r requirements/quality.txt
 edx-i18n-tools==0.7.0
     # via -r requirements/dev.in
-edx-lint==5.0.0
+edx-lint==5.1.0
     # via -r requirements/quality.txt
 edx-opaque-keys==2.2.2
     # via
@@ -163,7 +162,7 @@ mccabe==0.6.1
     # via
     #   -r requirements/quality.txt
     #   pylint
-newrelic==6.8.0.163
+newrelic==6.8.1.164
     # via
     #   -r requirements/quality.txt
     #   edx-django-utils
@@ -185,11 +184,13 @@ pep517==0.11.0
     #   pip-tools
 pip-tools==6.2.0
     # via -r requirements/pip-tools.txt
-platformdirs==2.2.0
+platformdirs==2.3.0
     # via
     #   -r requirements/ci.txt
+    #   -r requirements/quality.txt
+    #   pylint
     #   virtualenv
-pluggy==0.13.1
+pluggy==1.0.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
@@ -231,7 +232,7 @@ pyjwt[crypto]==2.1.0
     #   -r requirements/quality.txt
     #   drf-jwt
     #   edx-drf-extensions
-pylint==2.9.6
+pylint==2.10.2
     # via
     #   -r requirements/quality.txt
     #   edx-lint
@@ -260,7 +261,7 @@ pyparsing==2.4.7
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   packaging
-pytest==6.2.4
+pytest==6.2.5
     # via
     #   -r requirements/quality.txt
     #   pytest-cov
@@ -310,7 +311,6 @@ six==1.16.0
     #   edx-lint
     #   pyjwkest
     #   python-dateutil
-    #   stevedore
     #   tox
     #   virtualenv
 snowballstemmer==2.1.0
@@ -321,9 +321,8 @@ sqlparse==0.4.1
     # via
     #   -r requirements/quality.txt
     #   django
-stevedore==1.32.0
+stevedore==3.4.0
     # via
-    #   -c requirements/constraints.txt
     #   -r requirements/quality.txt
     #   code-annotations
     #   edx-django-utils
@@ -344,7 +343,7 @@ tomli==1.2.1
     # via
     #   -r requirements/pip-tools.txt
     #   pep517
-tox==3.24.2
+tox==3.24.3
     # via
     #   -r requirements/ci.txt
     #   tox-battery
