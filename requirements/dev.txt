@@ -26,7 +26,7 @@ cffi==1.14.6
     # via
     #   -r requirements/quality.txt
     #   cryptography
-charset-normalizer==2.0.4
+charset-normalizer==2.0.5
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
@@ -317,7 +317,7 @@ snowballstemmer==2.1.0
     # via
     #   -r requirements/quality.txt
     #   pydocstyle
-sqlparse==0.4.1
+sqlparse==0.4.2
     # via
     #   -r requirements/quality.txt
     #   django
