@@ -34,8 +34,7 @@ def permission_required(*permissions, **decorator_kwargs):
                 # raises a permission denied exception causing a 403 response
                 self.permission_denied(
                     request,
-                    message=('Missing: {}'
-                             .format(', '.join(missing_permissions)))
+                    message=f"Missing: {', '.join(missing_permissions)}"
                 )
 
             return view(self, request, *args, **kwargs)

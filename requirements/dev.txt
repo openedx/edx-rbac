@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-astroid==2.7.3
+astroid==2.8.0
     # via
     #   -r requirements/quality.txt
     #   pylint
@@ -26,7 +26,7 @@ cffi==1.14.6
     # via
     #   -r requirements/quality.txt
     #   cryptography
-charset-normalizer==2.0.5
+charset-normalizer==2.0.6
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
@@ -65,7 +65,7 @@ diff-cover==4.0.0
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/dev.in
-distlib==0.3.2
+distlib==0.3.3
     # via
     #   -r requirements/ci.txt
     #   virtualenv
@@ -162,7 +162,7 @@ mccabe==0.6.1
     # via
     #   -r requirements/quality.txt
     #   pylint
-newrelic==6.8.1.164
+newrelic==7.0.0.166
     # via
     #   -r requirements/quality.txt
     #   edx-django-utils
@@ -182,7 +182,7 @@ pep517==0.11.0
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
-pip-tools==6.2.0
+pip-tools==6.3.0
     # via -r requirements/pip-tools.txt
 platformdirs==2.3.0
     # via
@@ -232,7 +232,7 @@ pyjwt[crypto]==2.1.0
     #   -r requirements/quality.txt
     #   drf-jwt
     #   edx-drf-extensions
-pylint==2.10.2
+pylint==2.11.1
     # via
     #   -r requirements/quality.txt
     #   edx-lint
@@ -343,18 +343,23 @@ tomli==1.2.1
     # via
     #   -r requirements/pip-tools.txt
     #   pep517
-tox==3.24.3
+tox==3.24.4
     # via
     #   -r requirements/ci.txt
     #   tox-battery
 tox-battery==0.6.1
     # via -r requirements/ci.txt
-urllib3==1.26.6
+typing-extensions==3.10.0.2
+    # via
+    #   -r requirements/quality.txt
+    #   astroid
+    #   pylint
+urllib3==1.26.7
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   requests
-virtualenv==20.7.2
+virtualenv==20.8.0
     # via
     #   -r requirements/ci.txt
     #   tox

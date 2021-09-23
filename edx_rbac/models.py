@@ -104,10 +104,7 @@ class UserRoleAssignment(TimeStampedModel, metaclass=UserRoleAssignmentCreator):
         Return human-readable string representation.
         """
         # pylint: disable=no-member
-        return '{user}:{role}'.format(
-            user=self.user.id,
-            role=self.role.name,
-        )
+        return f'{self.user.id}:{self.role.name}'
 
     def __repr__(self):
         """

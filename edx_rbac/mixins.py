@@ -28,10 +28,9 @@ class PermissionRequiredMixin:
             # is mixed. If the mixin is used, at least one permission should be
             # required.
             raise ImproperlyConfigured(
-                '{0} is missing the permission_required attribute. Define '
-                '{0}.permission_required, or override '
-                '{0}.get_permission_required().'
-                .format(self.__class__.__name__)
+                f'{self.__class__.__name__} is missing the permission_required attribute. Define '
+                f'{self.__class__.__name__}.permission_required, or override '
+                f'{self.__class__.__name__}.get_permission_required().'
             )
         if isinstance(self.permission_required, str):
             perms = (self.permission_required, )
@@ -60,7 +59,8 @@ class PermissionRequiredMixin:
         if any(missing_permissions):
             self.permission_denied(
                 request,
-                message=('MISSING: {}'.format(', '.join(missing_permissions))))
+                message=f"MISSING: {', '.join(missing_permissions)}"
+            )
 
 
 class PermissionRequiredForListingMixin(PermissionRequiredMixin):
