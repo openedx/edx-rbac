@@ -22,7 +22,7 @@ cffi==1.14.6
     # via
     #   -r requirements/test.txt
     #   cryptography
-charset-normalizer==2.0.5
+charset-normalizer==2.0.6
     # via
     #   -r requirements/test.txt
     #   requests
@@ -116,7 +116,7 @@ markupsafe==2.0.1
     # via
     #   -r requirements/test.txt
     #   jinja2
-newrelic==6.8.1.164
+newrelic==7.0.0.166
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -263,7 +263,7 @@ toml==0.10.2
     #   -r requirements/test.txt
     #   pytest
     #   pytest-cov
-urllib3==1.26.6
+urllib3==1.26.7
     # via
     #   -r requirements/test.txt
     #   requests

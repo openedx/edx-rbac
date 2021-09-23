@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-astroid==2.7.3
+astroid==2.8.0
     # via
     #   pylint
     #   pylint-celery
@@ -20,7 +20,7 @@ cffi==1.14.6
     # via
     #   -r requirements/test.txt
     #   cryptography
-charset-normalizer==2.0.5
+charset-normalizer==2.0.6
     # via
     #   -r requirements/test.txt
     #   requests
@@ -120,7 +120,7 @@ markupsafe==2.0.1
     #   jinja2
 mccabe==0.6.1
     # via pylint
-newrelic==6.8.1.164
+newrelic==7.0.0.166
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -167,7 +167,7 @@ pyjwt[crypto]==2.1.0
     #   -r requirements/test.txt
     #   drf-jwt
     #   edx-drf-extensions
-pylint==2.10.2
+pylint==2.11.1
     # via
     #   edx-lint
     #   pylint-celery
@@ -256,7 +256,11 @@ toml==0.10.2
     #   pylint
     #   pytest
     #   pytest-cov
-urllib3==1.26.6
+typing-extensions==3.10.0.2
+    # via
+    #   astroid
+    #   pylint
+urllib3==1.26.7
     # via
     #   -r requirements/test.txt
     #   requests
