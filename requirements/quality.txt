@@ -36,15 +36,15 @@ code-annotations==1.2.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
-coverage==5.5
+coverage[toml]==6.0.1
     # via
     #   -r requirements/test.txt
     #   pytest-cov
-cryptography==3.4.8
+cryptography==35.0.0
     # via
     #   -r requirements/test.txt
     #   pyjwt
-ddt==1.4.3
+ddt==1.4.4
     # via -r requirements/test.txt
 django==2.2.24
     # via
@@ -56,7 +56,6 @@ django==2.2.24
     #   drf-jwt
     #   edx-django-utils
     #   edx-drf-extensions
-    #   rest-condition
 django-crum==0.7.9
     # via
     #   -r requirements/test.txt
@@ -73,7 +72,6 @@ djangorestframework==3.12.4
     #   -r requirements/test.txt
     #   drf-jwt
     #   edx-drf-extensions
-    #   rest-condition
 drf-jwt==1.19.1
     # via
     #   -r requirements/test.txt
@@ -82,7 +80,7 @@ edx-django-utils==4.4.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-edx-drf-extensions==7.0.1
+edx-drf-extensions==8.0.0
     # via -r requirements/test.txt
 edx-lint==5.2.0
     # via -r requirements/quality.in
@@ -108,7 +106,7 @@ isort==5.9.3
     # via
     #   -r requirements/quality.in
     #   pylint
-jinja2==3.0.1
+jinja2==3.0.2
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -162,7 +160,7 @@ pyjwkest==1.4.2
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-pyjwt[crypto]==2.1.0
+pyjwt[crypto]==2.2.0
     # via
     #   -r requirements/test.txt
     #   drf-jwt
@@ -194,7 +192,7 @@ pytest==6.2.5
     #   -r requirements/test.txt
     #   pytest-cov
     #   pytest-django
-pytest-cov==2.12.1
+pytest-cov==3.0.0
     # via -r requirements/test.txt
 pytest-django==4.4.0
     # via -r requirements/test.txt
@@ -206,7 +204,7 @@ python-slugify==5.0.2
     # via
     #   -r requirements/test.txt
     #   code-annotations
-pytz==2021.1
+pytz==2021.3
     # via
     #   -r requirements/test.txt
     #   django
@@ -219,10 +217,6 @@ requests==2.26.0
     #   -r requirements/test.txt
     #   edx-drf-extensions
     #   pyjwkest
-rest-condition==1.0.3
-    # via
-    #   -r requirements/test.txt
-    #   edx-drf-extensions
 semantic-version==2.8.5
     # via
     #   -r requirements/test.txt
@@ -255,7 +249,10 @@ toml==0.10.2
     #   -r requirements/test.txt
     #   pylint
     #   pytest
-    #   pytest-cov
+tomli==1.2.1
+    # via
+    #   -r requirements/test.txt
+    #   coverage
 typing-extensions==3.10.0.2
     # via
     #   astroid
