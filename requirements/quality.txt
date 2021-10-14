@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-astroid==2.8.0
+astroid==2.8.2
     # via
     #   pylint
     #   pylint-celery
@@ -12,19 +12,19 @@ attrs==21.2.0
     # via
     #   -r requirements/test.txt
     #   pytest
-certifi==2021.5.30
+certifi==2021.10.8
     # via
     #   -r requirements/test.txt
     #   requests
-cffi==1.14.6
+cffi==1.15.0
     # via
     #   -r requirements/test.txt
     #   cryptography
-charset-normalizer==2.0.6
+charset-normalizer==2.0.7
     # via
     #   -r requirements/test.txt
     #   requests
-click==8.0.1
+click==8.0.3
     # via
     #   -r requirements/test.txt
     #   click-log
@@ -36,7 +36,7 @@ code-annotations==1.2.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
-coverage[toml]==6.0.1
+coverage[toml]==6.0.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -60,7 +60,7 @@ django-crum==0.7.9
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-django-model-utils==4.1.1
+django-model-utils==4.2.0
     # via -r requirements/test.txt
 django-waffle==2.2.1
     # via
@@ -94,7 +94,7 @@ future==0.18.2
     #   pyjwkest
 futures==3.1.1
     # via -r requirements/quality.in
-idna==3.2
+idna==3.3
     # via
     #   -r requirements/test.txt
     #   requests
@@ -118,7 +118,7 @@ markupsafe==2.0.1
     #   jinja2
 mccabe==0.6.1
     # via pylint
-newrelic==7.0.0.166
+newrelic==7.2.1.168
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -144,13 +144,13 @@ py==1.10.0
     # via
     #   -r requirements/test.txt
     #   pytest
-pycodestyle==2.7.0
+pycodestyle==2.8.0
     # via -r requirements/quality.in
 pycparser==2.20
     # via
     #   -r requirements/test.txt
     #   cffi
-pycryptodomex==3.10.4
+pycryptodomex==3.11.0
     # via
     #   -r requirements/test.txt
     #   pyjwkest
@@ -208,7 +208,7 @@ pytz==2021.3
     # via
     #   -r requirements/test.txt
     #   django
-pyyaml==5.4.1
+pyyaml==6.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
