@@ -114,7 +114,7 @@ markupsafe==2.0.1
     # via
     #   -r requirements/test.txt
     #   jinja2
-newrelic==7.2.1.168
+newrelic==7.2.2.169
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -157,12 +157,12 @@ pyjwkest==1.4.2
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-pyjwt[crypto]==2.2.0
+pyjwt[crypto]==2.3.0
     # via
     #   -r requirements/test.txt
     #   drf-jwt
     #   edx-drf-extensions
-pymongo==3.12.0
+pymongo==3.12.1
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
@@ -240,7 +240,7 @@ sqlparse==0.4.2
     # via
     #   -r requirements/test.txt
     #   django
-stevedore==3.4.0
+stevedore==3.5.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
