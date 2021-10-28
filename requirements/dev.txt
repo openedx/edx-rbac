@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-astroid==2.8.3
+astroid==2.8.4
     # via
     #   -r requirements/quality.txt
     #   pylint
@@ -108,7 +108,7 @@ edx-drf-extensions==8.0.0
     # via -r requirements/quality.txt
 edx-i18n-tools==0.8.1
     # via -r requirements/dev.in
-edx-lint==5.2.0
+edx-lint==5.2.1
     # via -r requirements/quality.txt
 edx-opaque-keys==2.2.2
     # via
@@ -254,7 +254,7 @@ pymongo==3.12.1
     # via
     #   -r requirements/quality.txt
     #   edx-opaque-keys
-pyparsing==2.4.7
+pyparsing==3.0.3
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
@@ -331,7 +331,7 @@ toml==0.10.2
     #   pylint
     #   pytest
     #   tox
-tomli==1.2.1
+tomli==1.2.2
     # via
     #   -r requirements/pip-tools.txt
     #   -r requirements/quality.txt
@@ -353,7 +353,7 @@ urllib3==1.26.7
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   requests
-virtualenv==20.8.1
+virtualenv==20.9.0
     # via
     #   -r requirements/ci.txt
     #   tox
