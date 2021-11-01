@@ -14,6 +14,11 @@ Change Log
 Unreleased
 --------------------
 
+[1.5.1] - 2021-11-01
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Replacing ugettext_lazy with gettext_lazy to resolve RemovedInDjango40Warning.
+
 [1.5.0] - 2021-07-07
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
