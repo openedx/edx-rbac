@@ -1,6 +1,9 @@
 name: Upgrade Requirements
 
 on:
+  push:
+    branches:
+      - '**'
   schedule:
      - cron: "45 1 * * 4"
   workflow_dispatch:
