@@ -20,8 +20,8 @@ jobs:
        email_address: arbi-bom@edx.org
        send_success_notification: false
     secrets:
-       REQUIREMENTS_BOT_GITHUB_TOKEN = ${{ secrets.REQUIREMENTS_BOT_GITHUB_TOKEN }}
-       REQUIREMENTS_BOT_GITHUB_EMAIL = ${{ secrets.REQUIREMENTS_BOT_GITHUB_EMAIL }}
-       EDX_SMTP_USERNAME = ${{ secrets.EDX_SMTP_USERNAME }}
-       EDX_SMTP_PASSWORD = ${{ secrets.EDX_SMTP_PASSWORD }}
+       REQUIREMENTS_BOT_GITHUB_TOKEN: ${{ secrets.REQUIREMENTS_BOT_GITHUB_TOKEN }}
+       REQUIREMENTS_BOT_GITHUB_EMAIL: ${{ secrets.REQUIREMENTS_BOT_GITHUB_EMAIL }}
+       EDX_SMTP_USERNAME: ${{ secrets.EDX_SMTP_USERNAME }}
+       EDX_SMTP_PASSWORD: ${{ secrets.EDX_SMTP_PASSWORD }}
     uses: edx/.github/.github/workflows/upgrade-python-requirements.yml@jawayria/upgrade-workflow
