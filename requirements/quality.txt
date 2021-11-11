@@ -36,7 +36,7 @@ code-annotations==1.2.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
-coverage[toml]==6.1.1
+coverage[toml]==6.1.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -102,11 +102,11 @@ iniconfig==1.1.1
     # via
     #   -r requirements/test.txt
     #   pytest
-isort==5.10.0
+isort==5.10.1
     # via
     #   -r requirements/quality.in
     #   pylint
-jinja2==3.0.2
+jinja2==3.0.3
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -118,7 +118,7 @@ markupsafe==2.0.1
     #   jinja2
 mccabe==0.6.1
     # via pylint
-newrelic==7.2.2.169
+newrelic==7.2.3.170
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -140,13 +140,13 @@ psutil==5.8.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-py==1.10.0
+py==1.11.0
     # via
     #   -r requirements/test.txt
     #   pytest
 pycodestyle==2.8.0
     # via -r requirements/quality.in
-pycparser==2.20
+pycparser==2.21
     # via
     #   -r requirements/test.txt
     #   cffi
