@@ -4,7 +4,11 @@
 #
 #    make upgrade
 #
-astroid==2.8.4
+asgiref==3.4.1
+    # via
+    #   -r requirements/quality.txt
+    #   django
+astroid==2.8.5
     # via
     #   -r requirements/quality.txt
     #   pylint
@@ -69,7 +73,7 @@ distlib==0.3.3
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-django==2.2.24
+django==3.2.9
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/quality.txt
@@ -114,7 +118,7 @@ edx-opaque-keys==2.2.2
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
-filelock==3.3.2
+filelock==3.4.0
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -160,11 +164,11 @@ mccabe==0.6.1
     # via
     #   -r requirements/quality.txt
     #   pylint
-newrelic==7.2.3.170
+newrelic==7.2.4.171
     # via
     #   -r requirements/quality.txt
     #   edx-django-utils
-packaging==21.2
+packaging==21.3
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
@@ -254,7 +258,7 @@ pymongo==3.12.1
     # via
     #   -r requirements/quality.txt
     #   edx-opaque-keys
-pyparsing==2.4.7
+pyparsing==3.0.6
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
@@ -306,7 +310,7 @@ six==1.16.0
     #   python-dateutil
     #   tox
     #   virtualenv
-snowballstemmer==2.1.0
+snowballstemmer==2.2.0
     # via
     #   -r requirements/quality.txt
     #   pydocstyle
@@ -343,7 +347,7 @@ tox==3.24.4
     #   tox-battery
 tox-battery==0.6.1
     # via -r requirements/ci.txt
-typing-extensions==3.10.0.2
+typing-extensions==4.0.0
     # via
     #   -r requirements/quality.txt
     #   astroid
