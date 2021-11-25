@@ -8,7 +8,7 @@ asgiref==3.4.1
     # via
     #   -r requirements/quality.txt
     #   django
-astroid==2.8.5
+astroid==2.8.6
     # via
     #   -r requirements/quality.txt
     #   pylint
@@ -30,7 +30,7 @@ cffi==1.15.0
     # via
     #   -r requirements/quality.txt
     #   cryptography
-charset-normalizer==2.0.7
+charset-normalizer==2.0.8
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
@@ -59,7 +59,7 @@ coverage[toml]==6.1.2
     #   -r requirements/quality.txt
     #   codecov
     #   pytest-cov
-cryptography==35.0.0
+cryptography==36.0.0
     # via
     #   -r requirements/quality.txt
     #   pyjwt
@@ -176,7 +176,7 @@ packaging==21.3
     #   tox
 path==16.2.0
     # via edx-i18n-tools
-pbr==5.7.0
+pbr==5.8.0
     # via
     #   -r requirements/quality.txt
     #   stevedore
