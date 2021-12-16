@@ -59,7 +59,7 @@ coverage[toml]==6.2
     #   -r requirements/quality.txt
     #   codecov
     #   pytest-cov
-cryptography==36.0.0
+cryptography==36.0.1
     # via
     #   -r requirements/quality.txt
     #   pyjwt
@@ -95,7 +95,7 @@ django-waffle==2.2.1
     #   -r requirements/quality.txt
     #   edx-django-utils
     #   edx-drf-extensions
-djangorestframework==3.12.4
+djangorestframework==3.13.1
     # via
     #   -r requirements/quality.txt
     #   drf-jwt
@@ -152,7 +152,7 @@ jinja2==3.0.3
     #   jinja2-pluralize
 jinja2-pluralize==0.3.0
     # via diff-cover
-lazy-object-proxy==1.6.0
+lazy-object-proxy==1.7.1
     # via
     #   -r requirements/quality.txt
     #   astroid
@@ -284,6 +284,7 @@ pytz==2021.3
     # via
     #   -r requirements/quality.txt
     #   django
+    #   djangorestframework
 pyyaml==6.0
     # via
     #   -r requirements/quality.txt
@@ -335,7 +336,7 @@ toml==0.10.2
     #   pylint
     #   pytest
     #   tox
-tomli==1.2.2
+tomli==2.0.0
     # via
     #   -r requirements/pip-tools.txt
     #   -r requirements/quality.txt
