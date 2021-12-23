@@ -40,7 +40,7 @@ djangorestframework==3.13.1
     #   edx-drf-extensions
 drf-jwt==1.19.1
     # via edx-drf-extensions
-edx-django-utils==4.4.0
+edx-django-utils==4.4.1
     # via edx-drf-extensions
 edx-drf-extensions==8.0.1
     # via -r requirements/base.in
