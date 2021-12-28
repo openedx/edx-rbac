@@ -1,5 +1,6 @@
 # Core dependencies for installing other packages
+-c constraints.txt
 
- pip
- setuptools
- wheel
+pip
+setuptools
+wheel
