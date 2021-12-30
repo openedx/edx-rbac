@@ -8,7 +8,7 @@ asgiref==3.4.1
     # via
     #   -r requirements/base.txt
     #   django
-attrs==21.3.0
+attrs==21.4.0
     # via pytest
 certifi==2021.10.8
     # via
@@ -99,7 +99,7 @@ pbr==5.8.0
     #   stevedore
 pluggy==1.0.0
     # via pytest
-psutil==5.8.0
+psutil==5.9.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils

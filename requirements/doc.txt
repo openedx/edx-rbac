@@ -10,7 +10,7 @@ asgiref==3.4.1
     # via
     #   -r requirements/test.txt
     #   django
-attrs==21.3.0
+attrs==21.4.0
     # via
     #   -r requirements/test.txt
     #   pytest
@@ -136,7 +136,7 @@ pluggy==1.0.0
     # via
     #   -r requirements/test.txt
     #   pytest
-psutil==5.8.0
+psutil==5.9.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
