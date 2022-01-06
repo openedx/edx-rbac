@@ -8,7 +8,7 @@ asgiref==3.4.1
     # via
     #   -r requirements/test.txt
     #   django
-astroid==2.9.0
+astroid==2.9.2
     # via
     #   pylint
     #   pylint-celery
@@ -24,7 +24,7 @@ cffi==1.15.0
     # via
     #   -r requirements/test.txt
     #   cryptography
-charset-normalizer==2.0.9
+charset-normalizer==2.0.10
     # via
     #   -r requirements/test.txt
     #   requests
@@ -50,7 +50,7 @@ cryptography==36.0.1
     #   pyjwt
 ddt==1.4.4
     # via -r requirements/test.txt
-django==3.2.10
+django==3.2.11
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/test.txt
@@ -177,7 +177,7 @@ pylint==2.12.2
     #   pylint-plugin-utils
 pylint-celery==0.3
     # via edx-lint
-pylint-django==2.4.4
+pylint-django==2.5.0
     # via edx-lint
 pylint-plugin-utils==0.7
     # via
@@ -217,7 +217,7 @@ pyyaml==6.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
-requests==2.26.0
+requests==2.27.1
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
