@@ -8,7 +8,7 @@ asgiref==3.4.1
     # via
     #   -r requirements/test.txt
     #   django
-astroid==2.9.2
+astroid==2.9.3
     # via
     #   pylint
     #   pylint-celery
@@ -66,7 +66,7 @@ django-crum==0.7.9
     #   edx-django-utils
 django-model-utils==4.2.0
     # via -r requirements/test.txt
-django-waffle==2.2.1
+django-waffle==2.3.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -76,7 +76,7 @@ djangorestframework==3.13.1
     #   -r requirements/test.txt
     #   drf-jwt
     #   edx-drf-extensions
-drf-jwt==1.19.1
+drf-jwt==1.19.2
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
@@ -262,7 +262,7 @@ typing-extensions==4.0.1
     # via
     #   astroid
     #   pylint
-urllib3==1.26.7
+urllib3==1.26.8
     # via
     #   -r requirements/test.txt
     #   requests
