@@ -8,7 +8,7 @@ asgiref==3.4.1
     # via
     #   -r requirements/quality.txt
     #   django
-astroid==2.9.2
+astroid==2.9.3
     # via
     #   -r requirements/quality.txt
     #   pylint
@@ -86,7 +86,7 @@ django-crum==0.7.9
     #   edx-django-utils
 django-model-utils==4.2.0
     # via -r requirements/quality.txt
-django-waffle==2.2.1
+django-waffle==2.3.0
     # via
     #   -r requirements/quality.txt
     #   edx-django-utils
@@ -96,7 +96,7 @@ djangorestframework==3.13.1
     #   -r requirements/quality.txt
     #   drf-jwt
     #   edx-drf-extensions
-drf-jwt==1.19.1
+drf-jwt==1.19.2
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
@@ -170,7 +170,7 @@ packaging==21.3
     #   -r requirements/quality.txt
     #   pytest
     #   tox
-path==16.2.0
+path==16.3.0
     # via edx-i18n-tools
 pbr==5.8.0
     # via
@@ -219,7 +219,7 @@ pycryptodomex==3.12.0
     #   pyjwkest
 pydocstyle==6.1.1
     # via -r requirements/quality.txt
-pygments==2.11.1
+pygments==2.11.2
     # via diff-cover
 pyjwkest==1.4.2
     # via
@@ -349,7 +349,7 @@ typing-extensions==4.0.1
     #   -r requirements/quality.txt
     #   astroid
     #   pylint
-urllib3==1.26.7
+urllib3==1.26.8
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
