@@ -14,6 +14,13 @@ Change Log
 Unreleased
 --------------------
 
+[2.0.0] - 2022-01-19
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Drop support for Django<3.2
+* Replacing ugettext with gettext to resolve RemovedInDjango40 error.
+* Added Django40 Support
+
 [1.5.1] - 2021-11-01
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
