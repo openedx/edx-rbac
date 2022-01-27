@@ -4,7 +4,7 @@
 #
 #    make upgrade
 #
-asgiref==3.4.1
+asgiref==3.5.0
     # via
     #   -r requirements/test.txt
     #   django
@@ -40,7 +40,7 @@ code-annotations==1.2.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
-coverage[toml]==6.2
+coverage[toml]==6.3
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -80,7 +80,7 @@ drf-jwt==1.19.2
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-edx-django-utils==4.4.1
+edx-django-utils==4.4.2
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
@@ -122,7 +122,7 @@ markupsafe==2.0.1
     #   jinja2
 mccabe==0.6.1
     # via pylint
-newrelic==7.2.4.171
+newrelic==7.4.0.172
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -154,7 +154,7 @@ pycparser==2.21
     # via
     #   -r requirements/test.txt
     #   cffi
-pycryptodomex==3.12.0
+pycryptodomex==3.13.0
     # via
     #   -r requirements/test.txt
     #   pyjwkest
@@ -187,7 +187,7 @@ pymongo==4.0.1
     # via
     #   -r requirements/test.txt
     #   edx-opaque-keys
-pyparsing==3.0.6
+pyparsing==3.0.7
     # via
     #   -r requirements/test.txt
     #   packaging
