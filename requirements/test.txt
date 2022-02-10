@@ -24,7 +24,7 @@ charset-normalizer==2.0.11
     #   requests
 click==8.0.3
     # via code-annotations
-code-annotations==1.2.0
+code-annotations==1.3.0
     # via -r requirements/test.in
 coverage[toml]==6.3.1
     # via pytest-cov
@@ -93,7 +93,7 @@ newrelic==7.4.0.172
     #   edx-django-utils
 packaging==21.3
     # via pytest
-pbr==5.8.0
+pbr==5.8.1
     # via
     #   -r requirements/base.txt
     #   stevedore
@@ -109,7 +109,7 @@ pycparser==2.21
     # via
     #   -r requirements/base.txt
     #   cffi
-pycryptodomex==3.14.0
+pycryptodomex==3.14.1
     # via
     #   -r requirements/base.txt
     #   pyjwkest
@@ -128,7 +128,7 @@ pymongo==3.12.3
     #   edx-opaque-keys
 pyparsing==3.0.7
     # via packaging
-pytest==6.2.5
+pytest==7.0.0
     # via
     #   pytest-cov
     #   pytest-django
@@ -154,7 +154,7 @@ requests==2.27.1
     #   -r requirements/base.txt
     #   edx-drf-extensions
     #   pyjwkest
-semantic-version==2.8.5
+semantic-version==2.9.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
@@ -176,10 +176,10 @@ stevedore==3.5.0
     #   edx-opaque-keys
 text-unidecode==1.3
     # via python-slugify
-toml==0.10.2
-    # via pytest
-tomli==2.0.0
-    # via coverage
+tomli==2.0.1
+    # via
+    #   coverage
+    #   pytest
 urllib3==1.26.8
     # via
     #   -r requirements/base.txt
