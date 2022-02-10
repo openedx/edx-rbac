@@ -52,13 +52,13 @@ idna==3.3
     # via requests
 newrelic==7.4.0.172
     # via edx-django-utils
-pbr==5.8.0
+pbr==5.8.1
     # via stevedore
 psutil==5.9.0
     # via edx-django-utils
 pycparser==2.21
     # via cffi
-pycryptodomex==3.14.0
+pycryptodomex==3.14.1
     # via pyjwkest
 pyjwkest==1.4.2
     # via edx-drf-extensions
@@ -78,7 +78,7 @@ requests==2.27.1
     # via
     #   edx-drf-extensions
     #   pyjwkest
-semantic-version==2.8.5
+semantic-version==2.9.0
     # via edx-drf-extensions
 six==1.16.0
     # via
