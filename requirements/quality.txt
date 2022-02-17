@@ -24,7 +24,7 @@ cffi==1.15.0
     # via
     #   -r requirements/test.txt
     #   cryptography
-charset-normalizer==2.0.11
+charset-normalizer==2.0.12
     # via
     #   -r requirements/test.txt
     #   requests
@@ -177,7 +177,7 @@ pylint==2.12.2
     #   pylint-plugin-utils
 pylint-celery==0.3
     # via edx-lint
-pylint-django==2.5.0
+pylint-django==2.5.1
     # via edx-lint
 pylint-plugin-utils==0.7
     # via
@@ -191,7 +191,7 @@ pyparsing==3.0.7
     # via
     #   -r requirements/test.txt
     #   packaging
-pytest==7.0.0
+pytest==7.0.1
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -204,7 +204,7 @@ python-dateutil==2.8.2
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-python-slugify==5.0.2
+python-slugify==6.0.1
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -256,7 +256,7 @@ tomli==2.0.1
     #   -r requirements/test.txt
     #   coverage
     #   pytest
-typing-extensions==4.0.1
+typing-extensions==4.1.1
     # via
     #   astroid
     #   pylint

@@ -26,7 +26,7 @@ cffi==1.15.0
     # via
     #   -r requirements/quality.txt
     #   cryptography
-charset-normalizer==2.0.11
+charset-normalizer==2.0.12
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
@@ -106,7 +106,7 @@ edx-django-utils==4.5.0
     #   edx-drf-extensions
 edx-drf-extensions==8.0.1
     # via -r requirements/quality.txt
-edx-i18n-tools==0.8.1
+edx-i18n-tools==0.9.1
     # via -r requirements/dev.in
 edx-lint==5.2.1
     # via -r requirements/quality.txt
@@ -114,7 +114,7 @@ edx-opaque-keys==2.3.0
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
-filelock==3.4.2
+filelock==3.5.1
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -241,7 +241,7 @@ pylint-celery==0.3
     # via
     #   -r requirements/quality.txt
     #   edx-lint
-pylint-django==2.5.0
+pylint-django==2.5.1
     # via
     #   -r requirements/quality.txt
     #   edx-lint
@@ -259,7 +259,7 @@ pyparsing==3.0.7
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   packaging
-pytest==7.0.0
+pytest==7.0.1
     # via
     #   -r requirements/quality.txt
     #   pytest-cov
@@ -272,7 +272,7 @@ python-dateutil==2.8.2
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
-python-slugify==5.0.2
+python-slugify==6.0.1
     # via
     #   -r requirements/quality.txt
     #   code-annotations
@@ -344,7 +344,7 @@ tox==3.24.5
     #   tox-battery
 tox-battery==0.6.1
     # via -r requirements/ci.txt
-typing-extensions==4.0.1
+typing-extensions==4.1.1
     # via
     #   -r requirements/quality.txt
     #   astroid
