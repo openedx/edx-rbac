@@ -105,7 +105,7 @@ idna==3.3
     #   requests
 imagesize==1.3.0
     # via sphinx
-importlib-metadata==4.11.1
+importlib-metadata==4.11.2
     # via sphinx
 iniconfig==1.1.1
     # via
@@ -120,7 +120,7 @@ markupsafe==2.1.0
     # via
     #   -r requirements/test.txt
     #   jinja2
-newrelic==7.4.0.172
+newrelic==7.6.0.173
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -189,7 +189,7 @@ python-dateutil==2.8.2
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-python-slugify==6.1.0
+python-slugify==6.1.1
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -211,7 +211,7 @@ requests==2.27.1
     #   edx-drf-extensions
     #   pyjwkest
     #   sphinx
-restructuredtext-lint==1.3.2
+restructuredtext-lint==1.4.0
     # via doc8
 semantic-version==2.9.0
     # via
