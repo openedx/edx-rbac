@@ -203,7 +203,7 @@ pyyaml==6.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
-readme-renderer==32.0
+readme-renderer==33.0
     # via -r requirements/doc.in
 requests==2.27.1
     # via

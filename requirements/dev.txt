@@ -354,7 +354,7 @@ urllib3==1.26.8
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   requests
-virtualenv==20.13.2
+virtualenv==20.13.3
     # via
     #   -r requirements/ci.txt
     #   tox
