@@ -39,7 +39,7 @@ click==8.0.4
     #   code-annotations
     #   edx-lint
     #   pip-tools
-click-log==0.3.2
+click-log==0.4.0
     # via
     #   -r requirements/quality.txt
     #   edx-lint
@@ -55,7 +55,7 @@ coverage[toml]==6.3.2
     #   -r requirements/quality.txt
     #   codecov
     #   pytest-cov
-cryptography==36.0.1
+cryptography==36.0.2
     # via
     #   -r requirements/quality.txt
     #   pyjwt
@@ -152,7 +152,7 @@ lazy-object-proxy==1.7.1
     # via
     #   -r requirements/quality.txt
     #   astroid
-markupsafe==2.1.0
+markupsafe==2.1.1
     # via
     #   -r requirements/quality.txt
     #   jinja2
@@ -259,7 +259,7 @@ pyparsing==3.0.7
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   packaging
-pytest==7.0.1
+pytest==7.1.0
     # via
     #   -r requirements/quality.txt
     #   pytest-cov
@@ -349,7 +349,7 @@ typing-extensions==4.1.1
     #   -r requirements/quality.txt
     #   astroid
     #   pylint
-urllib3==1.26.8
+urllib3==1.26.9
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
