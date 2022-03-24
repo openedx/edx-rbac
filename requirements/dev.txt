@@ -100,7 +100,7 @@ drf-jwt==1.19.2
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
-edx-django-utils==4.5.0
+edx-django-utils==4.6.0
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
@@ -259,7 +259,7 @@ pyparsing==3.0.7
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   packaging
-pytest==7.1.0
+pytest==7.1.1
     # via
     #   -r requirements/quality.txt
     #   pytest-cov
@@ -276,7 +276,7 @@ python-slugify==6.1.1
     # via
     #   -r requirements/quality.txt
     #   code-annotations
-pytz==2021.3
+pytz==2022.1
     # via
     #   -r requirements/quality.txt
     #   django
@@ -354,7 +354,7 @@ urllib3==1.26.9
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   requests
-virtualenv==20.13.3
+virtualenv==20.13.4
     # via
     #   -r requirements/ci.txt
     #   tox

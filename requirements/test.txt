@@ -63,7 +63,7 @@ drf-jwt==1.19.2
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-edx-django-utils==4.5.0
+edx-django-utils==4.6.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
@@ -128,7 +128,7 @@ pymongo==3.12.3
     #   edx-opaque-keys
 pyparsing==3.0.7
     # via packaging
-pytest==7.1.0
+pytest==7.1.1
     # via
     #   pytest-cov
     #   pytest-django
@@ -142,7 +142,7 @@ python-dateutil==2.8.2
     #   edx-drf-extensions
 python-slugify==6.1.1
     # via code-annotations
-pytz==2021.3
+pytz==2022.1
     # via
     #   -r requirements/base.txt
     #   django
