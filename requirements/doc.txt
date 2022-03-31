@@ -30,7 +30,7 @@ charset-normalizer==2.0.12
     # via
     #   -r requirements/test.txt
     #   requests
-click==8.0.4
+click==8.1.1
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -61,7 +61,7 @@ django-crum==0.7.9
     #   edx-django-utils
 django-model-utils==4.2.0
     # via -r requirements/test.txt
-django-waffle==2.3.0
+django-waffle==2.4.1
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -71,7 +71,7 @@ djangorestframework==3.13.1
     #   -r requirements/test.txt
     #   drf-jwt
     #   edx-drf-extensions
-doc8==0.10.1
+doc8==0.11.0
     # via -r requirements/doc.in
 docutils==0.17.1
     # via
@@ -111,7 +111,7 @@ iniconfig==1.1.1
     # via
     #   -r requirements/test.txt
     #   pytest
-jinja2==3.0.3
+jinja2==3.1.1
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -227,7 +227,7 @@ six==1.16.0
     #   python-dateutil
 snowballstemmer==2.2.0
     # via sphinx
-sphinx==4.4.0
+sphinx==4.5.0
     # via
     #   -r requirements/doc.in
     #   edx-sphinx-theme
