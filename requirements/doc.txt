@@ -30,7 +30,7 @@ charset-normalizer==2.0.12
     # via
     #   -r requirements/test.txt
     #   requests
-click==8.1.1
+click==8.1.2
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -71,7 +71,7 @@ djangorestframework==3.13.1
     #   -r requirements/test.txt
     #   drf-jwt
     #   edx-drf-extensions
-doc8==0.11.0
+doc8==0.11.1
     # via -r requirements/doc.in
 docutils==0.17.1
     # via
@@ -120,7 +120,7 @@ markupsafe==2.1.1
     # via
     #   -r requirements/test.txt
     #   jinja2
-newrelic==7.6.0.173
+newrelic==7.10.0.175
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -269,5 +269,5 @@ urllib3==1.26.9
     #   requests
 webencodings==0.5.1
     # via bleach
-zipp==3.7.0
+zipp==3.8.0
     # via importlib-metadata
