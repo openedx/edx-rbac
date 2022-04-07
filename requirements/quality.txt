@@ -28,7 +28,7 @@ charset-normalizer==2.0.12
     # via
     #   -r requirements/test.txt
     #   requests
-click==8.1.1
+click==8.1.2
     # via
     #   -r requirements/test.txt
     #   click-log
@@ -124,7 +124,7 @@ markupsafe==2.1.1
     #   jinja2
 mccabe==0.7.0
     # via pylint
-newrelic==7.6.0.173
+newrelic==7.10.0.175
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -171,7 +171,7 @@ pyjwt[crypto]==2.3.0
     #   -r requirements/test.txt
     #   drf-jwt
     #   edx-drf-extensions
-pylint==2.13.3
+pylint==2.13.5
     # via
     #   edx-lint
     #   pylint-celery
