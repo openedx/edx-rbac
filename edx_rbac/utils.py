@@ -3,7 +3,7 @@ Utils for 'edx-rbac' module.
 """
 
 import importlib
-from collections import defaultdict
+from collections import OrderedDict, defaultdict
 from collections.abc import Iterable
 
 from django.apps import apps
@@ -132,6 +132,8 @@ def create_role_auth_claim_for_user(user):
     Takes a user, and for each RoleAssignment class specified in config as a
     system wide jwt role associated with that user, creates and returns
     a list of unique strings denoting the role and context.
+    The (role, context) pairs returned preserve the order in which
+    the `get_assignment()` function returns them.
 
     The SYSTEM_WIDE_ROLE_CLASSES setting is a list of classes whose roles (and associated contexts)
     should be added to the JWT.
@@ -148,11 +150,12 @@ def create_role_auth_claim_for_user(user):
         """
         if context:
             contextual_role = f'{role_string}:{context}'
-            role_auth_claim.add(contextual_role)
+            role_auth_claim[contextual_role] = None
         else:
-            role_auth_claim.add(role_string)
+            role_auth_claim[role_string] = None
 
-    role_auth_claim = set()
+    # We want an ordered set of roles.
+    role_auth_claim = OrderedDict()
     for system_role_loc in settings.SYSTEM_WIDE_ROLE_CLASSES:
         # location can either be a module or a django model
         module_name, func_name = system_role_loc.rsplit('.', 1)
