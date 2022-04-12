@@ -14,7 +14,13 @@ Change Log
 Unreleased
 --------------------
 
-[2.0.0] - 2022-01-19
+[1.7.0]
+-------
+
+* fix: ``utils.get_role_auth_claim_for_user()`` now preserves the order of (role, context) pairs
+  as returned by the `get_assignment()` function.
+
+[1.6.0] - 2022-01-19
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Drop support for Django<3.2
