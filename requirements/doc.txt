@@ -14,7 +14,7 @@ attrs==21.4.0
     # via
     #   -r requirements/test.txt
     #   pytest
-babel==2.9.1
+babel==2.10.1
     # via sphinx
 bleach==5.0.0
     # via readme-renderer
@@ -202,7 +202,7 @@ pyyaml==6.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
-readme-renderer==34.0
+readme-renderer==35.0
     # via -r requirements/doc.in
 requests==2.27.1
     # via
