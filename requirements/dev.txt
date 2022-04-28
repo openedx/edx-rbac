@@ -55,7 +55,7 @@ coverage[toml]==6.3.2
     #   -r requirements/quality.txt
     #   codecov
     #   pytest-cov
-cryptography==36.0.2
+cryptography==37.0.1
     # via
     #   -r requirements/quality.txt
     #   pyjwt
@@ -223,7 +223,7 @@ pycryptodomex==3.14.1
     #   pyjwkest
 pydocstyle==6.1.1
     # via -r requirements/quality.txt
-pygments==2.11.2
+pygments==2.12.0
     # via diff-cover
 pyjwkest==1.4.2
     # via
@@ -263,7 +263,7 @@ pyparsing==3.0.8
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   packaging
-pytest==7.1.1
+pytest==7.1.2
     # via
     #   -r requirements/quality.txt
     #   pytest-cov
@@ -276,7 +276,7 @@ python-dateutil==2.8.2
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
-python-slugify==6.1.1
+python-slugify==6.1.2
     # via
     #   -r requirements/quality.txt
     #   code-annotations
