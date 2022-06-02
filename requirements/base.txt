@@ -84,7 +84,7 @@ requests==2.27.1
     # via
     #   edx-drf-extensions
     #   pyjwkest
-semantic-version==2.9.0
+semantic-version==2.10.0
     # via edx-drf-extensions
 six==1.16.0
     # via

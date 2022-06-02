@@ -162,7 +162,7 @@ requests==2.27.1
     #   -r requirements/base.txt
     #   edx-drf-extensions
     #   pyjwkest
-semantic-version==2.9.0
+semantic-version==2.10.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
