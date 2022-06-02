@@ -120,7 +120,7 @@ edx-opaque-keys==2.3.0
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
-filelock==3.7.0
+filelock==3.7.1
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -236,7 +236,7 @@ pyjwt[crypto]==2.4.0
     #   -r requirements/quality.txt
     #   drf-jwt
     #   edx-drf-extensions
-pylint==2.13.9
+pylint==2.14.0
     # via
     #   -r requirements/quality.txt
     #   edx-lint
@@ -303,7 +303,7 @@ requests==2.27.1
     #   codecov
     #   edx-drf-extensions
     #   pyjwkest
-semantic-version==2.9.0
+semantic-version==2.10.0
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
@@ -347,6 +347,10 @@ tomli==2.0.1
     #   pep517
     #   pylint
     #   pytest
+tomlkit==0.11.0
+    # via
+    #   -r requirements/quality.txt
+    #   pylint
 tox==3.25.0
     # via
     #   -r requirements/ci.txt

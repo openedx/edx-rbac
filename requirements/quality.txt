@@ -173,7 +173,7 @@ pyjwt[crypto]==2.4.0
     #   -r requirements/test.txt
     #   drf-jwt
     #   edx-drf-extensions
-pylint==2.13.9
+pylint==2.14.0
     # via
     #   edx-lint
     #   pylint-celery
@@ -230,7 +230,7 @@ requests==2.27.1
     #   -r requirements/test.txt
     #   edx-drf-extensions
     #   pyjwkest
-semantic-version==2.9.0
+semantic-version==2.10.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
@@ -263,6 +263,8 @@ tomli==2.0.1
     #   coverage
     #   pylint
     #   pytest
+tomlkit==0.11.0
+    # via pylint
 typing-extensions==4.2.0
     # via
     #   astroid
