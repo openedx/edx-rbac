@@ -38,7 +38,7 @@ click==8.1.3
     #   edx-django-utils
 code-annotations==1.3.0
     # via -r requirements/test.txt
-coverage[toml]==6.4
+coverage[toml]==6.4.1
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -63,7 +63,7 @@ django-crum==0.7.9
     #   edx-django-utils
 django-model-utils==4.2.0
     # via -r requirements/test.txt
-django-waffle==2.4.1
+django-waffle==2.5.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -232,7 +232,7 @@ six==1.16.0
     #   python-dateutil
 snowballstemmer==2.2.0
     # via sphinx
-sphinx==5.0.0
+sphinx==5.0.1
     # via
     #   -r requirements/doc.in
     #   edx-sphinx-theme
