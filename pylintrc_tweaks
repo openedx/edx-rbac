@@ -7,8 +7,6 @@ load-plugins = edx_lint.pylint,pylint_django,pylint_celery
 disable =
     duplicate-code,
     invalid-name,
-    no-absolute-import,
-    no-self-use,
     too-few-public-methods,
     too-many-public-methods,
     unspecified-encoding,
