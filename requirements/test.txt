@@ -30,7 +30,7 @@ click==8.1.3
     #   edx-django-utils
 code-annotations==1.3.0
     # via -r requirements/test.in
-coverage[toml]==6.4.1
+coverage[toml]==6.4.2
     # via pytest-cov
 cryptography==37.0.4
     # via
@@ -176,7 +176,7 @@ sqlparse==0.4.2
     # via
     #   -r requirements/base.txt
     #   django
-stevedore==3.5.0
+stevedore==4.0.0
     # via
     #   -r requirements/base.txt
     #   code-annotations
@@ -188,7 +188,7 @@ tomli==2.0.1
     # via
     #   coverage
     #   pytest
-urllib3==1.26.9
+urllib3==1.26.10
     # via
     #   -r requirements/base.txt
     #   requests
