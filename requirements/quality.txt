@@ -70,7 +70,7 @@ django-crum==0.7.9
     #   edx-django-utils
 django-model-utils==4.2.0
     # via -r requirements/test.txt
-django-waffle==2.5.0
+django-waffle==2.6.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -173,7 +173,7 @@ pyjwt[crypto]==2.4.0
     #   -r requirements/test.txt
     #   drf-jwt
     #   edx-drf-extensions
-pylint==2.14.4
+pylint==2.14.5
     # via
     #   edx-lint
     #   pylint-celery
