@@ -91,7 +91,7 @@ jinja2==3.1.2
     # via code-annotations
 markupsafe==2.1.1
     # via jinja2
-newrelic==7.14.0.177
+newrelic==7.16.0.178
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
@@ -188,7 +188,7 @@ tomli==2.0.1
     # via
     #   coverage
     #   pytest
-urllib3==1.26.10
+urllib3==1.26.11
     # via
     #   -r requirements/base.txt
     #   requests

@@ -54,7 +54,7 @@ future==0.18.2
     # via pyjwkest
 idna==3.3
     # via requests
-newrelic==7.14.0.177
+newrelic==7.16.0.178
     # via edx-django-utils
 pbr==5.9.0
     # via stevedore
@@ -98,5 +98,5 @@ stevedore==4.0.0
     # via
     #   edx-django-utils
     #   edx-opaque-keys
-urllib3==1.26.10
+urllib3==1.26.11
     # via requests
