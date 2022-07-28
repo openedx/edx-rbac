@@ -170,7 +170,7 @@ mccabe==0.7.0
     # via
     #   -r requirements/quality.txt
     #   pylint
-newrelic==7.14.0.177
+newrelic==7.16.0.178
     # via
     #   -r requirements/quality.txt
     #   edx-django-utils
@@ -323,7 +323,6 @@ six==1.16.0
     #   pyjwkest
     #   python-dateutil
     #   tox
-    #   virtualenv
 snowballstemmer==2.2.0
     # via
     #   -r requirements/quality.txt
@@ -370,12 +369,12 @@ typing-extensions==4.3.0
     #   -r requirements/quality.txt
     #   astroid
     #   pylint
-urllib3==1.26.10
+urllib3==1.26.11
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   requests
-virtualenv==20.15.1
+virtualenv==20.16.2
     # via
     #   -r requirements/ci.txt
     #   tox
