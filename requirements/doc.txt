@@ -10,7 +10,7 @@ asgiref==3.5.2
     # via
     #   -r requirements/test.txt
     #   django
-attrs==21.4.0
+attrs==22.1.0
     # via
     #   -r requirements/test.txt
     #   pytest
@@ -48,7 +48,7 @@ cryptography==37.0.4
     #   pyjwt
 ddt==1.5.0
     # via -r requirements/test.txt
-django==3.2.14
+django==3.2.15
     # via
     #   -r requirements/test.txt
     #   django-crum
