@@ -25,7 +25,7 @@ cffi==1.15.1
     #   -r requirements/test.txt
     #   cryptography
     #   pynacl
-charset-normalizer==2.1.0
+charset-normalizer==2.1.1
     # via
     #   -r requirements/test.txt
     #   requests
@@ -70,7 +70,7 @@ django-crum==0.7.9
     #   edx-django-utils
 django-model-utils==4.2.0
     # via -r requirements/test.txt
-django-waffle==2.6.0
+django-waffle==2.7.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -88,7 +88,7 @@ edx-django-utils==5.0.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-edx-drf-extensions==8.0.1
+edx-drf-extensions==8.2.0
     # via -r requirements/test.txt
 edx-lint==5.2.4
     # via -r requirements/quality.in
@@ -269,7 +269,7 @@ typing-extensions==4.3.0
     # via
     #   astroid
     #   pylint
-urllib3==1.26.11
+urllib3==1.26.12
     # via
     #   -r requirements/test.txt
     #   requests
