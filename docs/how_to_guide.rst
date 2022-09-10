@@ -72,7 +72,7 @@ Access
 Implementation
 --------------
 To add RBAC implicit and explicit authorization checks, you need to follow the below steps. Here we are using ``LMS``,
-`edx-enterprise-data <https://github.com/edx/edx-enterprise-data/>`_ and `ecommerce <https://github.com/edx/ecommerce>`_
+`edx-enterprise-data <https://github.com/openedx/edx-enterprise-data/>`_ and `ecommerce <https://github.com/openedx/ecommerce>`_
 codebases as an example.  There is also an `RBAC demo repo <https://github.com/iloveagent57/edx_rbac_demo/>`_ that
 demonstrates how to configure django-rules, set up feature roles/mappings, define rule predicates and permissions, and
 make use of those in a DRF viewset.
@@ -92,7 +92,7 @@ make use of those in a DRF viewset.
         'django.contrib.auth.backends.ModelBackend',
     )
 
-2. In the LMS, create a `system wide role data migration <https://github.com/edx/edx-enterprise/blob/master/enterprise/migrations/0066_add_system_wide_enterprise_operator_role.py>`_.
+2. In the LMS, create a `system wide role data migration <https://github.com/openedx/edx-enterprise/blob/master/enterprise/migrations/0066_add_system_wide_enterprise_operator_role.py>`_.
    You only need to do this if you are creating a new role. We create a system wide role when we want to
    give access to users to a system wide resource, for example, being a Course Instructor
    for a specific Course.
@@ -131,7 +131,7 @@ Below is a sample role data for a user in JWT and a table that explains the role
 +-----------------------+-----------------------+-----------------------+
 
 
-4. For explicit access, in an edx service like `edx-enterprise-data <https://github.com/edx/edx-enterprise-data/>`_
+4. For explicit access, in an edx service like `edx-enterprise-data <https://github.com/openedx/edx-enterprise-data/>`_
    create a feature specific wide role assignment for a user from within django admin
    at ``/admin/enterprise_data_roles/enterprisedataroleassignment/``
 
@@ -155,7 +155,7 @@ Below is a sample role data for a user in JWT and a table that explains the role
     b. user_has_access_via_database
 
     An actual implementation of rules can be seen in
-    `rules.py <https://github.com/edx/edx-enterprise-data/blob/master/enterprise_data_roles/rules.py>`_ in
+    `rules.py <https://github.com/openedx/edx-enterprise-data/blob/master/enterprise_data_roles/rules.py>`_ in
     edx-enterprise-data codebase. We use `django-rules <https://github.com/dfunckt/django-rules>`_ to
     do object-level permission checking. Check its `documentation <https://github.com/dfunckt/django-rules#using-rules>`_
     to get detailed information on how to create and use rules.
@@ -203,4 +203,4 @@ requesting resource.
 Admin Interface
 ---------------
 For explicit access, role assignment for a user is created through django admin, so you have to add/inherit appropriate
-rbac model and form classes in your service. You can see an actual admin implementation `here <https://github.com/edx/edx-enterprise-data/blob/master/enterprise_data_roles/admin.py>`_
+rbac model and form classes in your service. You can see an actual admin implementation `here <https://github.com/openedx/edx-enterprise-data/blob/master/enterprise_data_roles/admin.py>`_
