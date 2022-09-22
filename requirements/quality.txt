@@ -8,7 +8,7 @@ asgiref==3.5.2
     # via
     #   -r requirements/test.txt
     #   django
-astroid==2.12.9
+astroid==2.12.10
     # via
     #   pylint
     #   pylint-celery
@@ -84,13 +84,13 @@ drf-jwt==1.19.2
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-edx-django-utils==5.0.1
+edx-django-utils==5.1.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
 edx-drf-extensions==8.3.1
     # via -r requirements/test.txt
-edx-lint==5.2.5
+edx-lint==5.3.0
     # via -r requirements/quality.in
 edx-opaque-keys==2.3.0
     # via
@@ -168,12 +168,12 @@ pyjwkest==1.4.2
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-pyjwt[crypto]==2.4.0
+pyjwt[crypto]==2.5.0
     # via
     #   -r requirements/test.txt
     #   drf-jwt
     #   edx-drf-extensions
-pylint==2.15.2
+pylint==2.15.3
     # via
     #   edx-lint
     #   pylint-celery
@@ -265,6 +265,10 @@ tomli==2.0.1
     #   pytest
 tomlkit==0.11.4
     # via pylint
+types-cryptography==3.3.23
+    # via
+    #   -r requirements/test.txt
+    #   pyjwt
 typing-extensions==4.3.0
     # via
     #   astroid
