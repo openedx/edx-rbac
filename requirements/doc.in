@@ -1,5 +1,5 @@
 # Requirements for documentation validation
-
+-c constraints.txt        # Version constraints for dependencies
 -r test.txt               # Core and testing dependencies for this package
 
 doc8                      # reStructuredText style checker
