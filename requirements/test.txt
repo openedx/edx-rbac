@@ -19,7 +19,7 @@ cffi==1.15.1
     #   -r requirements/base.txt
     #   cryptography
     #   pynacl
-charset-normalizer==2.1.1
+charset-normalizer==3.0.1
     # via
     #   -r requirements/base.txt
     #   requests
@@ -79,7 +79,7 @@ edx-opaque-keys==2.3.0
     #   edx-drf-extensions
 exceptiongroup==1.1.0
     # via pytest
-future==0.18.2
+future==0.18.3
     # via
     #   -r requirements/base.txt
     #   pyjwkest
@@ -155,7 +155,7 @@ pytz==2022.7
     #   djangorestframework
 pyyaml==6.0
     # via code-annotations
-requests==2.28.1
+requests==2.28.2
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
