@@ -38,7 +38,7 @@ click==8.1.3
     #   edx-django-utils
 code-annotations==1.3.0
     # via -r requirements/test.txt
-coverage[toml]==7.1.0
+coverage[toml]==7.2.0
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -127,7 +127,7 @@ markupsafe==2.1.2
     # via
     #   -r requirements/test.txt
     #   jinja2
-newrelic==8.6.0
+newrelic==8.7.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -273,5 +273,5 @@ urllib3==1.26.14
     #   requests
 webencodings==0.5.1
     # via bleach
-zipp==3.13.0
+zipp==3.14.0
     # via importlib-metadata

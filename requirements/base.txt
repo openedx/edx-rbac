@@ -54,7 +54,7 @@ future==0.18.3
     # via pyjwkest
 idna==3.4
     # via requests
-newrelic==8.6.0
+newrelic==8.7.0
     # via edx-django-utils
 pbr==5.11.1
     # via stevedore
