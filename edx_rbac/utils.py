@@ -6,12 +6,57 @@ import importlib
 from collections import OrderedDict, defaultdict
 from collections.abc import Iterable
 
+import crum
 from django.apps import apps
 from django.conf import settings
 from edx_rest_framework_extensions.auth.jwt.authentication import get_decoded_jwt_from_auth
 from edx_rest_framework_extensions.auth.jwt.cookies import get_decoded_jwt as get_decoded_jwt_from_cookie
+import rules
 
 ALL_ACCESS_CONTEXT = '*'
+
+
+def get_predicate_access_to_feature_role(feature_role, role_assignment_class):
+    """
+    Use like this:
+
+      from edx_rbac.utils import get_predicate_access_to_feature_role
+      from myapp.models import MyAppRoleAssignment
+
+      has_access_to_learner_role = get_predicate_access_to_feature_role("myapp.learner_role", MyAppRoleAssignment)
+      rules.add_perm(PERMISSION_CAN_DO_LEARNER_THING, has_access_to_learner_role)
+    """
+    has_explicit_access_via_db = get_predicate_explicit_access_to_feature_role(feature_role, role_assignment_class)
+    has_implicit_access_via_jwt = get_predicate_implicit_access_to_feature_role(feature_role)
+    return has_explicit_access_via_db | has_implicit_access_via_jwt
+
+
+def get_predicate_explicit_access_to_feature_role(feature_role, role_assignment_class):
+    """
+    """
+    @rules.predicate
+    def predicate(user, context):
+        """
+        """
+        if not context:
+            return False
+        return user_has_access_via_database(user, feature_role, role_assignment_class, str(context))
+    return predicate
+
+
+def get_predicate_implicit_access_to_feature_role(feature_role):
+    """
+    """
+    @rules.predicate
+    def predicate(user, context):
+        """
+        """
+        if not context:
+            return False
+        request = crum.get_current_request()
+        decoded_jwt = get_decoded_jwt(request) or get_decoded_jwt_from_auth(request)
+        return request_user_has_implicit_access_via_jwt(decoded_jwt, feature_role, str(context))
+    return predicate
 
 
 def request_user_has_implicit_access_via_jwt(decoded_jwt, role_name, context=None):
