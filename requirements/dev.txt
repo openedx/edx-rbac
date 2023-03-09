@@ -8,7 +8,7 @@ asgiref==3.6.0
     # via
     #   -r requirements/quality.txt
     #   django
-astroid==2.14.2
+astroid==2.15.0
     # via
     #   -r requirements/quality.txt
     #   pylint
@@ -31,7 +31,7 @@ cffi==1.15.1
     #   -r requirements/quality.txt
     #   cryptography
     #   pynacl
-charset-normalizer==3.0.1
+charset-normalizer==3.1.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
@@ -61,7 +61,7 @@ coverage[toml]==7.2.1
     #   -r requirements/quality.txt
     #   codecov
     #   pytest-cov
-cryptography==39.0.1
+cryptography==39.0.2
     # via
     #   -r requirements/quality.txt
     #   pyjwt
@@ -194,7 +194,7 @@ pbr==5.11.1
     #   stevedore
 pip-tools==6.12.3
     # via -r requirements/pip-tools.txt
-platformdirs==3.0.0
+platformdirs==3.1.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
@@ -227,7 +227,7 @@ pycryptodomex==3.17
     # via
     #   -r requirements/quality.txt
     #   pyjwkest
-pydantic==1.10.5
+pydantic==1.10.6
     # via inflect
 pydocstyle==6.3.0
     # via -r requirements/quality.txt
@@ -242,7 +242,7 @@ pyjwt[crypto]==2.6.0
     #   -r requirements/quality.txt
     #   drf-jwt
     #   edx-drf-extensions
-pylint==2.16.2
+pylint==2.17.0
     # via
     #   -r requirements/quality.txt
     #   edx-lint
@@ -274,7 +274,7 @@ pyproject-hooks==1.0.0
     # via
     #   -r requirements/pip-tools.txt
     #   build
-pytest==7.2.1
+pytest==7.2.2
     # via
     #   -r requirements/quality.txt
     #   pytest-cov
