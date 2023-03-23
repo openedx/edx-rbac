@@ -30,7 +30,7 @@ click==8.1.3
     #   edx-django-utils
 code-annotations==1.3.0
     # via -r requirements/test.in
-coverage[toml]==7.2.1
+coverage[toml]==7.2.2
     # via pytest-cov
 cryptography==39.0.2
     # via
@@ -67,7 +67,7 @@ drf-jwt==1.19.2
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-edx-django-utils==5.2.0
+edx-django-utils==5.3.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
@@ -93,7 +93,7 @@ jinja2==3.1.2
     # via code-annotations
 markupsafe==2.1.2
     # via jinja2
-newrelic==8.7.0
+newrelic==8.7.1
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
