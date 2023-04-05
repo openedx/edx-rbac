@@ -4,6 +4,8 @@
 #
 #    make upgrade
 #
+accessible-pygments==0.0.4
+    # via pydata-sphinx-theme
 alabaster==0.7.13
     # via sphinx
 asgiref==3.6.0
@@ -11,7 +13,11 @@ asgiref==3.6.0
     #   -r requirements/test.txt
     #   django
 babel==2.12.1
-    # via sphinx
+    # via
+    #   pydata-sphinx-theme
+    #   sphinx
+beautifulsoup4==4.12.2
+    # via pydata-sphinx-theme
 bleach==6.0.0
     # via readme-renderer
 certifi==2022.12.7
@@ -75,6 +81,7 @@ doc8==1.1.1
 docutils==0.19
     # via
     #   doc8
+    #   pydata-sphinx-theme
     #   readme-renderer
     #   restructuredtext-lint
     #   sphinx
@@ -92,8 +99,6 @@ edx-opaque-keys==2.3.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-edx-sphinx-theme==3.1.0
-    # via -r requirements/doc.in
 exceptiongroup==1.1.1
     # via
     #   -r requirements/test.txt
@@ -130,6 +135,7 @@ newrelic==8.8.0
 packaging==23.1
     # via
     #   -r requirements/test.txt
+    #   pydata-sphinx-theme
     #   pytest
     #   sphinx
 pbr==5.11.1
@@ -152,9 +158,13 @@ pycryptodomex==3.17
     # via
     #   -r requirements/test.txt
     #   pyjwkest
+pydata-sphinx-theme==0.13.3
+    # via sphinx-book-theme
 pygments==2.15.1
     # via
+    #   accessible-pygments
     #   doc8
+    #   pydata-sphinx-theme
     #   readme-renderer
     #   sphinx
 pyjwkest==1.4.2
@@ -220,16 +230,20 @@ six==1.16.0
     #   -r requirements/test.txt
     #   bleach
     #   edx-drf-extensions
-    #   edx-sphinx-theme
     #   pyjwkest
     #   python-dateutil
 snowballstemmer==2.2.0
     # via sphinx
+soupsieve==2.4.1
+    # via beautifulsoup4
 sphinx==5.3.0
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/doc.in
-    #   edx-sphinx-theme
+    #   pydata-sphinx-theme
+    #   sphinx-book-theme
+sphinx-book-theme==1.0.1
+    # via -r requirements/doc.in
 sphinxcontrib-applehelp==1.0.4
     # via sphinx
 sphinxcontrib-devhelp==1.0.2
@@ -263,6 +277,8 @@ tomli==2.0.1
     #   coverage
     #   doc8
     #   pytest
+typing-extensions==4.5.0
+    # via pydata-sphinx-theme
 urllib3==1.26.15
     # via
     #   -r requirements/test.txt
