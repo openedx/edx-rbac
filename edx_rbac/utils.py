@@ -203,6 +203,8 @@ def get_decoded_jwt(request):
     Decodes the request's JWT from either cookies or auth payload and returns it.
     Defaults to an empty dictionary.
     """
+    if getattr(request, 'auth', None):
+        return request.auth.payload
     decoded_jwt = get_decoded_jwt_from_cookie(request) or get_decoded_jwt_from_auth(request)
     return decoded_jwt or {}
 
