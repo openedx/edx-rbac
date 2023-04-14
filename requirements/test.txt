@@ -8,8 +8,6 @@ asgiref==3.6.0
     # via
     #   -r requirements/base.txt
     #   django
-attrs==22.2.0
-    # via pytest
 certifi==2022.12.7
     # via
     #   -r requirements/base.txt
@@ -30,9 +28,9 @@ click==8.1.3
     #   edx-django-utils
 code-annotations==1.3.0
     # via -r requirements/test.in
-coverage[toml]==7.2.1
+coverage[toml]==7.2.3
     # via pytest-cov
-cryptography==39.0.2
+cryptography==40.0.1
     # via
     #   -r requirements/base.txt
     #   pyjwt
@@ -67,11 +65,11 @@ drf-jwt==1.19.2
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-edx-django-utils==5.2.0
+edx-django-utils==5.4.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-edx-drf-extensions==8.4.1
+edx-drf-extensions==8.6.0
     # via -r requirements/base.txt
 edx-opaque-keys==2.3.0
     # via
@@ -93,11 +91,11 @@ jinja2==3.1.2
     # via code-annotations
 markupsafe==2.1.2
     # via jinja2
-newrelic==8.7.0
+newrelic==8.8.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-packaging==23.0
+packaging==23.1
     # via pytest
 pbr==5.11.1
     # via
@@ -134,7 +132,7 @@ pynacl==1.5.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-pytest==7.2.2
+pytest==7.3.0
     # via
     #   pytest-cov
     #   pytest-django
@@ -148,7 +146,7 @@ python-dateutil==2.8.2
     #   edx-drf-extensions
 python-slugify==8.0.1
     # via code-annotations
-pytz==2022.7.1
+pytz==2023.3
     # via
     #   -r requirements/base.txt
     #   django
