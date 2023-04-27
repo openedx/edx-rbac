@@ -113,7 +113,7 @@ idna==3.4
     #   requests
 imagesize==1.4.1
     # via sphinx
-importlib-metadata==6.5.0
+importlib-metadata==6.6.0
     # via sphinx
 iniconfig==2.0.0
     # via
@@ -213,7 +213,7 @@ pyyaml==6.0
     #   code-annotations
 readme-renderer==37.3
     # via -r requirements/doc.in
-requests==2.28.2
+requests==2.29.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions

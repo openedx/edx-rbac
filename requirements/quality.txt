@@ -8,7 +8,7 @@ asgiref==3.6.0
     # via
     #   -r requirements/test.txt
     #   django
-astroid==2.15.3
+astroid==2.15.4
     # via
     #   pylint
     #   pylint-celery
@@ -138,7 +138,7 @@ pbr==5.11.1
     # via
     #   -r requirements/test.txt
     #   stevedore
-platformdirs==3.2.0
+platformdirs==3.4.0
     # via pylint
 pluggy==1.0.0
     # via
@@ -169,7 +169,7 @@ pyjwt[crypto]==2.6.0
     #   -r requirements/test.txt
     #   drf-jwt
     #   edx-drf-extensions
-pylint==2.17.2
+pylint==2.17.3
     # via
     #   edx-lint
     #   pylint-celery
@@ -217,7 +217,7 @@ pyyaml==6.0
     # via
     #   -r requirements/test.txt
     #   code-annotations
-requests==2.28.2
+requests==2.29.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
