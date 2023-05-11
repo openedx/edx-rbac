@@ -6,7 +6,7 @@
 #
 asgiref==3.6.0
     # via django
-certifi==2022.12.7
+certifi==2023.5.7
     # via requests
 cffi==1.15.1
     # via
@@ -66,7 +66,7 @@ pycryptodomex==3.17
     # via pyjwkest
 pyjwkest==1.4.2
     # via edx-drf-extensions
-pyjwt[crypto]==2.6.0
+pyjwt[crypto]==2.7.0
     # via
     #   drf-jwt
     #   edx-drf-extensions
@@ -80,7 +80,7 @@ pytz==2023.3
     # via
     #   django
     #   djangorestframework
-requests==2.29.0
+requests==2.30.0
     # via
     #   edx-drf-extensions
     #   pyjwkest
@@ -98,5 +98,5 @@ stevedore==5.0.0
     # via
     #   edx-django-utils
     #   edx-opaque-keys
-urllib3==1.26.15
+urllib3==2.0.2
     # via requests

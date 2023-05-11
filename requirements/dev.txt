@@ -17,7 +17,7 @@ build==0.10.0
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
-certifi==2022.12.7
+certifi==2023.5.7
     # via
     #   -r requirements/quality.txt
     #   requests
@@ -226,12 +226,12 @@ pyjwkest==1.4.2
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
-pyjwt[crypto]==2.6.0
+pyjwt[crypto]==2.7.0
     # via
     #   -r requirements/quality.txt
     #   drf-jwt
     #   edx-drf-extensions
-pylint==2.17.3
+pylint==2.17.4
     # via
     #   -r requirements/quality.txt
     #   edx-lint
@@ -290,7 +290,7 @@ pyyaml==6.0
     #   -r requirements/quality.txt
     #   code-annotations
     #   edx-i18n-tools
-requests==2.29.0
+requests==2.30.0
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
@@ -354,7 +354,7 @@ typing-extensions==4.5.0
     #   astroid
     #   pydantic
     #   pylint
-urllib3==1.26.15
+urllib3==2.0.2
     # via
     #   -r requirements/quality.txt
     #   requests
