@@ -20,8 +20,8 @@ cryptography==40.0.2
     # via pyjwt
 django==3.2.19
     # via
-    #   -c requirements/common_constraints.txt
-    #   -r requirements/base.in
+    #   -c common_constraints.txt
+    #   -r base.in
     #   django-crum
     #   django-model-utils
     #   djangorestframework
@@ -30,10 +30,10 @@ django==3.2.19
     #   edx-drf-extensions
 django-crum==0.7.9
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   edx-django-utils
 django-model-utils==4.3.1
-    # via -r requirements/base.in
+    # via -r base.in
 django-waffle==3.0.0
     # via
     #   edx-django-utils
@@ -47,7 +47,7 @@ drf-jwt==1.19.2
 edx-django-utils==5.4.0
     # via edx-drf-extensions
 edx-drf-extensions==8.7.0
-    # via -r requirements/base.in
+    # via -r base.in
 edx-opaque-keys==2.3.0
     # via edx-drf-extensions
 future==0.18.3
@@ -80,7 +80,7 @@ pytz==2023.3
     # via
     #   django
     #   djangorestframework
-requests==2.29.0
+requests==2.31.0
     # via
     #   edx-drf-extensions
     #   pyjwkest
@@ -88,7 +88,7 @@ semantic-version==2.10.0
     # via edx-drf-extensions
 six==1.16.0
     # via
-    #   -r requirements/base.in
+    #   -r base.in
     #   edx-drf-extensions
     #   pyjwkest
     #   python-dateutil
