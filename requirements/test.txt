@@ -30,7 +30,7 @@ code-annotations==1.3.0
     # via -r requirements/test.in
 coverage[toml]==7.2.7
     # via pytest-cov
-cryptography==41.0.0
+cryptography==41.0.1
     # via
     #   -r requirements/base.txt
     #   pyjwt
@@ -65,7 +65,7 @@ drf-jwt==1.19.2
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-edx-django-utils==5.4.0
+edx-django-utils==5.5.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
@@ -85,7 +85,7 @@ iniconfig==2.0.0
     # via pytest
 jinja2==3.1.2
     # via code-annotations
-markupsafe==2.1.2
+markupsafe==2.1.3
     # via jinja2
 newrelic==8.8.0
     # via
@@ -170,11 +170,11 @@ tomli==2.0.1
     # via
     #   coverage
     #   pytest
-typing-extensions==4.6.2
+typing-extensions==4.6.3
     # via
     #   -r requirements/base.txt
     #   asgiref
-urllib3==2.0.2
+urllib3==2.0.3
     # via
     #   -r requirements/base.txt
     #   requests
