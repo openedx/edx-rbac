@@ -97,7 +97,7 @@ pbr==5.11.1
     # via
     #   -r requirements/base.txt
     #   stevedore
-pluggy==1.0.0
+pluggy==1.2.0
     # via pytest
 psutil==5.9.5
     # via
