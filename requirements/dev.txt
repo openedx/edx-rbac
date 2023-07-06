@@ -4,6 +4,8 @@
 #
 #    make upgrade
 #
+annotated-types==0.5.0
+    # via pydantic
 asgiref==3.7.2
     # via
     #   -r requirements/quality.txt
@@ -69,7 +71,7 @@ distlib==0.3.6
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-django==3.2.19
+django==3.2.20
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/quality.txt
@@ -114,7 +116,7 @@ edx-opaque-keys==2.3.0
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
-exceptiongroup==1.1.1
+exceptiongroup==1.1.2
     # via
     #   -r requirements/quality.txt
     #   pytest
@@ -129,7 +131,7 @@ idna==3.4
     # via
     #   -r requirements/quality.txt
     #   requests
-inflect==6.0.4
+inflect==7.0.0
     # via jinja2-pluralize
 iniconfig==2.0.0
     # via
@@ -177,7 +179,7 @@ pbr==5.11.1
     # via
     #   -r requirements/quality.txt
     #   stevedore
-pip-tools==6.13.0
+pip-tools==6.14.0
     # via -r requirements/pip-tools.txt
 platformdirs==3.8.0
     # via
@@ -208,8 +210,10 @@ pycparser==2.21
     # via
     #   -r requirements/quality.txt
     #   cffi
-pydantic==1.10.9
+pydantic==2.0.2
     # via inflect
+pydantic-core==2.1.2
+    # via pydantic
 pydocstyle==6.3.0
     # via -r requirements/quality.txt
 pygments==2.15.1
@@ -319,6 +323,7 @@ tomli==2.0.1
     #   -r requirements/quality.txt
     #   build
     #   coverage
+    #   pip-tools
     #   pylint
     #   pyproject-hooks
     #   pytest
@@ -334,12 +339,15 @@ tox==3.28.0
     #   tox-battery
 tox-battery==0.6.1
     # via -r requirements/ci.txt
-typing-extensions==4.7.0
+typing-extensions==4.7.1
     # via
     #   -r requirements/quality.txt
+    #   annotated-types
     #   asgiref
     #   astroid
+    #   inflect
     #   pydantic
+    #   pydantic-core
     #   pylint
 urllib3==2.0.3
     # via
