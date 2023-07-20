@@ -25,7 +25,7 @@ charset-normalizer==3.2.0
     # via
     #   -r requirements/test.txt
     #   requests
-click==8.1.4
+click==8.1.6
     # via
     #   -r requirements/test.txt
     #   click-log
@@ -134,7 +134,7 @@ pbr==5.11.1
     # via
     #   -r requirements/test.txt
     #   stevedore
-platformdirs==3.8.1
+platformdirs==3.9.1
     # via pylint
 pluggy==1.2.0
     # via
@@ -152,7 +152,7 @@ pycparser==2.21
     #   cffi
 pydocstyle==6.3.0
     # via -r requirements/quality.in
-pyjwt[crypto]==2.7.0
+pyjwt[crypto]==2.8.0
     # via
     #   -r requirements/test.txt
     #   drf-jwt
@@ -201,7 +201,7 @@ pytz==2023.3
     #   -r requirements/test.txt
     #   django
     #   djangorestframework
-pyyaml==6.0
+pyyaml==6.0.1
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -249,7 +249,7 @@ typing-extensions==4.7.1
     #   asgiref
     #   astroid
     #   pylint
-urllib3==2.0.3
+urllib3==2.0.4
     # via
     #   -r requirements/test.txt
     #   requests

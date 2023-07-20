@@ -33,7 +33,7 @@ charset-normalizer==3.2.0
     # via
     #   -r requirements/test.txt
     #   requests
-click==8.1.4
+click==8.1.6
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -159,7 +159,7 @@ pygments==2.15.1
     #   pydata-sphinx-theme
     #   readme-renderer
     #   sphinx
-pyjwt[crypto]==2.7.0
+pyjwt[crypto]==2.8.0
     # via
     #   -r requirements/test.txt
     #   drf-jwt
@@ -195,7 +195,7 @@ pytz==2023.3
     #   babel
     #   django
     #   djangorestframework
-pyyaml==6.0
+pyyaml==6.0.1
     # via
     #   -r requirements/test.txt
     #   code-annotations
@@ -267,11 +267,11 @@ typing-extensions==4.7.1
     #   -r requirements/test.txt
     #   asgiref
     #   pydata-sphinx-theme
-urllib3==2.0.3
+urllib3==2.0.4
     # via
     #   -r requirements/test.txt
     #   requests
 webencodings==0.5.1
     # via bleach
-zipp==3.16.0
+zipp==3.16.2
     # via importlib-metadata
