@@ -14,8 +14,11 @@ Change Log
 Unreleased
 --------------------
 
+[1.8.0]
+-------
 * Switch from ``edx-sphinx-theme`` to ``sphinx-book-theme`` since the former is
   deprecated
+* Added support for Django 4.2
 
 [1.7.0]
 -------
