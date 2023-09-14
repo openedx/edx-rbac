@@ -70,7 +70,7 @@ edx-django-utils==5.7.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-edx-drf-extensions==8.9.2
+edx-drf-extensions==8.9.3
     # via -r requirements/base.txt
 edx-opaque-keys==2.5.0
     # via
@@ -121,7 +121,7 @@ pynacl==1.5.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-pytest==7.4.1
+pytest==7.4.2
     # via
     #   pytest-cov
     #   pytest-django
@@ -129,10 +129,6 @@ pytest-cov==4.1.0
     # via -r requirements/test.in
 pytest-django==4.5.2
     # via -r requirements/test.in
-python-dateutil==2.8.2
-    # via
-    #   -r requirements/base.txt
-    #   edx-drf-extensions
 python-slugify==8.0.1
     # via code-annotations
 pytz==2023.3.post1
@@ -151,10 +147,7 @@ semantic-version==2.10.0
     #   -r requirements/base.txt
     #   edx-drf-extensions
 six==1.16.0
-    # via
-    #   -r requirements/base.txt
-    #   edx-drf-extensions
-    #   python-dateutil
+    # via -r requirements/base.txt
 sqlparse==0.4.4
     # via
     #   -r requirements/base.txt

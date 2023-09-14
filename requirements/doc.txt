@@ -18,8 +18,6 @@ babel==2.12.1
     #   sphinx
 beautifulsoup4==4.12.2
     # via pydata-sphinx-theme
-bleach==6.0.0
-    # via readme-renderer
 certifi==2023.7.22
     # via
     #   -r requirements/test.txt
@@ -94,7 +92,7 @@ edx-django-utils==5.7.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-edx-drf-extensions==8.9.2
+edx-drf-extensions==8.9.3
     # via -r requirements/test.txt
 edx-opaque-keys==2.5.0
     # via
@@ -129,6 +127,8 @@ newrelic==9.0.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
+nh3==0.2.14
+    # via readme-renderer
 packaging==23.1
     # via
     #   -r requirements/test.txt
@@ -173,7 +173,7 @@ pynacl==1.5.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-pytest==7.4.1
+pytest==7.4.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -182,10 +182,6 @@ pytest-cov==4.1.0
     # via -r requirements/test.txt
 pytest-django==4.5.2
     # via -r requirements/test.txt
-python-dateutil==2.8.2
-    # via
-    #   -r requirements/test.txt
-    #   edx-drf-extensions
 python-slugify==8.0.1
     # via
     #   -r requirements/test.txt
@@ -200,7 +196,7 @@ pyyaml==6.0.1
     # via
     #   -r requirements/test.txt
     #   code-annotations
-readme-renderer==41.0
+readme-renderer==42.0
     # via -r requirements/doc.in
 requests==2.31.0
     # via
@@ -214,11 +210,7 @@ semantic-version==2.10.0
     #   -r requirements/test.txt
     #   edx-drf-extensions
 six==1.16.0
-    # via
-    #   -r requirements/test.txt
-    #   bleach
-    #   edx-drf-extensions
-    #   python-dateutil
+    # via -r requirements/test.txt
 snowballstemmer==2.2.0
     # via sphinx
 soupsieve==2.5
@@ -273,7 +265,5 @@ urllib3==2.0.4
     # via
     #   -r requirements/test.txt
     #   requests
-webencodings==0.5.1
-    # via bleach
 zipp==3.16.2
     # via importlib-metadata

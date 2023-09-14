@@ -85,7 +85,7 @@ edx-django-utils==5.7.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-edx-drf-extensions==8.9.2
+edx-drf-extensions==8.9.3
     # via -r requirements/test.txt
 edx-lint==5.3.4
     # via -r requirements/quality.in
@@ -180,7 +180,7 @@ pynacl==1.5.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-pytest==7.4.1
+pytest==7.4.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -189,10 +189,6 @@ pytest-cov==4.1.0
     # via -r requirements/test.txt
 pytest-django==4.5.2
     # via -r requirements/test.txt
-python-dateutil==2.8.2
-    # via
-    #   -r requirements/test.txt
-    #   edx-drf-extensions
 python-slugify==8.0.1
     # via
     #   -r requirements/test.txt
@@ -217,9 +213,7 @@ semantic-version==2.10.0
 six==1.16.0
     # via
     #   -r requirements/test.txt
-    #   edx-drf-extensions
     #   edx-lint
-    #   python-dateutil
 snowballstemmer==2.2.0
     # via pydocstyle
 sqlparse==0.4.4
