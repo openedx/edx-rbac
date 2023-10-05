@@ -12,12 +12,12 @@ certifi==2023.7.22
     # via
     #   -r requirements/base.txt
     #   requests
-cffi==1.15.1
+cffi==1.16.0
     # via
     #   -r requirements/base.txt
     #   cryptography
     #   pynacl
-charset-normalizer==3.2.0
+charset-normalizer==3.3.0
     # via
     #   -r requirements/base.txt
     #   requests
@@ -28,7 +28,7 @@ click==8.1.7
     #   edx-django-utils
 code-annotations==1.5.0
     # via -r requirements/test.in
-coverage[toml]==7.3.1
+coverage[toml]==7.3.2
     # via pytest-cov
 cryptography==41.0.4
     # via
@@ -92,7 +92,7 @@ newrelic==9.1.0
     # via
     #   -r requirements/base.txt
     #   edx-django-utils
-packaging==23.1
+packaging==23.2
     # via pytest
 pbr==5.11.1
     # via
@@ -169,7 +169,7 @@ typing-extensions==4.8.0
     #   -r requirements/base.txt
     #   asgiref
     #   edx-opaque-keys
-urllib3==2.0.5
+urllib3==2.0.6
     # via
     #   -r requirements/base.txt
     #   requests

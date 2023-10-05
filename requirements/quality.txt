@@ -16,12 +16,12 @@ certifi==2023.7.22
     # via
     #   -r requirements/test.txt
     #   requests
-cffi==1.15.1
+cffi==1.16.0
     # via
     #   -r requirements/test.txt
     #   cryptography
     #   pynacl
-charset-normalizer==3.2.0
+charset-normalizer==3.3.0
     # via
     #   -r requirements/test.txt
     #   requests
@@ -38,7 +38,7 @@ code-annotations==1.5.0
     # via
     #   -r requirements/test.txt
     #   edx-lint
-coverage[toml]==7.3.1
+coverage[toml]==7.3.2
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -50,7 +50,7 @@ ddt==1.6.0
     # via -r requirements/test.txt
 dill==0.3.7
     # via pylint
-django==3.2.21
+django==3.2.22
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/test.txt
@@ -127,7 +127,7 @@ newrelic==9.1.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-packaging==23.1
+packaging==23.2
     # via
     #   -r requirements/test.txt
     #   pytest
@@ -135,7 +135,7 @@ pbr==5.11.1
     # via
     #   -r requirements/test.txt
     #   stevedore
-platformdirs==3.10.0
+platformdirs==3.11.0
     # via pylint
 pluggy==1.3.0
     # via
@@ -158,7 +158,7 @@ pyjwt[crypto]==2.8.0
     #   -r requirements/test.txt
     #   drf-jwt
     #   edx-drf-extensions
-pylint==2.17.6
+pylint==2.17.7
     # via
     #   edx-lint
     #   pylint-celery
@@ -245,7 +245,7 @@ typing-extensions==4.8.0
     #   astroid
     #   edx-opaque-keys
     #   pylint
-urllib3==2.0.5
+urllib3==2.0.6
     # via
     #   -r requirements/test.txt
     #   requests
