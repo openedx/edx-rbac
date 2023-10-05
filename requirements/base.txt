@@ -8,17 +8,17 @@ asgiref==3.7.2
     # via django
 certifi==2023.7.22
     # via requests
-cffi==1.15.1
+cffi==1.16.0
     # via
     #   cryptography
     #   pynacl
-charset-normalizer==3.2.0
+charset-normalizer==3.3.0
     # via requests
 click==8.1.7
     # via edx-django-utils
 cryptography==41.0.4
     # via pyjwt
-django==3.2.21
+django==3.2.22
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
@@ -89,5 +89,5 @@ typing-extensions==4.8.0
     # via
     #   asgiref
     #   edx-opaque-keys
-urllib3==2.0.5
+urllib3==2.0.6
     # via requests
