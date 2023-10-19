@@ -52,6 +52,7 @@ code-annotations==1.5.0
 coverage[toml]==7.3.2
     # via
     #   -r requirements/quality.txt
+    #   coverage
     #   pytest-cov
 cryptography==41.0.4
     # via
@@ -107,7 +108,7 @@ edx-django-utils==5.7.0
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
-edx-drf-extensions==8.11.1
+edx-drf-extensions==8.12.0
     # via -r requirements/quality.txt
 edx-i18n-tools==1.3.0
     # via -r requirements/dev.in
@@ -203,7 +204,7 @@ pluggy==1.3.0
     #   tox
 polib==1.2.0
     # via edx-i18n-tools
-psutil==5.9.5
+psutil==5.9.6
     # via
     #   -r requirements/quality.txt
     #   edx-django-utils
@@ -211,7 +212,7 @@ py==1.11.0
     # via
     #   -r requirements/ci.txt
     #   tox
-pycodestyle==2.11.0
+pycodestyle==2.11.1
     # via -r requirements/quality.txt
 pycparser==2.21
     # via
@@ -230,6 +231,7 @@ pyjwt[crypto]==2.8.0
     #   -r requirements/quality.txt
     #   drf-jwt
     #   edx-drf-extensions
+    #   pyjwt
 pylint==2.17.7
     # via
     #   -r requirements/quality.txt
@@ -351,7 +353,7 @@ typing-extensions==4.8.0
     #   pydantic
     #   pydantic-core
     #   pylint
-urllib3==2.0.6
+urllib3==2.0.7
     # via
     #   -r requirements/quality.txt
     #   requests
