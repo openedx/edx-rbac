@@ -32,7 +32,7 @@ coverage[toml]==7.3.2
     # via
     #   coverage
     #   pytest-cov
-cryptography==41.0.5
+cryptography==41.0.7
     # via
     #   -r requirements/base.txt
     #   pyjwt
@@ -68,11 +68,11 @@ drf-jwt==1.19.2
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-edx-django-utils==5.8.0
+edx-django-utils==5.9.0
     # via
     #   -r requirements/base.txt
     #   edx-drf-extensions
-edx-drf-extensions==8.13.1
+edx-drf-extensions==9.0.0
     # via -r requirements/base.txt
 edx-opaque-keys==2.5.1
     # via
@@ -80,7 +80,7 @@ edx-opaque-keys==2.5.1
     #   edx-drf-extensions
 exceptiongroup==1.2.0
     # via pytest
-idna==3.4
+idna==3.6
     # via
     #   -r requirements/base.txt
     #   requests
