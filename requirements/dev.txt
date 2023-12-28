@@ -61,7 +61,7 @@ colorama==0.4.6
     # via
     #   -r requirements/ci.txt
     #   tox
-coverage[toml]==7.3.4
+coverage[toml]==7.4.0
     # via
     #   -r requirements/quality.txt
     #   coverage
@@ -145,7 +145,7 @@ idna==3.6
     # via
     #   -r requirements/quality.txt
     #   requests
-importlib-metadata==7.0.0
+importlib-metadata==7.0.1
     # via
     #   -r requirements/pip-tools.txt
     #   build
@@ -224,9 +224,9 @@ pycparser==2.21
     # via
     #   -r requirements/quality.txt
     #   cffi
-pydantic==2.5.2
+pydantic==2.5.3
     # via inflect
-pydantic-core==2.14.5
+pydantic-core==2.14.6
     # via pydantic
 pydocstyle==6.3.0
     # via -r requirements/quality.txt
