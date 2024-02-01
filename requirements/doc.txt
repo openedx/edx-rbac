@@ -36,14 +36,14 @@ click==8.1.7
     #   -r requirements/test.txt
     #   code-annotations
     #   edx-django-utils
-code-annotations==1.5.0
+code-annotations==1.6.0
     # via -r requirements/test.txt
-coverage[toml]==7.4.0
+coverage[toml]==7.4.1
     # via
     #   -r requirements/test.txt
     #   coverage
     #   pytest-cov
-cryptography==42.0.0
+cryptography==42.0.2
     # via
     #   -r requirements/test.txt
     #   pyjwt
@@ -96,7 +96,7 @@ edx-django-utils==5.10.1
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-edx-drf-extensions==9.1.2
+edx-drf-extensions==10.1.0
     # via -r requirements/test.txt
 edx-opaque-keys==2.5.1
     # via
@@ -127,7 +127,7 @@ markupsafe==2.1.4
     # via
     #   -r requirements/test.txt
     #   jinja2
-newrelic==9.5.0
+newrelic==9.6.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -178,20 +178,20 @@ pynacl==1.5.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-pytest==7.4.4
+pytest==8.0.0
     # via
     #   -r requirements/test.txt
     #   pytest-cov
     #   pytest-django
 pytest-cov==4.1.0
     # via -r requirements/test.txt
-pytest-django==4.7.0
+pytest-django==4.8.0
     # via -r requirements/test.txt
-python-slugify==8.0.1
+python-slugify==8.0.3
     # via
     #   -r requirements/test.txt
     #   code-annotations
-pytz==2023.3.post1
+pytz==2023.4
     # via
     #   -r requirements/test.txt
     #   babel
@@ -269,7 +269,7 @@ typing-extensions==4.9.0
     #   asgiref
     #   edx-opaque-keys
     #   pydata-sphinx-theme
-urllib3==2.1.0
+urllib3==2.2.0
     # via
     #   -r requirements/test.txt
     #   requests
