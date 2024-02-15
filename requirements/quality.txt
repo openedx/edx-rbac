@@ -67,7 +67,7 @@ django-crum==0.7.9
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
-django-model-utils==4.3.1
+django-model-utils==4.4.0
     # via -r requirements/test.txt
 django-waffle==4.1.0
     # via
@@ -192,7 +192,7 @@ pytest-cov==4.1.0
     # via -r requirements/test.txt
 pytest-django==4.8.0
     # via -r requirements/test.txt
-python-slugify==8.0.3
+python-slugify==8.0.4
     # via
     #   -r requirements/test.txt
     #   code-annotations
