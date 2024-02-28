@@ -14,6 +14,8 @@ Change Log
 Unreleased
 --------------------
 
+* Add support for Python 3.12
+
 [1.8.0]
 -------
 * Switch from ``edx-sphinx-theme`` to ``sphinx-book-theme`` since the former is
