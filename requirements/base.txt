@@ -6,6 +6,8 @@
 #
 asgiref==3.7.2
     # via django
+backports-zoneinfo==0.2.1
+    # via django
 certifi==2024.2.2
     # via requests
 cffi==1.16.0
@@ -18,7 +20,7 @@ click==8.1.7
     # via edx-django-utils
 cryptography==42.0.5
     # via pyjwt
-django==3.2.24
+django==4.2.11
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
@@ -45,7 +47,7 @@ djangorestframework==3.14.0
     #   edx-drf-extensions
 drf-jwt==1.19.2
     # via edx-drf-extensions
-edx-django-utils==5.10.1
+edx-django-utils==5.11.0
     # via edx-drf-extensions
 edx-drf-extensions==10.2.0
     # via -r requirements/base.in
@@ -70,9 +72,7 @@ pymongo==3.13.0
 pynacl==1.5.0
     # via edx-django-utils
 pytz==2024.1
-    # via
-    #   django
-    #   djangorestframework
+    # via djangorestframework
 requests==2.31.0
     # via edx-drf-extensions
 semantic-version==2.10.0
