@@ -14,7 +14,9 @@ Change Log
 Unreleased
 --------------------
 
-* Add support for Python 3.12
+[1.9.0]
+-------
+* Add support for Python 3.11 & 3.12
 
 [1.8.0]
 -------

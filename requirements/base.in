@@ -6,3 +6,4 @@ django-model-utils        # Provides TimeStampedModel abstract base class
 six
 django-crum
 edx-drf-extensions
+setuptools
