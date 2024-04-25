@@ -44,7 +44,7 @@ click==8.1.7
     #   edx-django-utils
 code-annotations==1.8.0
     # via -r requirements/test.txt
-coverage[toml]==7.4.4
+coverage[toml]==7.5.0
     # via
     #   -r requirements/test.txt
     #   pytest-cov
@@ -103,15 +103,15 @@ edx-django-utils==5.12.0
     #   edx-drf-extensions
 edx-drf-extensions==10.3.0
     # via -r requirements/test.txt
-edx-opaque-keys==2.5.1
+edx-opaque-keys==2.8.0
     # via
     #   -r requirements/test.txt
     #   edx-drf-extensions
-exceptiongroup==1.2.0
+exceptiongroup==1.2.1
     # via
     #   -r requirements/test.txt
     #   pytest
-idna==3.6
+idna==3.7
     # via
     #   -r requirements/test.txt
     #   requests
@@ -134,7 +134,7 @@ markupsafe==2.1.5
     # via
     #   -r requirements/test.txt
     #   jinja2
-newrelic==9.8.0
+newrelic==9.9.0
     # via
     #   -r requirements/test.txt
     #   edx-django-utils
@@ -150,7 +150,7 @@ pbr==6.0.0
     # via
     #   -r requirements/test.txt
     #   stevedore
-pluggy==1.4.0
+pluggy==1.5.0
     # via
     #   -r requirements/test.txt
     #   pytest
@@ -244,7 +244,7 @@ sphinxcontrib-qthelp==1.0.3
     # via sphinx
 sphinxcontrib-serializinghtml==1.1.5
     # via sphinx
-sqlparse==0.4.4
+sqlparse==0.5.0
     # via
     #   -r requirements/test.txt
     #   django
