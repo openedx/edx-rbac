@@ -48,17 +48,19 @@ djangorestframework==3.15.1
     # via
     #   drf-jwt
     #   edx-drf-extensions
+dnspython==2.6.1
+    # via pymongo
 drf-jwt==1.19.2
     # via edx-drf-extensions
-edx-django-utils==5.12.0
+edx-django-utils==5.13.0
     # via edx-drf-extensions
 edx-drf-extensions==10.3.0
     # via -r requirements/base.in
-edx-opaque-keys==2.5.1
+edx-opaque-keys==2.9.0
     # via edx-drf-extensions
-idna==3.6
+idna==3.7
     # via requests
-newrelic==9.8.0
+newrelic==9.9.0
     # via edx-django-utils
 pbr==6.0.0
     # via stevedore
@@ -70,7 +72,7 @@ pyjwt[crypto]==2.8.0
     # via
     #   drf-jwt
     #   edx-drf-extensions
-pymongo==3.13.0
+pymongo==4.4.0
     # via edx-opaque-keys
 pynacl==1.5.0
     # via edx-django-utils
@@ -80,7 +82,7 @@ semantic-version==2.10.0
     # via edx-drf-extensions
 six==1.16.0
     # via -r requirements/base.in
-sqlparse==0.4.4
+sqlparse==0.5.0
     # via django
 stevedore==5.2.0
     # via
@@ -94,5 +96,5 @@ urllib3==2.2.1
     # via requests
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==69.2.0
+setuptools==69.5.1
     # via -r requirements/base.in
