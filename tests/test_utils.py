@@ -8,10 +8,11 @@ from unittest import mock
 import ddt
 from django.contrib import auth
 from django.contrib.auth.models import AnonymousUser
-from django.test import RequestFactory, TestCase
+from django.test import RequestFactory, TestCase, override_settings
+from jwt.exceptions import InvalidTokenError
 
+from edx_rbac.constants import ALL_ACCESS_CONTEXT, IGNORE_INVALID_JWT_COOKIE_SETTING
 from edx_rbac.utils import (
-    ALL_ACCESS_CONTEXT,
     _user_has_access,
     contexts_accessible_from_request,
     create_role_auth_claim_for_user,
@@ -347,15 +348,15 @@ class TestUtils(TestCase):
     def test_set_from_collection_or_single_item(self, obj, expected_value):
         assert expected_value == set_from_collection_or_single_item(obj)
 
-    @mock.patch('edx_rbac.utils.get_decoded_jwt_from_auth')
+    @mock.patch('edx_rbac.utils.get_decoded_jwt_from_auth', return_value=None)
     @mock.patch('edx_rbac.utils.get_decoded_jwt_from_cookie')
     def test_get_decoded_jwt_when_it_exists_in_cookie(self, mock_jwt_from_cookie, mock_jwt_from_auth):
         request = mock.Mock()
 
         assert mock_jwt_from_cookie.return_value == get_decoded_jwt(request)
 
+        mock_jwt_from_auth.assert_called_once_with(request)
         mock_jwt_from_cookie.assert_called_once_with(request)
-        self.assertFalse(mock_jwt_from_auth.called)
 
     @mock.patch('edx_rbac.utils.get_decoded_jwt_from_auth')
     @mock.patch('edx_rbac.utils.get_decoded_jwt_from_cookie', return_value=None)
@@ -364,7 +365,7 @@ class TestUtils(TestCase):
 
         assert mock_jwt_from_auth.return_value == get_decoded_jwt(request)
 
-        mock_jwt_from_cookie.assert_called_once_with(request)
+        self.assertFalse(mock_jwt_from_cookie.called)
         mock_jwt_from_auth.assert_called_once_with(request)
 
     @mock.patch('edx_rbac.utils.get_decoded_jwt_from_auth', return_value=None)
@@ -373,6 +374,30 @@ class TestUtils(TestCase):
         request = mock.Mock()
 
         assert {} == get_decoded_jwt(request)
+
+        mock_jwt_from_cookie.assert_called_once_with(request)
+        mock_jwt_from_auth.assert_called_once_with(request)
+
+    @override_settings(**{IGNORE_INVALID_JWT_COOKIE_SETTING: True})
+    @mock.patch('edx_rbac.utils.get_decoded_jwt_from_auth', return_value=None)
+    @mock.patch('edx_rbac.utils.get_decoded_jwt_from_cookie')
+    def test_get_decoded_jwt_ignores_invalid_token_errors(self, mock_jwt_from_cookie, mock_jwt_from_auth):
+        request = mock.Mock()
+        mock_jwt_from_cookie.side_effect = InvalidTokenError('foo')
+
+        assert {} == get_decoded_jwt(request)
+
+        mock_jwt_from_cookie.assert_called_once_with(request)
+        mock_jwt_from_auth.assert_called_once_with(request)
+
+    @mock.patch('edx_rbac.utils.get_decoded_jwt_from_auth', return_value=None)
+    @mock.patch('edx_rbac.utils.get_decoded_jwt_from_cookie')
+    def test_get_decoded_jwt_raises_invalid_token_errors_by_default(self, mock_jwt_from_cookie, mock_jwt_from_auth):
+        request = mock.Mock()
+        mock_jwt_from_cookie.side_effect = InvalidTokenError('foo')
+
+        with self.assertRaises(InvalidTokenError):
+            get_decoded_jwt(request)
 
         mock_jwt_from_cookie.assert_called_once_with(request)
         mock_jwt_from_auth.assert_called_once_with(request)

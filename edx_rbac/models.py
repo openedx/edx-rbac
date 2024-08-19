@@ -15,7 +15,7 @@ class UserRoleAssignmentCreator(ModelBase):
     The model extending UserRoleAssignment should get a foreign key to a model that is a subclass of UserRole.
     """
 
-    def __new__(mcs, name, bases, attrs):    # pylint: disable=arguments-differ
+    def __new__(mcs, name, bases, attrs):
         """
         Override to dynamically create foreign key for objects begotten from abstract class.
         """

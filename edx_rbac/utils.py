@@ -5,13 +5,17 @@ Utils for 'edx-rbac' module.
 import importlib
 from collections import OrderedDict, defaultdict
 from collections.abc import Iterable
+from logging import getLogger
 
 from django.apps import apps
 from django.conf import settings
 from edx_rest_framework_extensions.auth.jwt.authentication import get_decoded_jwt_from_auth
 from edx_rest_framework_extensions.auth.jwt.cookies import get_decoded_jwt as get_decoded_jwt_from_cookie
+from jwt.exceptions import InvalidTokenError
 
-ALL_ACCESS_CONTEXT = '*'
+from edx_rbac.constants import ALL_ACCESS_CONTEXT, IGNORE_INVALID_JWT_COOKIE_SETTING
+
+logger = getLogger(__name__)
 
 
 def request_user_has_implicit_access_via_jwt(decoded_jwt, role_name, context=None):
@@ -203,8 +207,22 @@ def get_decoded_jwt(request):
     Decodes the request's JWT from either cookies or auth payload and returns it.
     Defaults to an empty dictionary.
     """
-    decoded_jwt = get_decoded_jwt_from_cookie(request) or get_decoded_jwt_from_auth(request)
-    return decoded_jwt or {}
+    if decoded_jwt_from_auth := get_decoded_jwt_from_auth(request):
+        return decoded_jwt_from_auth
+
+    try:
+        if decoded_jwt_from_cookie := get_decoded_jwt_from_cookie(request):
+            return decoded_jwt_from_cookie
+    except InvalidTokenError as exc:
+        logger.info(
+            '[edx_rbac.get_decoded_jwt] Error decoding JWT from cookie and no JWT found in auth: %s',
+            exc,
+        )
+        # Django settings toggle: see toggle annotation in `constants.py`.
+        if not getattr(settings, IGNORE_INVALID_JWT_COOKIE_SETTING, False):
+            raise
+
+    return {}
 
 
 def has_access_to_all(assigned_contexts):
