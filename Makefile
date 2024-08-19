@@ -1,6 +1,7 @@
 .PHONY: clean compile_translations coverage diff_cover docs dummy_translations \
         extract_translations fake_translations help pii_check pull_translations push_translations \
-        quality requirements selfcheck test test-all upgrade validate check_keywords
+        quality requirements selfcheck test test-all upgrade validate check_keywords \
+	virtualenv virtualenv-activate
 
 .DEFAULT_GOAL := help
 
@@ -64,6 +65,9 @@ upgrade: $(COMMON_CONSTRAINTS_TXT)  ## update the requirements/*.txt files with 
 	grep -e "^django==" requirements/base.txt > requirements/django.txt
 	sed '/^[dD]jango==/d' requirements/test.txt > requirements/test.tmp
 	mv requirements/test.tmp requirements/test.txt
+
+virtualenv:
+	virtualenv venvs/edx-rbac
 
 quality: ## check coding style with pycodestyle and pylint
 	tox -e quality

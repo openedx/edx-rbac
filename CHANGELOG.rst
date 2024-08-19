@@ -14,6 +14,10 @@ Change Log
 Unreleased
 --------------------
 
+[1.10.0]
+-------
+* Optionally ignore and log ``jwt.exceptions.InvalidTokenErrors`` when decoding JWT from cookie.
+
 [1.9.0]
 -------
 * Add support for Python 3.11 & 3.12
