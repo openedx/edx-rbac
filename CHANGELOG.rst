@@ -13,6 +13,8 @@ Change Log
 
 Unreleased
 --------------------
+[2.0.0]
+* Drop support for Python 3.8
 
 [1.10.0]
 --------
