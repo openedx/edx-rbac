@@ -13,6 +13,10 @@ Change Log
 
 Unreleased
 --------------------
+[2.1.0]
+--------
+* Add Support for Djanog5.2
+
 [2.0.0]
 * Drop support for Python 3.8
 
