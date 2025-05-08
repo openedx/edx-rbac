@@ -34,7 +34,7 @@ chardet==5.2.0
     # via
     #   -r requirements/ci.txt
     #   tox
-charset-normalizer==3.4.1
+charset-normalizer==3.4.2
     # via
     #   -r requirements/quality.txt
     #   requests
@@ -63,7 +63,7 @@ coverage[toml]==7.8.0
     # via
     #   -r requirements/quality.txt
     #   pytest-cov
-cryptography==44.0.2
+cryptography==44.0.3
     # via
     #   -r requirements/quality.txt
     #   pyjwt
@@ -81,7 +81,7 @@ distlib==0.3.9
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-django==4.2.20
+django==4.2.21
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/quality.txt
@@ -126,7 +126,7 @@ edx-django-utils==7.4.0
     #   edx-drf-extensions
 edx-drf-extensions==10.6.0
     # via -r requirements/quality.txt
-edx-i18n-tools==1.8.0
+edx-i18n-tools==1.9.0
     # via -r requirements/dev.in
 edx-lint==5.6.0
     # via -r requirements/quality.txt
@@ -179,7 +179,7 @@ mccabe==0.7.0
     #   pylint
 more-itertools==10.7.0
     # via inflect
-newrelic==10.10.0
+newrelic==10.11.0
     # via
     #   -r requirements/quality.txt
     #   edx-django-utils
@@ -200,7 +200,7 @@ pbr==6.1.1
     #   stevedore
 pip-tools==7.4.1
     # via -r requirements/pip-tools.txt
-platformdirs==4.3.7
+platformdirs==4.3.8
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
@@ -235,7 +235,7 @@ pyjwt[crypto]==2.10.1
     #   -r requirements/quality.txt
     #   drf-jwt
     #   edx-drf-extensions
-pylint==3.3.6
+pylint==3.3.7
     # via
     #   -r requirements/quality.txt
     #   edx-lint
@@ -255,7 +255,7 @@ pylint-plugin-utils==0.8.2
     #   -r requirements/quality.txt
     #   pylint-celery
     #   pylint-django
-pymongo==4.12.0
+pymongo==4.12.1
     # via
     #   -r requirements/quality.txt
     #   edx-opaque-keys
@@ -340,7 +340,7 @@ urllib3==2.2.3
     #   -c requirements/common_constraints.txt
     #   -r requirements/quality.txt
     #   requests
-virtualenv==20.30.0
+virtualenv==20.31.1
     # via
     #   -r requirements/ci.txt
     #   tox
