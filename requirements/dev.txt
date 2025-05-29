@@ -8,7 +8,7 @@ asgiref==3.8.1
     # via
     #   -r requirements/quality.txt
     #   django
-astroid==3.3.9
+astroid==3.3.10
     # via
     #   -r requirements/quality.txt
     #   pylint
@@ -17,7 +17,7 @@ build==1.2.2.post1
     # via
     #   -r requirements/pip-tools.txt
     #   pip-tools
-cachetools==5.5.2
+cachetools==6.0.0
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -34,11 +34,11 @@ chardet==5.2.0
     # via
     #   -r requirements/ci.txt
     #   tox
-charset-normalizer==3.4.1
+charset-normalizer==3.4.2
     # via
     #   -r requirements/quality.txt
     #   requests
-click==8.1.8
+click==8.2.1
     # via
     #   -r requirements/pip-tools.txt
     #   -r requirements/quality.txt
@@ -59,11 +59,11 @@ colorama==0.4.6
     # via
     #   -r requirements/ci.txt
     #   tox
-coverage[toml]==7.8.0
+coverage[toml]==7.8.2
     # via
     #   -r requirements/quality.txt
     #   pytest-cov
-cryptography==44.0.2
+cryptography==45.0.3
     # via
     #   -r requirements/quality.txt
     #   pyjwt
@@ -81,7 +81,7 @@ distlib==0.3.9
     # via
     #   -r requirements/ci.txt
     #   virtualenv
-django==4.2.20
+django==4.2.21
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/quality.txt
@@ -120,13 +120,13 @@ drf-jwt==1.19.2
     #   edx-drf-extensions
 edx-django-release-util==1.5.0
     # via -r requirements/quality.txt
-edx-django-utils==7.4.0
+edx-django-utils==8.0.0
     # via
     #   -r requirements/quality.txt
     #   edx-drf-extensions
 edx-drf-extensions==10.6.0
     # via -r requirements/quality.txt
-edx-i18n-tools==1.8.0
+edx-i18n-tools==1.9.0
     # via -r requirements/dev.in
 edx-lint==5.6.0
     # via -r requirements/quality.txt
@@ -179,10 +179,6 @@ mccabe==0.7.0
     #   pylint
 more-itertools==10.7.0
     # via inflect
-newrelic==10.10.0
-    # via
-    #   -r requirements/quality.txt
-    #   edx-django-utils
 packaging==25.0
     # via
     #   -r requirements/ci.txt
@@ -200,14 +196,14 @@ pbr==6.1.1
     #   stevedore
 pip-tools==7.4.1
     # via -r requirements/pip-tools.txt
-platformdirs==4.3.7
+platformdirs==4.3.8
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
     #   pylint
     #   tox
     #   virtualenv
-pluggy==1.5.0
+pluggy==1.6.0
     # via
     #   -r requirements/ci.txt
     #   -r requirements/quality.txt
@@ -235,7 +231,7 @@ pyjwt[crypto]==2.10.1
     #   -r requirements/quality.txt
     #   drf-jwt
     #   edx-drf-extensions
-pylint==3.3.6
+pylint==3.3.7
     # via
     #   -r requirements/quality.txt
     #   edx-lint
@@ -255,7 +251,7 @@ pylint-plugin-utils==0.8.2
     #   -r requirements/quality.txt
     #   pylint-celery
     #   pylint-django
-pymongo==4.12.0
+pymongo==4.13.0
     # via
     #   -r requirements/quality.txt
     #   edx-opaque-keys
@@ -263,7 +259,7 @@ pynacl==1.5.0
     # via
     #   -r requirements/quality.txt
     #   edx-django-utils
-pyproject-api==1.9.0
+pyproject-api==1.9.1
     # via
     #   -r requirements/ci.txt
     #   tox
@@ -304,7 +300,7 @@ six==1.17.0
     #   -r requirements/quality.txt
     #   edx-django-release-util
     #   edx-lint
-snowballstemmer==2.2.0
+snowballstemmer==3.0.1
     # via
     #   -r requirements/quality.txt
     #   pydocstyle
@@ -326,7 +322,7 @@ tomlkit==0.13.2
     # via
     #   -r requirements/quality.txt
     #   pylint
-tox==4.25.0
+tox==4.26.0
     # via -r requirements/ci.txt
 typeguard==4.4.2
     # via inflect
@@ -340,7 +336,7 @@ urllib3==2.2.3
     #   -c requirements/common_constraints.txt
     #   -r requirements/quality.txt
     #   requests
-virtualenv==20.30.0
+virtualenv==20.31.2
     # via
     #   -r requirements/ci.txt
     #   tox
