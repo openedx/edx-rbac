@@ -78,16 +78,9 @@ class TestPermissionRequiredForListingMixin(TestCase):
     """
     Tests for the `PermissionRequiredForListingMixin` mixin.
 
-    Note that our test_settings.py file defines:
-
-    SYSTEM_TO_FEATURE_ROLE_MAPPING = {
-        'enterprise_admin': ['coupon-management', 'data_api_access'],
-        'enterprise_leaner': [],
-        'coupon-manager': ['coupon-management'],
-        'enterprise_openedx_operator': ['enterprise_data_admin'],
-    }
-
-    So there is a 'coupon-manager' system-wide role which includes the
+    Note that our test_settings.py file defines SYSTEM_TO_FEATURE_ROLE_MAPPING.
+    Among other entries, it maps 'coupon-manager' to ['coupon-management'],
+    so there is a 'coupon-manager' system-wide role which includes the
     'coupon-management' feature role in this particular system.
     """
 

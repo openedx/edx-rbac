@@ -49,6 +49,7 @@ SYSTEM_TO_FEATURE_ROLE_MAPPING = {
     'enterprise_leaner': [],
     'coupon-manager': ['coupon-management'],
     'enterprise_openedx_operator': ['enterprise_data_admin'],
+    'tpa_org_allowlist_admin': ['tpa_org_allowlist_admin'],
 }
 
 SYSTEM_WIDE_ROLE_CLASSES = [
