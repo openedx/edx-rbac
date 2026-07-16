@@ -4,21 +4,21 @@
 #
 #    make upgrade
 #
-asgiref==3.11.1
+asgiref==3.12.1
     # via django
-certifi==2026.2.25
+certifi==2026.6.17
     # via requests
-cffi==2.0.0
+cffi==2.1.0
     # via
     #   cryptography
     #   pynacl
-charset-normalizer==3.4.5
+charset-normalizer==3.4.9
     # via requests
-click==8.3.1
+click==8.4.2
     # via edx-django-utils
-cryptography==46.0.5
+cryptography==49.0.0
     # via pyjwt
-django==5.2.12
+django==5.2.16
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.in
@@ -39,7 +39,7 @@ django-waffle==5.0.0
     # via
     #   edx-django-utils
     #   edx-drf-extensions
-djangorestframework==3.16.1
+djangorestframework==3.17.1
     # via
     #   drf-jwt
     #   edx-drf-extensions
@@ -51,23 +51,23 @@ edx-django-utils==8.0.1
     # via edx-drf-extensions
 edx-drf-extensions==10.6.0
     # via -r requirements/base.in
-edx-opaque-keys==3.1.0
+edx-opaque-keys==4.0.0
     # via edx-drf-extensions
-idna==3.11
+idna==3.18
     # via requests
 psutil==7.2.2
     # via edx-django-utils
 pycparser==3.0
     # via cffi
-pyjwt[crypto]==2.11.0
+pyjwt[crypto]==2.13.0
     # via
     #   drf-jwt
     #   edx-drf-extensions
-pymongo==4.16.0
+pymongo==4.17.0
     # via edx-opaque-keys
 pynacl==1.6.2
     # via edx-django-utils
-requests==2.32.5
+requests==2.34.2
     # via edx-drf-extensions
 semantic-version==2.10.0
     # via edx-drf-extensions
@@ -75,15 +75,15 @@ six==1.17.0
     # via -r requirements/base.in
 sqlparse==0.5.5
     # via django
-stevedore==5.7.0
+stevedore==5.9.0
     # via
     #   edx-django-utils
     #   edx-opaque-keys
-typing-extensions==4.15.0
+typing-extensions==4.16.0
     # via edx-opaque-keys
-urllib3==2.6.3
+urllib3==2.7.0
     # via requests
 
 # The following packages are considered to be unsafe in a requirements file:
-setuptools==82.0.0
+setuptools==83.0.0
     # via -r requirements/base.in
