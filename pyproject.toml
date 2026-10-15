@@ -91,6 +91,7 @@ include-package-data = false
 readme = {file = ["README.rst", "CHANGELOG.rst"], content-type = "text/x-rst"}
 
 [tool.setuptools.packages.find]
+where = ["src"]
 include = ["edx_rbac*"]
 exclude = ["*tests*"]
 
