@@ -40,6 +40,50 @@ dependencies = [
 Homepage = "https://github.com/openedx/edx-rbac"
 Repository = "https://github.com/openedx/edx-rbac"
 
+[dependency-groups]
+test-base = [
+    "code-annotations",
+    "ddt",
+    "edx-django-release-util",
+    "pytest-cov",
+    "pytest-django",
+]
+test = [
+    {include-group = "test-base"},
+    "Django>=5.2,<6.0",
+]
+django42 = [
+    {include-group = "test-base"},
+    "Django>=4.2,<4.3",
+]
+quality = [
+    {include-group = "test"},
+    "edx-lint",
+    "futures==3.1.1",
+    "isort",
+    "pycodestyle",
+    "pydocstyle",
+]
+doc = [
+    {include-group = "test"},
+    "build",
+    "doc8",
+    "Sphinx",
+    "sphinx-book-theme",
+    "twine",
+]
+ci = [
+    "tox",
+    "tox-uv",
+]
+dev = [
+    {include-group = "quality"},
+    {include-group = "doc"},
+    {include-group = "ci"},
+    "diff-cover",
+    "edx-i18n-tools",
+]
+
 [tool.setuptools]
 include-package-data = false
 
@@ -56,6 +100,29 @@ edx_rbac = ["templates/**"]
 [tool.setuptools_scm]
 version_scheme = "only-version"
 local_scheme = "no-local-version"
+
+[tool.uv]
+package = true
+default-groups = []
+constraint-dependencies = [
+    "Django<6.0",
+    "elasticsearch<7.14.0",
+    "social-auth-app-django<6.0.0",
+    "social-auth-core<5.0.0",
+    "pip<26.2.1",
+    "diff-cover==4.0.0",
+]
+conflicts = [
+    [{ group = "test" }, { group = "django42" }],
+    [{ group = "quality" }, { group = "django42" }],
+    [{ group = "doc" }, { group = "django42" }],
+    [{ group = "dev" }, { group = "django42" }],
+]
+
+[tool.edx_lint]
+uv_constraints = [
+    "diff-cover==4.0.0",
+]
 
 [tool.isort]
 indent = '    '
