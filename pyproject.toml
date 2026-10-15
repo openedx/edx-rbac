@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm>8.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "edx-rbac"
+description = "Library to help managing role based access controls for django apps"
+requires-python = ">=3.11"
+license = "AGPL-3.0-or-later"
+authors = [
+    {name = "Open edX Project", email = "oscm@openedx.org"},
+]
+classifiers = [
+    'Development Status :: 3 - Alpha',
+    'Framework :: Django',
+    'Framework :: Django :: 4.2',
+    'Framework :: Django :: 5.2',
+    'Intended Audience :: Developers',
+    'Natural Language :: English',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.12',
+]
+keywords = [
+    "Django",
+    "edx",
+]
+
+dynamic = ["readme", "version"]
+
+dependencies = [
+    "Django",
+    "django-crum",
+    "django-model-utils",
+    "edx-drf-extensions",
+    "setuptools",
+    "six",
+]
+
+[project.urls]
+Homepage = "https://github.com/openedx/edx-rbac"
+Repository = "https://github.com/openedx/edx-rbac"
+
+[tool.setuptools]
+include-package-data = false
+
+[tool.setuptools.dynamic]
+readme = {file = ["README.rst", "CHANGELOG.rst"], content-type = "text/x-rst"}
+
+[tool.setuptools.packages.find]
+include = ["edx_rbac*"]
+exclude = ["*tests*"]
+
+[tool.setuptools.package-data]
+edx_rbac = ["templates/**"]
+
+[tool.setuptools_scm]
+version_scheme = "only-version"
+local_scheme = "no-local-version"
+
+[tool.isort]
+indent = '    '
+line_length = 120
+multi_line_output = 3
