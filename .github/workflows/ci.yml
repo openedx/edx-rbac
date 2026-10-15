@@ -12,6 +12,8 @@ jobs:
   run_tests:
     name: Tests
     runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read
     strategy:
       matrix:
         os: [ubuntu-latest]
