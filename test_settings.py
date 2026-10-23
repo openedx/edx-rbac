@@ -35,7 +35,7 @@ INSTALLED_APPS = (
 )
 
 LOCALE_PATHS = [
-    root('edx_rbac', 'conf', 'locale'),
+    root('src', 'edx_rbac', 'conf', 'locale'),
 ]
 
 ROOT_URLCONF = 'edx_rbac.urls'
