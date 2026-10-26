@@ -4,3 +4,12 @@ include CONTRIBUTING.rst
 include LICENSE.txt
 include README.rst
 recursive-include src/edx_rbac *.html *.png *.gif *js *.css *jpg *jpeg *svg *py
+
+prune .github
+prune docs
+prune tests
+prune test_utils
+prune locale
+prune htmlcov
+exclude uv.lock Makefile tox.ini pytest.ini pylintrc pylintrc_tweaks codecov.yml openedx.yaml db_keyword_overrides.yml manage.py test_settings.py .gitignore .annotation_safe_list.yml .pii_annotations.yml
+global-exclude .coverage coverage.xml
