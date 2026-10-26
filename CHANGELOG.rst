@@ -1,9 +1,8 @@
-.. DEPRECATED: This changelog is no longer maintained. Release notes are
-   published only on the GitHub Releases page:
-   https://github.com/openedx/edx-rbac/releases
-
 Change Log
 ----------
+
+This changelog is no longer maintained. Release notes are published only on
+the `GitHub Releases page <https://github.com/openedx/edx-rbac/releases>`_.
 
 ..
    All enhancements and patches to edx_rbac will be documented
