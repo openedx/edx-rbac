@@ -42,29 +42,9 @@ docs: ## generate Sphinx HTML documentation, including API docs
 	tox -e docs
 	$(BROWSER) docs/_build/html/index.html
 
-COMMON_CONSTRAINTS_TXT=requirements/common_constraints.txt
-.PHONY: $(COMMON_CONSTRAINTS_TXT)
-$(COMMON_CONSTRAINTS_TXT):
-	wget -O "$(@)" https://raw.githubusercontent.com/edx/edx-lint/master/edx_lint/files/common_constraints.txt || touch "$(@)"
-
-upgrade: export CUSTOM_COMPILE_COMMAND=make upgrade
-upgrade: $(COMMON_CONSTRAINTS_TXT)  ## update the requirements/*.txt files with the latest packages satisfying requirements/*.in
-	pip install -qr requirements/pip-tools.txt
-	# Make sure to compile files after any other files they include!
-	pip-compile --upgrade --allow-unsafe --rebuild -o requirements/pip.txt requirements/pip.in
-	pip-compile --upgrade -o requirements/pip-tools.txt requirements/pip-tools.in
-	pip install -qr requirements/pip.txt
-	pip install -qr requirements/pip-tools.txt
-	pip-compile --upgrade --allow-unsafe -o requirements/base.txt requirements/base.in
-	pip-compile --upgrade -o requirements/test.txt requirements/test.in
-	pip-compile --upgrade -o requirements/doc.txt requirements/doc.in
-	pip-compile --upgrade --allow-unsafe -o requirements/quality.txt requirements/quality.in
-	pip-compile --upgrade -o requirements/ci.txt requirements/ci.in
-	pip-compile --upgrade -o requirements/dev.txt requirements/dev.in
-	# Let tox control the Django version for tests
-	grep -e "^django==" requirements/base.txt > requirements/django.txt
-	sed '/^[dD]jango==/d' requirements/test.txt > requirements/test.tmp
-	mv requirements/test.tmp requirements/test.txt
+upgrade: ## update the uv.lock file with the latest packages satisfying pyproject.toml
+	uv run --with edx-lint edx_lint write_uv_constraints pyproject.toml
+	uv lock --upgrade
 
 virtualenv:
 	virtualenv venvs/edx-rbac
@@ -75,16 +55,8 @@ quality: ## check coding style with pycodestyle and pylint
 pii_check: ## check for PII annotations on all Django models
 	tox -e pii_check
 
-requirements: pip piptools dev_requirements ## install pip tools and dev requirements
-
-pip:
-	pip install -qr requirements/pip.txt
-
-piptools: ## install pinned version of pip-compile and pip-sync
-	pip install -qr requirements/pip-tools.txt
-
-dev_requirements: ## install all development requirements
-	pip-sync requirements/dev.txt requirements/private.*
+requirements: ## install development environment requirements
+	uv sync --group dev
 
 test: clean ## run tests in the current virtualenv
 	pytest
@@ -106,14 +78,14 @@ selfcheck: ## check that the Makefile is well-formed
 
 extract_translations: ## extract strings to be translated, outputting .mo files
 	rm -rf docs/_build
-	cd edx-rbac && ../manage.py makemessages -l en -v1 -d django
-	cd edx-rbac && ../manage.py makemessages -l en -v1 -d djangojs
+	cd src/edx_rbac && ../../manage.py makemessages -l en -v1 -d django
+	cd src/edx_rbac && ../../manage.py makemessages -l en -v1 -d djangojs
 
 compile_translations: ## compile translation files, outputting .po files for each supported language
-	cd edx-rbac && ../manage.py compilemessages
+	cd src/edx_rbac && ../../manage.py compilemessages
 
 detect_changed_source_translations:
-	cd edx-rbac && i18n_tool changed
+	cd src/edx_rbac && i18n_tool changed
 
 pull_translations: ## pull translations from Transifex
 	tx pull -t -a -f --mode reviewed
@@ -122,7 +94,7 @@ push_translations: ## push source translation files (.po) from Transifex
 	tx push -s
 
 dummy_translations: ## generate dummy translation (.po) files
-	cd edx_rbac && i18n_tool dummy
+	cd src/edx_rbac && i18n_tool dummy
 
 build_dummy_translations: extract_translations dummy_translations compile_translations ## generate and compile dummy translation files
 
