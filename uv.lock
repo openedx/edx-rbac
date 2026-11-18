@@ -744,20 +744,47 @@ wheels = [
 
 [[package]]
 name = "edx-lint"
-version = "5.6.0"
+version = "6.2.0"
 source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "click" },
-    { name = "click-log" },
-    { name = "code-annotations" },
-    { name = "pylint" },
-    { name = "pylint-celery" },
-    { name = "pylint-django" },
-    { name = "six" },
+resolution-markers = [
+    "python_full_version >= '3.11.5' and python_full_version < '3.12'",
+    "python_full_version < '3.11.5'",
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/8c/73/edde6d4035b21d186df41937e50c2676cf256c7ed0dc92b08dbbeb6b3927/edx_lint-5.6.0.tar.gz", hash = "sha256:ba188d0b2fbf57954fdf373e213743d8acf68215b040dcb92fd5762850844f66", size = 47886, upload-time = "2025-01-24T18:40:18.095Z" }
+dependencies = [
+    { name = "click", marker = "python_full_version < '3.12'" },
+    { name = "click-log", marker = "python_full_version < '3.12'" },
+    { name = "code-annotations", marker = "python_full_version < '3.12'" },
+    { name = "pylint", marker = "python_full_version < '3.12'" },
+    { name = "pylint-celery", marker = "python_full_version < '3.12'" },
+    { name = "pylint-django", marker = "python_full_version < '3.12'" },
+    { name = "six", marker = "python_full_version < '3.12'" },
+    { name = "tomlkit", marker = "python_full_version < '3.12'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/da/e2/20b4782eba5bbbaeb949877666f871912db05fb22cee2eafdbc83566cffc/edx_lint-6.2.0.tar.gz", hash = "sha256:2ce94b0b1235024e7714792442ea674e1bbe2877e7ca2ca970609e74aa73dfdf", size = 55456, upload-time = "2026-08-18T12:40:35.178Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/09/5a/bc59dc0179342a1580b1425779437cc59c160dd7f722a28909f2fe5f7824/edx_lint-5.6.0-py3-none-any.whl", hash = "sha256:516ff64364d8efdfb5fbfd7f63cf196d92b74c5163397a55d12db4d32d6ec8b4", size = 56805, upload-time = "2025-01-24T18:40:16.249Z" },
+    { url = "https://files.pythonhosted.org/packages/cf/f3/72bbb973cb654aa9d8291c438dd02b21ffb3bf2bdc9e653f9ea9048e3b20/edx_lint-6.2.0-py3-none-any.whl", hash = "sha256:0e1491f9a049927e35eb05a0fd33464b4ec912b83e387568e37f4ce5d10acb30", size = 64109, upload-time = "2026-08-18T12:40:34.102Z" },
+]
+
+[[package]]
+name = "edx-lint"
+version = "6.3.1"
+source = { registry = "https://pypi.org/simple" }
+resolution-markers = [
+    "python_full_version >= '3.12'",
+]
+dependencies = [
+    { name = "click", marker = "python_full_version >= '3.12'" },
+    { name = "click-log", marker = "python_full_version >= '3.12'" },
+    { name = "code-annotations", marker = "python_full_version >= '3.12'" },
+    { name = "pylint", marker = "python_full_version >= '3.12'" },
+    { name = "pylint-celery", marker = "python_full_version >= '3.12'" },
+    { name = "pylint-django", marker = "python_full_version >= '3.12'" },
+    { name = "six", marker = "python_full_version >= '3.12'" },
+    { name = "tomlkit", marker = "python_full_version >= '3.12'" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/aa/f9/4dd88acbbe9e1fc1c72db5375198e109e8b14544b5bb03a1981b40d42982/edx_lint-6.3.1.tar.gz", hash = "sha256:f85ef5ce11380441b26597d7099ac47c0d03f60eb302b2296d92518b4e0bfefd", size = 98444, upload-time = "2026-11-16T15:03:50.564Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/71/ec/d846a8f5195c79577f55813a5fa0de3cee155c30b842ffebd9918bc9a23f/edx_lint-6.3.1-py3-none-any.whl", hash = "sha256:5899110232093c20911a3f057d7282adf16573fe5db28a9ced43126011732db4", size = 51075, upload-time = "2026-11-16T15:03:49.014Z" },
 ]
 
 [[package]]
@@ -801,7 +828,8 @@ dev = [
     { name = "doc8" },
     { name = "edx-django-release-util" },
     { name = "edx-i18n-tools" },
-    { name = "edx-lint" },
+    { name = "edx-lint", version = "6.2.0", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version < '3.12' and extra == 'group-8-edx-rbac-dev') or (python_full_version < '3.12' and extra != 'group-8-edx-rbac-django42') or (extra == 'group-8-edx-rbac-dev' and extra == 'group-8-edx-rbac-django42') or (extra == 'group-8-edx-rbac-django42' and extra == 'group-8-edx-rbac-doc') or (extra == 'group-8-edx-rbac-django42' and extra == 'group-8-edx-rbac-quality') or (extra == 'group-8-edx-rbac-django42' and extra == 'group-8-edx-rbac-test')" },
+    { name = "edx-lint", version = "6.3.1", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version >= '3.12' and extra == 'group-8-edx-rbac-dev') or (python_full_version >= '3.12' and extra != 'group-8-edx-rbac-django42') or (extra == 'group-8-edx-rbac-dev' and extra == 'group-8-edx-rbac-django42') or (extra == 'group-8-edx-rbac-django42' and extra == 'group-8-edx-rbac-doc') or (extra == 'group-8-edx-rbac-django42' and extra == 'group-8-edx-rbac-quality') or (extra == 'group-8-edx-rbac-django42' and extra == 'group-8-edx-rbac-test')" },
     { name = "futures" },
     { name = "isort" },
     { name = "pycodestyle" },
@@ -842,7 +870,8 @@ quality = [
     { name = "ddt" },
     { name = "django", version = "5.2.12", source = { registry = "https://pypi.org/simple" } },
     { name = "edx-django-release-util" },
-    { name = "edx-lint" },
+    { name = "edx-lint", version = "6.2.0", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version < '3.12' and extra == 'group-8-edx-rbac-dev') or (python_full_version < '3.12' and extra != 'group-8-edx-rbac-django42') or (extra == 'group-8-edx-rbac-dev' and extra == 'group-8-edx-rbac-django42') or (extra == 'group-8-edx-rbac-django42' and extra == 'group-8-edx-rbac-doc') or (extra == 'group-8-edx-rbac-django42' and extra == 'group-8-edx-rbac-quality') or (extra == 'group-8-edx-rbac-django42' and extra == 'group-8-edx-rbac-test')" },
+    { name = "edx-lint", version = "6.3.1", source = { registry = "https://pypi.org/simple" }, marker = "(python_full_version >= '3.12' and extra == 'group-8-edx-rbac-dev') or (python_full_version >= '3.12' and extra != 'group-8-edx-rbac-django42') or (extra == 'group-8-edx-rbac-dev' and extra == 'group-8-edx-rbac-django42') or (extra == 'group-8-edx-rbac-django42' and extra == 'group-8-edx-rbac-doc') or (extra == 'group-8-edx-rbac-django42' and extra == 'group-8-edx-rbac-quality') or (extra == 'group-8-edx-rbac-django42' and extra == 'group-8-edx-rbac-test')" },
     { name = "futures" },
     { name = "isort" },
     { name = "pycodestyle" },
@@ -890,7 +919,7 @@ dev = [
     { name = "doc8" },
     { name = "edx-django-release-util" },
     { name = "edx-i18n-tools" },
-    { name = "edx-lint" },
+    { name = "edx-lint", specifier = ">=6.2" },
     { name = "futures", specifier = "==3.1.1" },
     { name = "isort" },
     { name = "pycodestyle" },
@@ -929,7 +958,7 @@ quality = [
     { name = "ddt" },
     { name = "django", specifier = ">=5.2,<6.0" },
     { name = "edx-django-release-util" },
-    { name = "edx-lint" },
+    { name = "edx-lint", specifier = ">=6.2" },
     { name = "futures", specifier = "==3.1.1" },
     { name = "isort" },
     { name = "pycodestyle" },
